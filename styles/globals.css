@@ -143,3 +143,8 @@ a {
   filter: grayscale(0%);
   transition: filter 1s ease-out;
 }
+
+
+.slide-in-right{-webkit-animation:slide-in-right .5s cubic-bezier(1.000,0.000,0.000,1.000) both;animation:slide-in-right .5s cubic-bezier(1.000,0.000,0.000,1.000) both}
+
+@-webkit-keyframes slide-in-right{0%{-webkit-transform:translateX(1000px);transform:translateX(1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes slide-in-right{0%{-webkit-transform:translateX(1000px);transform:translateX(1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}

@@ -18,6 +18,7 @@ import { motion } from "framer-motion";
 
 // icons
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
 //functions
 import BlogTextShorter from "../functions/blogTextShorter";
@@ -89,26 +90,26 @@ const EventSlider1 = (props) => {
                     onClick={() => {
                         swiper.slidePrev();
                     }}
-                    className="absolute top-1/2  transform -translate-x-1/2 z-50 "
+                    className="absolute top-[18%]  transform -translate-x-1/2 z-50 "
                 >
                     <button
                         style={{ opacity: isLastSlideLeft ? 0.5 : 1 }}
                         className="bg-black rounded-full h-8 w-8 flex items-center justify-center"
                     >
-                        <FaChevronLeft className="text-white" />
+                        <HiChevronLeft className="text-white" />
                     </button>
                 </div>
                 <div
                     onClick={() => {
                         swiper.slideNext();
                     }}
-                    className="absolute top-1/2 right-[-6px] transform -translate-x-1/2  z-50"
+                    className="absolute top-[18%] right-[0] transform -translate-x-1/2  z-50"
                 >
                     <button
                         style={{ opacity: isLastSlideRight ? 0.5 : 1 }}
                         className="bg-black rounded-full h-8 w-8 flex items-center justify-center"
                     >
-                        <FaChevronRight className="text-white" />
+                        <HiChevronRight className="text-white" />
                     </button>
                 </div>
             </div>
@@ -201,12 +202,12 @@ const EventSlider1 = (props) => {
                                     </div>
                                 </div>
                                 <hr />
-                                <p className=" mb-12 mt-6 text-sm md:text-regular leading-relaxed">
+                                <p className="mb-6 sm:mb-12 mt-6 text-sm md:text-regular leading-relaxed">
                                     <BlogTextShorter blocks={e.body}></BlogTextShorter>
                                 </p>
                             </div>
                             <Link href={`/events/${e.slug.current}`}>
-                                <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-16">
+                                <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-2 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-16">
                                     <span className="text-primaryColor-200"> Mehr</span>
                                 </button>
                             </Link>

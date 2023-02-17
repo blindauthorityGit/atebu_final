@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { motion, useAnimation } from "framer-motion";
-import Logo from "../../assets/logo.svg";
+import Logo from "../../assets/logoWhite.svg";
 import { GrClose } from "react-icons/gr";
 import { useRouter } from "next/router";
 
@@ -85,23 +85,23 @@ const Mobile1 = (props) => {
             <motion.nav
                 variants={boxMotion}
                 className={`navbar slide-in-right ${props.klasse} 
-                 w-full h-screen bg-white fixed z-50 top-0 `}
+                 w-full h-screen bg-blackText fixed z-50 top-0 `}
             >
                 <div onClick={props.onClick} className="closer absolute right-8 top-16">
                     <GrClose></GrClose>
                 </div>
                 <div className="container h-screen py-12 px-12 font-europa tracking-wider">
-                    <div className="middle">
+                    <div className="middle flex justify-center">
                         <Link href="/">
                             <a>
-                                <img src={Logo.src} width="150" alt="Logo" />
+                                <img src={Logo.src} width="64" alt="Logo" />
                             </a>
                         </Link>
                     </div>
                     <div className="MenuItems text-2xl sm:text-4xl pt-4 font-oswald ">
                         <motion.ul variants={boxMotion} className="">
                             <motion.li variants={textMotion} className="mb-4">
-                                <div className="wrap dropdown bg-white  ">
+                                <div className="wrap dropdown   ">
                                     <a className="text-text block my-4 subNav relative hover:text-primaryColor cursor-pointer">
                                         Museum{" "}
                                     </a>

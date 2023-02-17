@@ -106,6 +106,7 @@ const HeroSlider1 = (props) => {
                                                 }}
                                             />
                                         </div>
+
                                         {/* <div className="textBox z-40 px-16 sm:px-36 lg:px-48 col-span-12 lg:col-span-8 flex flex-col justify-center items-center sm:items-start">
                                 <h1 className="text-white text-2xl sm:text-6xl font-oswald uppercase font-bold text-center sm:text-left">
                                     {e.title}
@@ -120,13 +121,16 @@ const HeroSlider1 = (props) => {
                                         {/* <div className="absolute w-full h-full bg-black top-0 opacity-30"></div> */}
                                         {/* <img src={e.image} alt="" /> */}
                                         <div
-                                            className="absolute bottom-[2rem] lg:bottom-[0rem] left-8 text-xs z-50 hidden lg:block"
+                                            className="absolute text-center sm:text-left py-3 sm:py-0 bottom-[2.25rem] bg-primaryColor-900 sm:bg-transparent sm:bottom-[2rem] lg:bottom-[0rem] pl-8 sm:pl-0 text-primaryColor-200 w-full sm:w-auto sm:text-textBlack sm:left-8 text-xs z-50  lg:block"
                                             data-swiper-parallax-opacity="0.5"
                                             data-swiper-parallax="-600"
                                             data-swiper-parallax-duration="1200"
                                         >
-                                            <p>
+                                            <p className="hidden sm:block">
                                                 {e.titel_Bild} | {e.year} {e.technik}
+                                            </p>
+                                            <p className="sm:hidden block">
+                                                {e.year} {e.technik}
                                             </p>
                                         </div>
                                     </SwiperSlide>
