@@ -160,7 +160,7 @@ const Menu1 = (props) => {
                             <a>
                                 <img
                                     src={props.logo}
-                                    className="h-[1.75rem] sm:max-h-[2.75rem] fill-current-[#fff]"
+                                    className="max-h-[1.75rem] sm:max-h-[2.75rem] fill-current-[#fff]"
                                     alt="Logo"
                                 />
                             </a>
