@@ -26,6 +26,7 @@ import { FloaterTop, FloaterContact, FloaterBlackFull } from "../components/floa
 import { ImgText1, ImgText2, ImgText3 } from "../components/imgText";
 import { Thumbnail1 } from "../components/imgThumbnails";
 import { EventSlider1 } from "../components/elementSliders";
+import { MobileBar1 } from "../components/mobileBar";
 
 export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog }) {
     useEffect(() => {
@@ -50,13 +51,13 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
             ></Menu1>
             <ContainerVH100 hFull>
                 <HeroSlider1 dataAos="fade-up" data={dataBilder}></HeroSlider1>
-
+                <MobileBar1></MobileBar1>
                 <FloaterTop></FloaterTop>
                 <FloaterContact></FloaterContact>
             </ContainerVH100>
             <ContainerVH100 klasse="bg-blackText" showBG center>
                 <ImgText1>
-                    <div className="grid grid-cols-12 gap-4 h-full">
+                    <div className="grid grid-cols-12 gap-1 sm:gap-4 h-full">
                         {dataAkademie.map((e, i) => {
                             return (
                                 <Thumbnail1

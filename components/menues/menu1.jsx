@@ -151,14 +151,18 @@ const Menu1 = (props) => {
                 className="h-16 fixed top-0 left-0 right-0 origin-[0%] bg-white z-40"
                 style={{ scaleX: scrollYProgress }}
             /> */}
-            <nav ref={navRef} className={`w-full fixed z-40 px-4 sm:px-12 lg:py-4  ${props.colspan}`}>
+            <nav ref={navRef} className={`w-full sm:fixed z-40 px-4 sm:px-12 lg:py-4  ${props.colspan}`}>
                 {/* BG */}
                 <div className=" z-40 grid relative grid-cols-12 m-auto items-center  py-4 sm:py-4 lg:px-0 lg:py-0">
                     {/* Background Image */}
                     <div className="logo col-span-4 md:col-span-2 ">
                         <Link href="/">
                             <a>
-                                <img src={props.logo} className="max-h-[2.75rem] fill-current-[#fff]" alt="Logo" />
+                                <img
+                                    src={props.logo}
+                                    className="h-[1.75rem] sm:max-h-[2.75rem] fill-current-[#fff]"
+                                    alt="Logo"
+                                />
                             </a>
                         </Link>
                     </div>

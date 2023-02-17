@@ -53,7 +53,7 @@ const TextImg2 = (props) => {
                 {props.children}
                 {/* <div className="text font-serif">{parse(config.text)}</div> */}
                 <Link href={config.buttonLink}>
-                    <button className="bg-blackText text-primaryColor-200  border border-black  hover-underline-animation  flex items-center justify-center  mt-8 py-3 px-6 w-full lg:w-auto min-w-[10rem] lg:max-w-[100%] font-oswald uppercase rounded-md">
+                    <button className="bg-blackText text-primaryColor-200  border border-black  hover-underline-animation  flex items-center justify-center mt-2 sm:mt-8 py-3 px-6 w-full lg:w-auto min-w-[10rem] lg:max-w-[100%] font-oswald uppercase rounded-md">
                         <span className="text-primaryColor-200"> {config.buttonText}</span>
                     </button>
                 </Link>
