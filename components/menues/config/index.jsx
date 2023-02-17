@@ -26,12 +26,12 @@ const menuItems = [
         ],
     },
     {
-        title: "Besuch",
+        title: "Galerie",
         slug: "besuch",
         subMenu: false,
     },
     {
-        title: "Programm",
+        title: "News",
         slug: "events",
         subMenu: false,
     },
@@ -47,11 +47,11 @@ const socialMedia = [
         link: "http://www.facebook.com/piz1000",
         icon: <FaFacebook></FaFacebook>,
     },
-    // {
-    //     title: "Inbstagram",
-    //     link: "http://www.instagram.com",
-    //     icon: <FaInstagram></FaInstagram>,
-    // },
+    {
+        title: "Inbstagram",
+        link: "http://www.instagram.com",
+        icon: <FaInstagram></FaInstagram>,
+    },
 ];
 
 export { menuItems, socialMedia };

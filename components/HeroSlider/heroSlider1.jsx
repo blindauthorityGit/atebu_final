@@ -140,7 +140,7 @@ const HeroSlider1 = (props) => {
                     </Swiper>
                 </div>
                 <div className="w-full flex justify-center">
-                    <Link href={""}>
+                    <Link href="/galerie">
                         <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] max-w-[12rem]  uppercase rounded-md">
                             <span className=""> Alle ansehen</span>
                         </button>

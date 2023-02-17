@@ -87,11 +87,11 @@ const Mobile1 = (props) => {
                 className={`navbar slide-in-right ${props.klasse} 
                  w-full h-screen bg-blackText fixed z-50 top-0 `}
             >
-                <div onClick={props.onClick} className="closer absolute  right-6 top-6">
-                    <GrClose></GrClose>
+                <div onClick={props.onClick} className="closer absolute bg-primaryColor rounded-full p-1 right-6 top-6">
+                    <GrClose className=""></GrClose>
                 </div>
                 <div className="container h-screen py-6 px-12 font-europa tracking-wider">
-                    <div className="middle flex justify-center">
+                    <div className="middle flex justify-start">
                         <Link href="/">
                             <a>
                                 <img src={Logo.src} width="64" alt="Logo" />
@@ -106,7 +106,7 @@ const Mobile1 = (props) => {
                                         Kurse{" "}
                                     </a>
                                     <hr />
-                                    <ul className="pl-8 mt-4 mb-4">
+                                    <ul className="pl-8 mt-4 mb-4 text-primaryColor-500">
                                         <Link href="/about">
                                             <li className="mb-4">Winterakademie</li>
                                         </Link>
