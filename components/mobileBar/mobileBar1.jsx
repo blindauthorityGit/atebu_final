@@ -18,7 +18,7 @@ const MobileBar = () => {
                 <span className="text-xs font-base mt-1">EMAIL</span>
             </a>
             <a
-                href="https://api.whatsapp.com/send?phone=+436509444150"
+                href="https://wa.link/x69iqk"
                 className="w-1/3 p-4 flex flex-col justify-center items-center text-[#6DC593] hover:text-green-600"
             >
                 <FaWhatsapp size={18} />
