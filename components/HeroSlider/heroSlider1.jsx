@@ -86,7 +86,7 @@ const HeroSlider1 = (props) => {
                                     >
                                         <div
                                             style={{ boxShadow: "var(--shadow-elevation-high)" }}
-                                            className="h-[96%] lg:h-[93%] border-8  border-white relative"
+                                            className="h-[92%] lg:h-[93%] sm:border-8  border-white relative"
                                             data-swiper-parallax="100"
                                             data-swiper-parallax-opacity="0.15"
                                             data-swiper-parallax-scale="0.78"
@@ -137,7 +137,7 @@ const HeroSlider1 = (props) => {
                 </div>
                 <div className="w-full flex justify-center">
                     <Link href={""}>
-                        <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-white mt-4 lg:mt-8 py-3 px-6 min-w-[10rem] max-w-[12rem] font-oswald uppercase rounded-md">
+                        <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] max-w-[12rem]  uppercase rounded-md">
                             <span className=""> MEHR</span>
                         </button>
                     </Link>
@@ -147,7 +147,7 @@ const HeroSlider1 = (props) => {
                     .hover-underline-animation span {
                         display: inline-block;
                         position: relative;
-                        color: #fff;
+                        color: #e5e4dd;
                     }
 
                     .hover-underline-animation span::after {
