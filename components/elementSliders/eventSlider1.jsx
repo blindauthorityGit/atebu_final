@@ -184,23 +184,29 @@ const EventSlider1 = (props) => {
                                     />
                                 </div>
                             </Link>
-                            <div className="text-center sm:text-left mt-4 ">
-                                <div className="flex mb-4">
-                                    <h2 className="font-oswald w-2/4 font-semibold text-xl mt-3">{e.title}</h2>
-                                    <div className="author w-2/4">
-                                        <div className="avatar items-center flex justify-end w-full">
-                                            <img src={e.author.avatarUrl} className="rounded-full h-12 w-12" alt="" />
+                            <div className=" sm:text-left mt-4 ">
+                                <div className="md:flex mb-4">
+                                    <h2 className="font-oswald w-full md:w-2/4 font-semibold text-xl mt-3">
+                                        {e.title}
+                                    </h2>
+                                    <div className="author w-full hidden sm:block md:w-2/4">
+                                        <div className="avatar items-center flex md:justify-end w-full">
+                                            <img
+                                                src={e.author.avatarUrl}
+                                                className="rounded-full h-8 w-8 md:h-12 md:w-12"
+                                                alt=""
+                                            />
                                             <div className="name pl-2 text-xs">{e.author.name}</div>
                                         </div>
                                     </div>
                                 </div>
                                 <hr />
-                                <p className=" mb-12 mt-6 text-regular leading-relaxed">
+                                <p className=" mb-12 mt-6 text-sm md:text-regular leading-relaxed">
                                     <BlogTextShorter blocks={e.body}></BlogTextShorter>
                                 </p>
                             </div>
                             <Link href={`/events/${e.slug.current}`}>
-                                <button className=" border w-full bg-blackText text-primaryColor-200 hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6  sm:w-full lg:w-full right-0 left-0 font-oswald uppercase rounded-md">
+                                <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-16">
                                     <span className="text-primaryColor-200"> Mehr</span>
                                 </button>
                             </Link>

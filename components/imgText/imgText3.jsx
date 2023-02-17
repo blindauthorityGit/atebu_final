@@ -71,13 +71,13 @@ const TextImg3 = (props) => {
                         </a>
                     </Link>
                 </div>
-                <div className="kontakt flex mt-12 text-primaryColor-500 text-3xl lg:w-[70%] items-center justify-end">
+                <div className="kontakt flex mt-6 md:mt-12 text-primaryColor-500 md:text-3xl lg:w-[70%] items-center justify-end">
                     <div className="left">+43 650 944 4150</div>
                     <div className="left ml-4">
                         <FaPhone></FaPhone>
                     </div>
                 </div>
-                <div className="kontakt flex text-primaryColor-500 mt-4 text-3xl lg:w-[70%] items-center justify-end">
+                <div className="kontakt flex text-primaryColor-500 mt-4 md:text-3xl lg:w-[70%] items-center justify-end">
                     <div className="left">christine@atelierbuchner.at</div>
                     <div className="left ml-4">
                         <FaEnvelope></FaEnvelope>

@@ -49,7 +49,7 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
                     console.log(e);
                 }}
             ></Menu1>
-            <ContainerVH100 hFull>
+            <ContainerVH100 hFull first>
                 <HeroSlider1 dataAos="fade-up" data={dataBilder}></HeroSlider1>
                 <MobileBar1></MobileBar1>
                 <FloaterTop></FloaterTop>
