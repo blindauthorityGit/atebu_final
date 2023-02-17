@@ -61,7 +61,7 @@ const TextImg2 = (props) => {
             <motion.div
                 style={{ opacity: scrollYProgress }}
                 data-aos="fade-right"
-                className={`left hidden sm:block mb-8 lg:mb-0 col-span-12 order-first lg:order-last lg:col-span-7 relative   lg:h-auto ${props.order}`}
+                className={`left h-64 sm:h-auto sm:block mb-8 lg:mb-0 col-span-12 order-first lg:order-last lg:col-span-7 relative   lg:h-auto ${props.order}`}
             >
                 <ImageGrid1 images={props.images}></ImageGrid1>
                 <div

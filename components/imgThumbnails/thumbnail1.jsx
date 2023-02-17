@@ -77,14 +77,17 @@ const Thumbnail1 = (props) => {
                                 loading="lazy"
                                 objectFit="cover"
                                 alt="hero"
-                                className="grayscale group-hover:grayscale-0 duration-500 ease-in-out transition-all group-hover:scale-110"
+                                className="sm:grayscale thumbnail group-hover:grayscale-0 duration-500 ease-in-out transition-all group-hover:scale-110"
                             />
 
                             <motion.div
                                 variants={boxMotion}
-                                className="w-full px-4 py-4 bottom-0 absolute bg-black text-primaryColor-200"
+                                className="w-full hidden sm:block px-4 py-4 bottom-0 absolute bg-black text-primaryColor-200"
                             >
                                 <h4 className="text-lg font-medium"> {props.motto}</h4>
+                            </motion.div>
+                            <motion.div className="w-full block sm:hidden px-4 py-4 bottom-0 absolute bg-blackText-600 text-primaryColor-200">
+                                <h4 className="text-sm font-base"> {props.motto}</h4>
                             </motion.div>
                         </motion.div>{" "}
                     </a>

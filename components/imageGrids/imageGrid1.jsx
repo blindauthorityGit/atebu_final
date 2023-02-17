@@ -53,7 +53,7 @@ const ImageGrid1 = (props) => {
         <div
             className={`w-full grid grid-cols-12 relative grid-rows-2 z-10 md:min-h-[30rem] lg:min-h-[40rem] gap-2 h-full  ${props.colspan}`}
         >
-            {numbers && (
+            {numbers && images && (
                 <>
                     <div className="col-span-4 relative group">
                         {images && (

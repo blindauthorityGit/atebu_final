@@ -26,13 +26,16 @@ const Menu1 = (props) => {
     // const { scrollYProgress } = useScroll();
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start end", "end end"],
+        offset: ["start start", "end end"],
     });
 
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > navRef.current.offsetTop) {
                 navRef.current.classList.add("fixed", "top-0");
+                ref.current.classList.remove("hidden");
+                ref.current.classList.add("scale-up-hor-left", "block");
+                console.log("BUBU");
             } else {
                 // navRef.current.classList.remove("fixed");
             }
@@ -144,17 +147,18 @@ const Menu1 = (props) => {
         <>
             {showOverlay ? <Overlay onClick={(e) => setShowOverlay(false)}></Overlay> : null}
             {showOverlay ? <Mobile1 onClick={(e) => setShowOverlay(false)}></Mobile1> : null}
-            <motion.div
+            {/* <motion.div
                 className="h-16 fixed top-0 left-0 right-0 origin-[0%] bg-white z-40"
                 style={{ scaleX: scrollYProgress }}
-            />
-            <nav ref={navRef} className={`w-full fixed z-40 px-4 sm:px-12 py-4  ${props.colspan}`}>
-                <div className="  grid grid-cols-12 m-auto items-center  py-4 sm:py-4 lg:px-0 lg:py-0">
+            /> */}
+            <nav ref={navRef} className={`w-full fixed z-40 px-4 sm:px-12 lg:py-4  ${props.colspan}`}>
+                {/* BG */}
+                <div className=" z-40 grid relative grid-cols-12 m-auto items-center  py-4 sm:py-4 lg:px-0 lg:py-0">
                     {/* Background Image */}
                     <div className="logo col-span-4 md:col-span-2 ">
                         <Link href="/">
                             <a>
-                                <img src={props.logo} className="max-h-[2.75rem]" alt="Logo" />
+                                <img src={props.logo} className="max-h-[2.75rem] fill-current-[#fff]" alt="Logo" />
                             </a>
                         </Link>
                     </div>
@@ -210,7 +214,7 @@ const Menu1 = (props) => {
                             })}
                         </ul>
                     </div>
-                    <div className="col-span-1 social media flex justify-end">
+                    <div className="col-span-1 social media flex justify-end text-3xl">
                         <div
                             className="block lg:hidden cursor-pointer"
                             onClick={(e) => {
@@ -256,6 +260,10 @@ const Menu1 = (props) => {
                         transform-origin: bottom left;
                     }
                 `}</style>
+                <motion.div
+                    ref={ref}
+                    className="absolute hidden w-full h-full top-0 left-0 bg-primaryColor-50"
+                ></motion.div>
             </nav>
         </>
     );

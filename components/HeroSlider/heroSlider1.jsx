@@ -38,7 +38,7 @@ const HeroSlider1 = (props) => {
         <>
             {" "}
             <div
-                className="left absolute top-[45%] left-24 text-6xl text-primaryColor-800"
+                className="left hidden lg:block absolute top-[45%] left-24 text-6xl text-primaryColor-800"
                 onClick={() => {
                     swiper.slidePrev();
                 }}
@@ -46,7 +46,7 @@ const HeroSlider1 = (props) => {
                 <HiOutlineChevronLeft></HiOutlineChevronLeft>
             </div>
             <div
-                className="right absolute top-[45%] right-24 text-6xl text-primaryColor-800"
+                className="right hidden lg:block absolute top-[45%] right-24 text-6xl text-primaryColor-800"
                 onClick={() => {
                     swiper.slideNext();
                 }}
@@ -66,7 +66,7 @@ const HeroSlider1 = (props) => {
                         autoplay
                         keyboard={true}
                         fadeEffect={{ crossFade: true }}
-                        speed={800}
+                        speed={400}
                         pagination={{ clickable: true, dynamicBullets: true }}
                         onSwiper={(swiper) => {
                             console.log(swiper.params);

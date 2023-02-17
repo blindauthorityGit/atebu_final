@@ -22,14 +22,14 @@ import "aos/dist/aos.css";
 import { ContainerVH100, ContainerVH100Children } from "../components/container";
 import { Menu1 } from "../components/menues";
 import { HeroSlider1 } from "../components/HeroSlider";
-import { FloaterTop } from "../components/floaters";
-import { FloaterContact } from "../components/floaters";
+import { FloaterTop, FloaterContact, FloaterBlackFull } from "../components/floaters";
 import { ImgText1, ImgText2, ImgText3 } from "../components/imgText";
 import { Thumbnail1 } from "../components/imgThumbnails";
+import { EventSlider1 } from "../components/elementSliders";
 
-export default function Home({ dataBilder, dataAkademie, dataChristine }) {
+export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog }) {
     useEffect(() => {
-        console.log(dataBilder, dataAkademie, dataChristine);
+        console.log(dataBilder, dataAkademie, dataChristine, dataBlog);
         AOS.init({
             duration: 1200,
         });
@@ -60,7 +60,7 @@ export default function Home({ dataBilder, dataAkademie, dataChristine }) {
                         {dataAkademie.map((e, i) => {
                             return (
                                 <Thumbnail1
-                                    dataAos="flip-up"
+                                    dataAos="fade-in-color"
                                     motto={e.thema}
                                     link="#"
                                     date={e.datumShort}
@@ -77,6 +77,11 @@ export default function Home({ dataBilder, dataAkademie, dataChristine }) {
             <ContainerVH100Children klasse="bg-blackText" showBG center image={dataChristine[0].image}>
                 <ImgText3></ImgText3>
             </ContainerVH100Children>
+            <ContainerVH100 klasse="" showBG center>
+                <FloaterBlackFull></FloaterBlackFull>
+
+                <EventSlider1 data={dataBlog}></EventSlider1>
+            </ContainerVH100>
         </>
     );
 }
@@ -91,11 +96,27 @@ export const getStaticProps = async (context) => {
     const resChristine = await client.fetch(`*[_type in ["christine"]]`);
     const dataChristine = await resChristine;
 
+    const resBlog = await client.fetch(`*[_type == "blogPost"] {
+        title,
+        slug,
+        body,
+        date,
+        featuredImage,
+        author-> {
+          name,
+          email,
+          bio,
+          "avatarUrl": avatar.asset->url
+        }
+      }`);
+    const dataBlog = await resBlog;
+
     return {
         props: {
             dataBilder,
             dataAkademie,
             dataChristine,
+            dataBlog,
         },
         revalidate: 1, // 10 seconds
     };

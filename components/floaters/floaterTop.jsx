@@ -14,7 +14,7 @@ const FloaterTop = (props) => {
     }, []);
     return (
         <div
-            className={`floater hidden sm:block absolute bottom-0 h-[12%] lg:h-[33%] w-[10rem] left-12 lg:text-lg lg:font-semibold text-textBlack  right-12 ${
+            className={`floater hidden sm:block absolute bottom-0 h-[12%] lg:h-[33%] w-[10rem] left-6 lg:left-12 lg:text-lg lg:font-semibold text-textBlack  right-12 ${
                 props.center ? "items-center flex" : ""
             } ${props.klasse}`}
         >
