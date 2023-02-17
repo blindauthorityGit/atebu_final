@@ -2,31 +2,26 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 const menuItems = [
     {
-        title: "Museum",
-        slug: "about",
+        title: "Kurse",
+        slug: "kurse",
         subMenu: true,
         subMenuItems: [
             {
-                title: "Über uns",
+                title: "Winterakademie 2023",
                 slug: "about",
             },
             {
-                title: "Sammlung",
+                title: "Frühlingsakademie 2023",
                 slug: "sammlungen",
             },
             {
-                title: "Leitbild",
+                title: "Sommerakademie 2023",
                 slug: "https://cdn.sanity.io/files/7all625u/dev/5a6f73b99aceb4c681ca63eb1b1ac1f447064ae7.pdf",
                 external: true,
             },
             {
-                title: "News",
+                title: "Herbstakademie 2023",
                 slug: "blog",
-            },
-            {
-                title: "360° Besuch",
-                slug: "https://pitten.panaustria.at/index.html?startpano=pano289",
-                external: true,
             },
         ],
     },

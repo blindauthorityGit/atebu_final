@@ -105,7 +105,7 @@ const Form1 = (props) => {
                             className="mr-4 text-primaryColor"
                             type="checkbox"
                         />
-                        <label htmlFor="checkbox" className="text-primaryColor-200">
+                        <label htmlFor="checkbox" className="text-primaryColor-200 text-xs sm:text-sm">
                             Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zum Zweck der
                             Kontaktaufnahme zu. *
                         </label>

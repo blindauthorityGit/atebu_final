@@ -87,10 +87,10 @@ const Mobile1 = (props) => {
                 className={`navbar slide-in-right ${props.klasse} 
                  w-full h-screen bg-blackText fixed z-50 top-0 `}
             >
-                <div onClick={props.onClick} className="closer absolute right-8 top-16">
+                <div onClick={props.onClick} className="closer absolute  right-6 top-6">
                     <GrClose></GrClose>
                 </div>
-                <div className="container h-screen py-12 px-12 font-europa tracking-wider">
+                <div className="container h-screen py-6 px-12 font-europa tracking-wider">
                     <div className="middle flex justify-center">
                         <Link href="/">
                             <a>
@@ -98,54 +98,54 @@ const Mobile1 = (props) => {
                             </a>
                         </Link>
                     </div>
-                    <div className="MenuItems text-2xl sm:text-4xl pt-4 font-oswald ">
+                    <div className="MenuItems text-lg sm:text-4xl pt-4 font-oswald ">
                         <motion.ul variants={boxMotion} className="">
                             <motion.li variants={textMotion} className="mb-4">
-                                <div className="wrap dropdown   ">
+                                <div className="wrap dropdown text-primaryColor-200  ">
                                     <a className="text-text block my-4 subNav relative hover:text-primaryColor cursor-pointer">
-                                        Museum{" "}
+                                        Kurse{" "}
                                     </a>
                                     <hr />
                                     <ul className="pl-8 mt-4 mb-4">
                                         <Link href="/about">
-                                            <li className="mb-4">Über uns</li>
+                                            <li className="mb-4">Winterakademie</li>
                                         </Link>
                                         <Link href="/sammlungen">
-                                            <li className="mb-4">Sammlungen</li>
+                                            <li className="mb-4">Frühlingsakademie</li>
                                         </Link>
                                         <Link
                                             href="https://atelierbuchner.at/piz1000/Museumsleitbild.pdf"
                                             target="_blank"
                                         >
-                                            <li className="mb-4">Leitbild</li>
+                                            <li className="mb-4">Sommerakademie</li>
                                         </Link>
                                         <Link href="/kontakt">
-                                            <li className="mb-4">Kontakt</li>
+                                            <li className="mb-4">Herbstakadmie</li>
                                         </Link>
                                     </ul>
                                     <hr />
                                     <Link href="./besuch">
                                         <a className="text-text block my-4 subNav relative mt-4 hover:text-primaryColor cursor-pointer">
-                                            Besuch
+                                            Galerie
                                         </a>
                                     </Link>
                                 </div>
                             </motion.li>
-                            <li className="mr-8 hover:text-primaryColor hover:underline mb-4">
+                            <li className="mr-8 hover:text-primaryColor hover:underline mb-4 text-primaryColor-200">
                                 <Link href="/events">
-                                    <a>Programm</a>
+                                    <a>News</a>
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="/kontakt">
+                            <li className="text-primaryColor-200">
+                                <Link href="/kontakt ">
                                     <a>Kontakt</a>
                                 </Link>
                             </li>
                         </motion.ul>
                         <hr className="mt-6" />
-                        <ul className="tracking-widest">
-                            <li className="mb-4 mt-8 text-sm">
-                                <div className="wrap dropdown bg-white  ">
+                        <ul className="tracking-widest text-primaryColor-200">
+                            <li className="mb-4 mt-8 text-xs">
+                                <div className="wrap dropdown   ">
                                     <Link href="/impressum">
                                         <a className="text-text block my-4 subNav relative hover:text-primaryColor cursor-pointer">
                                             Impressum

@@ -62,8 +62,8 @@ const ContainerVH100Children2 = (props) => {
                             <FaEnvelope></FaEnvelope>
                         </div>
                     </div>
-                    <div className="kontakt flex text-primaryColor-500 mt-12 md:text-3xl lg:w-[100%] items-center justify-end">
-                        <div className="left text-right text-primaryColor-200 text-xl">
+                    <div className="kontakt flex text-primaryColor-500 mt-6 mb-8 sm:mb-0 sm:mt-12 md:text-3xl lg:w-[100%] items-center justify-end">
+                        <div className="left text-right text-primaryColor-200 text-xs">
                             Atelier Buchner <br></br>
                             Prof. Sepp Buchner - Straße 528 <br />
                             2823 Pitten
