@@ -19,7 +19,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 // COMPONENTS
-import { ContainerVH100, ContainerVH100Children } from "../components/container";
+import { ContainerVH100, ContainerVH100Children, ContainerVH100Children2 } from "../components/container";
 import { Menu1 } from "../components/menues";
 import { HeroSlider1 } from "../components/HeroSlider";
 import { FloaterTop, FloaterContact, FloaterBlackFull } from "../components/floaters";
@@ -83,6 +83,12 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
 
                 <EventSlider1 data={dataBlog}></EventSlider1>
             </ContainerVH100>
+            <ContainerVH100Children2
+                klasse="bg-blackText"
+                showBG
+                center
+                image={dataChristine[0].image}
+            ></ContainerVH100Children2>
         </>
     );
 }

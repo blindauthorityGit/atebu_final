@@ -94,9 +94,9 @@ const EventSlider1 = (props) => {
                 >
                     <button
                         style={{ opacity: isLastSlideLeft ? 0.5 : 1 }}
-                        className="bg-black rounded-full h-8 w-8 flex items-center justify-center"
+                        className=" rounded-full h-8 w-8 flex items-center justify-center"
                     >
-                        <HiChevronLeft className="text-white" />
+                        <HiChevronLeft className="text-blackText" />
                     </button>
                 </div>
                 <div
@@ -107,9 +107,9 @@ const EventSlider1 = (props) => {
                 >
                     <button
                         style={{ opacity: isLastSlideRight ? 0.5 : 1 }}
-                        className="bg-black rounded-full h-8 w-8 flex items-center justify-center"
+                        className=" rounded-full h-8 w-8 flex items-center justify-center"
                     >
-                        <HiChevronRight className="text-white" />
+                        <HiChevronRight className="text-blackText" />
                     </button>
                 </div>
             </div>

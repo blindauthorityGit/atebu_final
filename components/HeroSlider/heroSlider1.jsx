@@ -121,7 +121,7 @@ const HeroSlider1 = (props) => {
                                         {/* <div className="absolute w-full h-full bg-black top-0 opacity-30"></div> */}
                                         {/* <img src={e.image} alt="" /> */}
                                         <div
-                                            className="absolute text-center sm:text-left py-3 sm:py-0 bottom-[2.25rem] bg-primaryColor-900 sm:bg-transparent sm:bottom-[2rem] lg:bottom-[0rem] pl-8 sm:pl-0 text-primaryColor-200 w-full sm:w-auto sm:text-textBlack sm:left-8 text-xs z-50  lg:block"
+                                            className="absolute text-center sm:text-left py-3 sm:py-0 bottom-[2.25rem]  sm:bg-transparent sm:bottom-[2rem] lg:bottom-[0rem] pl-8 sm:pl-0 text-primaryColor-200 w-full sm:w-auto sm:text-textBlack sm:left-8 text-xs z-50  lg:block"
                                             data-swiper-parallax-opacity="0.5"
                                             data-swiper-parallax="-600"
                                             data-swiper-parallax-duration="1200"
@@ -129,9 +129,9 @@ const HeroSlider1 = (props) => {
                                             <p className="hidden sm:block">
                                                 {e.titel_Bild} | {e.year} {e.technik}
                                             </p>
-                                            <p className="sm:hidden block">
+                                            {/* <p className="sm:hidden block">
                                                 {e.year} {e.technik}
-                                            </p>
+                                            </p> */}
                                         </div>
                                     </SwiperSlide>
                                 </>
@@ -142,7 +142,7 @@ const HeroSlider1 = (props) => {
                 <div className="w-full flex justify-center">
                     <Link href={""}>
                         <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] max-w-[12rem]  uppercase rounded-md">
-                            <span className=""> MEHR</span>
+                            <span className=""> Alle ansehen</span>
                         </button>
                     </Link>
                 </div>

@@ -25,7 +25,7 @@ const ContainerVH100Children = (props) => {
                     <img src={HugeLogo.src} alt="" />
                 </div>
             ) : null}
-            <div className="absolute w-full h-2/4 lg:h-full lg:w-2/4 right-0 top-0 h-full bg-red-600">
+            <div className="absolute  w-full h-2/4 lg:h-full lg:w-2/4 right-0 top-0 h-full bg-red-600">
                 <Image
                     // {...ImagePropsGallery(i)}
                     src={urlFor(props.image).url()}
