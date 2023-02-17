@@ -63,7 +63,7 @@ const HeroSlider1 = (props) => {
                         spaceBetween={20}
                         slidesPerView={1}
                         parallax
-                        autoplay
+                        // autoplay
                         keyboard={true}
                         fadeEffect={{ crossFade: true }}
                         speed={400}
