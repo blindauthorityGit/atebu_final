@@ -166,7 +166,7 @@ const Menu1 = (props) => {
                             </a>
                         </Link>
                     </div>
-                    <div className="col-span-6 md:col-span-9 ">
+                    <div className="col-span-7 md:col-span-9 ">
                         <ul className="hidden lg:flex items-center list-style-none justify-end pr-8">
                             {props.menuItems.map((e, i) => {
                                 return (
