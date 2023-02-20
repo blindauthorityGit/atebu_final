@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { MdCheck } from "react-icons/md";
 
 function CheckboxContainer({ onCheckboxClick }) {
-    const [checked, setChecked] = useState("");
+    const [checked, setChecked] = useState("original");
 
     const handleCheckboxChange = (event) => {
         const { value } = event.target;
@@ -51,14 +51,14 @@ function CheckboxContainer({ onCheckboxClick }) {
                     whileHover={{ scale: 1.1 }}
                 >
                     <motion.div
-                        className={`w-5 h-5 border-2 border-solid border-gray-800 rounded-full flex items-center justify-center ${
-                            checked === "original" ? "bg-gray-800" : ""
+                        className={`w-5 h-5 border-2 border-solid border-blackText rounded-full flex items-center justify-center ${
+                            checked === "original" ? "bg-blackText" : ""
                         }`}
                         variants={variants}
                         initial={checked === "original" ? "checked" : "unchecked"}
                         animate={checked === "original" ? "checked" : "unchecked"}
                     >
-                        {checked === "original" && <MdCheck className="text-yellow-400" size="14px" />}
+                        {checked === "original" && <MdCheck className="text-primaryColor-200" size="14px" />}
                     </motion.div>
                     <span className="ml-2 text-sm text-blackText">ORIGINAL</span>
                 </motion.label>
@@ -80,14 +80,14 @@ function CheckboxContainer({ onCheckboxClick }) {
                     whileHover={{ scale: 1.1 }}
                 >
                     <motion.div
-                        className={`w-5 h-5 border-2 border-solid border-gray-800 rounded-full flex items-center justify-center ${
-                            checked === "print" ? "bg-gray-800" : ""
+                        className={`w-5 h-5 border-2 border-solid border-blackText rounded-full flex items-center justify-center ${
+                            checked === "print" ? "bg-blackText" : ""
                         }`}
                         variants={variants}
                         initial={checked === "print" ? "checked" : "unchecked"}
                         animate={checked === "print" ? "checked" : "unchecked"}
                     >
-                        {checked === "print" && <MdCheck className="text-yellow-400" size="14px" />}
+                        {checked === "print" && <MdCheck className="text-primaryColor-200" size="14px" />}
                     </motion.div>
                     <span className="ml-2 text-sm text-blackText">PRINT</span>
                 </motion.label>
