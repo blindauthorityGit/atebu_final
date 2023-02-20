@@ -239,7 +239,7 @@ const ImageSite = ({ post, dataAll }) => {
                                         loading="lazy"
                                         objectFit="cover"
                                         alt="hero"
-                                        className="z-10"
+                                        className="z-10 kriu"
                                     />
                                 </Link>
                             </div>
