@@ -32,6 +32,7 @@ function urlFor(source) {
 
 const ImageSite = ({ post, dataAll }) => {
     const [url, setUrl] = useState("");
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     const containerRef = useRef(null);
 
@@ -43,6 +44,7 @@ const ImageSite = ({ post, dataAll }) => {
             image.addEventListener("load", () => {
                 const aspectRatio = image.naturalWidth / image.naturalHeight;
                 container.style.paddingBottom = `${100 / aspectRatio}%`;
+                setImageLoaded(true);
             });
         }
     }, [post]);
@@ -124,7 +126,8 @@ const ImageSite = ({ post, dataAll }) => {
                                 loading="lazy"
                                 objectFit="contain"
                                 alt="hero"
-                                className="z-10"
+                                className={`z-10 ${imageLoaded ? "fade-in-fwd" : "hidden"}`}
+                                onLoad={() => setImageLoaded(true)}
                             />
                         )}{" "}
                     </motion.div>

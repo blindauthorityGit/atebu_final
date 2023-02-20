@@ -181,3 +181,7 @@ a {
 .slide-in-right{-webkit-animation:slide-in-right .5s cubic-bezier(1.000,0.000,0.000,1.000) both;animation:slide-in-right .5s cubic-bezier(1.000,0.000,0.000,1.000) both}
 
 @-webkit-keyframes slide-in-right{0%{-webkit-transform:translateX(1000px);transform:translateX(1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes slide-in-right{0%{-webkit-transform:translateX(1000px);transform:translateX(1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}
+
+.fade-in-fwd{-webkit-animation:fade-in-fwd .6s cubic-bezier(.39,.575,.565,1.000) both;animation:fade-in-fwd .6s cubic-bezier(.39,.575,.565,1.000) both}
+
+@-webkit-keyframes fade-in-fwd{0%{-webkit-transform:translateZ(-80px);transform:translateZ(-80px);opacity:0}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}@keyframes fade-in-fwd{0%{-webkit-transform:translateZ(-80px);transform:translateZ(-80px);opacity:0}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}
