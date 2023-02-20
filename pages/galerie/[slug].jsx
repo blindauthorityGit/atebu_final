@@ -96,7 +96,11 @@ const ImageSite = ({ post, dataAll }) => {
                     }}
                 ></Menu1>
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-12">
-                    <motion.div layoutId="hero" className="col-span-12 relative h-[420px] sm:h-64">
+                    <motion.div
+                        layoutId="hero"
+                        transition={{ duration: 0.5, delay: 0.5, ease: "easeInOut" }}
+                        className="col-span-12 relative h-[420px] sm:h-64"
+                    >
                         {post.image && (
                             <Image
                                 // {...ImagePropsGallery(i)}

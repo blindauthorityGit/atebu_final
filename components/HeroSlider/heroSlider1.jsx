@@ -86,6 +86,7 @@ const HeroSlider1 = (props) => {
                                     <SwiperSlide
                                         key={`sliderKey${i}`}
                                         layoutId="hero"
+                                        transition={{ duration: 0.5 }}
                                         className="bg-cover grid grid-cols-12 bg-no-repeat relative h-full"
                                         // style={{ backgroundImage: `url(${urlFor(e.image)})` }}
                                     >
