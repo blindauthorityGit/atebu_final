@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y, Parallax, Keyboard, Autoplay } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y, Parallax, Keyboard, Autoplay, Virtual } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
@@ -62,14 +62,15 @@ const HeroSlider1 = (props) => {
                 <div className="relative h-full" data-aos={props.dataAos}>
                     <Swiper
                         // install Swiper modules
-                        modules={[Navigation, Pagination, Scrollbar, A11y, Parallax, Keyboard, Autoplay]}
+                        modules={[Navigation, Pagination, Scrollbar, A11y, Parallax, Keyboard, Autoplay, Virtual]}
                         spaceBetween={20}
                         slidesPerView={1}
                         parallax
                         // autoplay
                         keyboard={true}
+                        virtual
                         fadeEffect={{ crossFade: true }}
-                        speed={300}
+                        speed={250}
                         pagination={{ clickable: true, dynamicBullets: true }}
                         onSwiper={(swiper) => {
                             console.log(swiper.params);
@@ -135,7 +136,7 @@ const HeroSlider1 = (props) => {
                                             className="absolute text-center sm:text-left py-3 sm:py-0 bottom-[2.25rem]  sm:bg-transparent sm:bottom-[2rem] lg:bottom-[0rem] pl-8 sm:pl-0 text-primaryColor-200 w-full sm:w-auto sm:text-textBlack sm:left-8 text-xs z-50  lg:block"
                                             data-swiper-parallax-opacity="0.5"
                                             data-swiper-parallax="-600"
-                                            data-swiper-parallax-duration="1200"
+                                            data-swiper-parallax-duration="600"
                                         >
                                             <p className="hidden sm:block">
                                                 {e.titel_Bild} | {e.year} {e.technik}
