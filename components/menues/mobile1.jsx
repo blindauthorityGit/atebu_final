@@ -98,7 +98,7 @@ const Mobile1 = (props) => {
                             </a>
                         </Link>
                     </div>
-                    <div className="MenuItems text-base sm:text-4xl pt-4 font-oswald ">
+                    <div className="MenuItems text-sm sm:text-4xl pt-4 font-oswald ">
                         <motion.ul variants={boxMotion} className="">
                             <motion.li variants={textMotion} className="mb-4">
                                 <div className="wrap dropdown text-primaryColor-200  ">
@@ -142,7 +142,7 @@ const Mobile1 = (props) => {
                                 </Link>
                             </li>
                         </motion.ul>
-                        <hr className="mt-6" />
+                        <hr className="mt-4" />
                         <ul className="tracking-widest text-primaryColor-200">
                             <li className="mb-4 mt-8 text-xs">
                                 <div className="wrap dropdown   ">

@@ -81,6 +81,7 @@ const HeroSlider1 = (props) => {
                             return (
                                 <>
                                     <SwiperSlide
+                                        key={`sliderKey${i}`}
                                         className="bg-cover grid grid-cols-12 bg-no-repeat relative h-full"
                                         // style={{ backgroundImage: `url(${urlFor(e.image)})` }}
                                     >
@@ -91,21 +92,23 @@ const HeroSlider1 = (props) => {
                                             data-swiper-parallax-opacity="0.15"
                                             data-swiper-parallax-scale="0.78"
                                         >
-                                            <Image
-                                                // {...ImagePropsGallery(i)}
-                                                src={urlFor(e.image).url()}
-                                                layout="fill"
-                                                loading="lazy"
-                                                objectFit="cover"
-                                                objectPosition="top"
-                                                alt="hero"
-                                                quality="10"
-                                                onLoad={() => {
-                                                    console.log("LOADING");
-                                                    setLoading(false);
-                                                }}
-                                                className="max-w-[92%!important] min-w-[92%!important] sm:max-w-auto sm:min-w-none KNORKE"
-                                            />
+                                            <Link href={`/galerie/${e.slug.current}`}>
+                                                <Image
+                                                    // {...ImagePropsGallery(i)}
+                                                    src={urlFor(e.image).url()}
+                                                    layout="fill"
+                                                    loading="lazy"
+                                                    objectFit="cover"
+                                                    objectPosition="top"
+                                                    alt="hero"
+                                                    quality="10"
+                                                    onLoad={() => {
+                                                        console.log("LOADING");
+                                                        setLoading(false);
+                                                    }}
+                                                    className="max-w-[92%!important] min-w-[92%!important] sm:max-w-auto sm:min-w-none KNORKE"
+                                                />
+                                            </Link>
                                         </div>
 
                                         {/* <div className="textBox z-40 px-16 sm:px-36 lg:px-48 col-span-12 lg:col-span-8 flex flex-col justify-center items-center sm:items-start">

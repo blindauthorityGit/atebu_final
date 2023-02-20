@@ -1,34 +1,34 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import MainContainer from "../components/layout/mainContainer";
-import Hero from "../components/Hero/hero";
+import styles from "../../styles/Home.module.css";
+import MainContainer from "../../components/layout/mainContainer";
+import Hero from "../../components/Hero/hero";
 import { useNextSanityImage } from "next-sanity-image";
 
 //SANITY
-import client from "../client";
+import client from "../../client";
 
 //ASSETS
 import { RxHamburgerMenu } from "react-icons/rx";
-import { menuItems, socialMedia } from "../components/menues/config";
-import Logo from "../assets/logoFin.svg";
+import { menuItems, socialMedia } from "../../components/menues/config";
+import Logo from "../../assets/logoFin.svg";
 
 // AOS
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 // COMPONENTS
-import { ContainerStandard } from "../components/container";
-import { Menu1 } from "../components/menues";
-import { HeroSlider1 } from "../components/HeroSlider";
-import { FloaterTop, FloaterContact, FloaterBlackFull } from "../components/floaters";
-import { ImgText1, ImgText2, ImgText3 } from "../components/imgText";
-import { Thumbnail1 } from "../components/imgThumbnails";
-import { EventSlider1 } from "../components/elementSliders";
-import { MobileBar1 } from "../components/mobileBar";
+import { ContainerStandard } from "../../components/container";
+import { Menu1 } from "../../components/menues";
+// import { HeroSlider1 } from "../components/HeroSlider";
+// import { FloaterTop, FloaterContact, FloaterBlackFull } from "../components/floaters";
+// import { ImgText1, ImgText2, ImgText3 } from "../components/imgText";
+// import { Thumbnail1 } from "../components/imgThumbnails";
+// import { EventSlider1 } from "../components/elementSliders";
+// import { MobileBar1 } from "../components/mobileBar";
 
-import urlFor from "../components/functions/urlFor";
+import urlFor from "../../components/functions/urlFor";
 
 export default function Galerie({ dataBilder, dataAkademie, dataChristine, dataBlog }) {
     useEffect(() => {
