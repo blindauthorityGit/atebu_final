@@ -146,18 +146,20 @@ const Menu1 = (props) => {
     return (
         <>
             {showOverlay ? <Overlay onClick={(e) => setShowOverlay(false)}></Overlay> : null}
-            {showOverlay ? <Mobile1 onClick={(e) => setShowOverlay(false)}></Mobile1> : null}
+            {showOverlay ? (
+                <Mobile1 socialMedia={props.socialMedia} onClick={(e) => setShowOverlay(false)}></Mobile1>
+            ) : null}
             {/* <motion.div
                 className="h-16 fixed top-0 left-0 right-0 origin-[0%] bg-white z-40"
                 style={{ scaleX: scrollYProgress }}
             /> */}
-            <nav ref={navRef} className={`w-full fixed z-40 px-4 sm:px-12 lg:py-4  ${props.colspan}`}>
+            <nav ref={navRef} className={`w-full fixed z-30 px-4 sm:px-12 lg:py-4  ${props.colspan}`}>
                 {/* BG */}
-                <div className=" z-40 grid relative grid-cols-12 m-auto items-center  py-4 sm:py-4 lg:px-0 lg:py-0">
+                <div className=" z-30 grid relative grid-cols-12 m-auto items-center  py-3 sm:py-4 lg:px-0 lg:py-0">
                     {/* Background Image */}
                     <div className="logo col-span-4 md:col-span-2 ">
                         <Link href="/">
-                            <a>
+                            <a className="flex">
                                 <img
                                     src={props.logo}
                                     className="max-h-[1.75rem] sm:max-h-[2.75rem] fill-current-[#fff]"
@@ -217,8 +219,11 @@ const Menu1 = (props) => {
                                 );
                             })}
                         </ul>
+                        <ul className="block sm:hidden lg:flex items-center list-style-none justify-end pr-8">
+                            <li>Test</li>
+                        </ul>
                     </div>
-                    <div className="col-span-1 social media flex justify-end text-3xl">
+                    <div className="col-span-1 social media flex justify-end text-xl">
                         <div
                             className="block lg:hidden cursor-pointer"
                             onClick={(e) => {

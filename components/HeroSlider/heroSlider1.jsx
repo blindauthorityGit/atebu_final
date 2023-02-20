@@ -54,7 +54,7 @@ const HeroSlider1 = (props) => {
                 <HiOutlineChevronRight></HiOutlineChevronRight>
             </div>
             <div
-                className={`h-[83%] sm:h-[90%] lg:h-[95%] container xl:container-xl m-auto relative  ${props.colspan}`}
+                className={`h-[75%]  sm:h-[90%] lg:h-[95%] container xl:container-xl m-auto relative  ${props.colspan}`}
             >
                 <div className="relative h-full" data-aos={props.dataAos}>
                     <Swiper
@@ -66,7 +66,7 @@ const HeroSlider1 = (props) => {
                         // autoplay
                         keyboard={true}
                         fadeEffect={{ crossFade: true }}
-                        speed={400}
+                        speed={300}
                         pagination={{ clickable: true, dynamicBullets: true }}
                         onSwiper={(swiper) => {
                             console.log(swiper.params);
@@ -86,7 +86,7 @@ const HeroSlider1 = (props) => {
                                     >
                                         <div
                                             style={{ boxShadow: "var(--shadow-elevation-high)" }}
-                                            className="h-[92%] lg:h-[93%] sm:border-8  border-white relative"
+                                            className="h-[92%] lg:h-[93%] sm:border-8 border-white relative"
                                             data-swiper-parallax="100"
                                             data-swiper-parallax-opacity="0.15"
                                             data-swiper-parallax-scale="0.78"
@@ -104,6 +104,7 @@ const HeroSlider1 = (props) => {
                                                     console.log("LOADING");
                                                     setLoading(false);
                                                 }}
+                                                className="max-w-[92%!important] min-w-[92%!important] sm:max-w-auto sm:min-w-none KNORKE"
                                             />
                                         </div>
 
@@ -129,9 +130,9 @@ const HeroSlider1 = (props) => {
                                             <p className="hidden sm:block">
                                                 {e.titel_Bild} | {e.year} {e.technik}
                                             </p>
-                                            {/* <p className="sm:hidden block">
+                                            <p className="sm:hidden block font-semibold z-30 relative">
                                                 {e.year} {e.technik}
-                                            </p> */}
+                                            </p>
                                         </div>
                                     </SwiperSlide>
                                 </>

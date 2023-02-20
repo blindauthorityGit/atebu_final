@@ -85,20 +85,20 @@ const Mobile1 = (props) => {
             <motion.nav
                 variants={boxMotion}
                 className={`navbar slide-in-right ${props.klasse} 
-                 w-full h-screen bg-blackText fixed z-50 top-0 `}
+                w-[90%] right-0 h-screen bg-blackText fixed z-50 top-0 `}
             >
-                <div onClick={props.onClick} className="closer absolute bg-primaryColor rounded-full p-1 right-6 top-6">
+                <div onClick={props.onClick} className="closer absolute bg-primaryColor rounded-full p-1 right-6 top-3">
                     <GrClose className=""></GrClose>
                 </div>
-                <div className="container h-screen py-6 px-12 font-europa tracking-wider">
+                <div className="container h-screen py-3 px-12 font-europa tracking-wider">
                     <div className="middle flex justify-start">
                         <Link href="/">
                             <a>
-                                <img src={Logo.src} width="64" alt="Logo" />
+                                <img src={Logo.src} width="32" alt="Logo" />
                             </a>
                         </Link>
                     </div>
-                    <div className="MenuItems text-lg sm:text-4xl pt-4 font-oswald ">
+                    <div className="MenuItems text-base sm:text-4xl pt-4 font-oswald ">
                         <motion.ul variants={boxMotion} className="">
                             <motion.li variants={textMotion} className="mb-4">
                                 <div className="wrap dropdown text-primaryColor-200  ">
@@ -108,19 +108,19 @@ const Mobile1 = (props) => {
                                     <hr />
                                     <ul className="pl-8 mt-4 mb-4 text-primaryColor-500">
                                         <Link href="/about">
-                                            <li className="mb-4">Winterakademie</li>
+                                            <li className="mb-3">Winterakademie</li>
                                         </Link>
                                         <Link href="/sammlungen">
-                                            <li className="mb-4">Frühlingsakademie</li>
+                                            <li className="mb-3">Frühlingsakademie</li>
                                         </Link>
                                         <Link
                                             href="https://atelierbuchner.at/piz1000/Museumsleitbild.pdf"
                                             target="_blank"
                                         >
-                                            <li className="mb-4">Sommerakademie</li>
+                                            <li className="mb-3">Sommerakademie</li>
                                         </Link>
                                         <Link href="/kontakt">
-                                            <li className="mb-4">Herbstakadmie</li>
+                                            <li className="mb-3">Herbstakadmie</li>
                                         </Link>
                                     </ul>
                                     <hr />
@@ -157,6 +157,17 @@ const Mobile1 = (props) => {
                                             Datenschutzerklärung
                                         </a>
                                     </Link>
+                                </div>
+                            </li>
+                            <li className="">
+                                <div className="sm:hidden flex ">
+                                    {props.socialMedia.map((e, i) => {
+                                        return (
+                                            <a className="mr-4 pt-2" key={`smKey${i}`} href={e.link} alt={e.title}>
+                                                {e.icon}
+                                            </a>
+                                        );
+                                    })}
                                 </div>
                             </li>
                         </ul>
