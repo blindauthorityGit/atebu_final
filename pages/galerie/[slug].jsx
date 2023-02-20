@@ -41,11 +41,17 @@ const ImageSite = ({ post, dataAll }) => {
         const image = container.querySelector("img");
 
         if (image) {
-            image.addEventListener("load", () => {
-                const aspectRatio = image.naturalWidth / image.naturalHeight;
-                container.style.paddingBottom = `${100 / aspectRatio}%`;
-                setImageLoaded(true);
-            });
+            const aspectRatio = image.naturalWidth / image.naturalHeight;
+            container.style.paddingBottom = `${100 / aspectRatio}%`;
+
+            if (!image.complete) {
+                const handleLoad = () => {
+                    const aspectRatio = image.naturalWidth / image.naturalHeight;
+                    container.style.paddingBottom = `${100 / aspectRatio}%`;
+                    image.removeEventListener("load", handleLoad);
+                };
+                image.addEventListener("load", handleLoad);
+            }
         }
     }, [post]);
 
