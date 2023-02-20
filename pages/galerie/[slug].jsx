@@ -40,8 +40,10 @@ const ImageSite = ({ post, dataAll }) => {
         const image = container.querySelector("img");
 
         if (image) {
-            const aspectRatio = image.naturalWidth / image.naturalHeight;
-            container.style.paddingBottom = `${100 / aspectRatio}%`;
+            image.addEventListener("load", () => {
+                const aspectRatio = image.naturalWidth / image.naturalHeight;
+                container.style.paddingBottom = `${100 / aspectRatio}%`;
+            });
         }
     }, [post]);
 
