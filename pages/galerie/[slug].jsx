@@ -10,6 +10,7 @@ import "aos/dist/aos.css";
 
 // COMPS
 import { ContainerStandard } from "../../components/container";
+import { CheckboxContainer1 } from "../../components/inputs/checkmarks";
 
 // Framer motion
 import { motion, useScroll, useAnimation } from "framer-motion";
@@ -17,6 +18,7 @@ import { motion, useScroll, useAnimation } from "framer-motion";
 import myConfiguredSanityClient from "../../client";
 
 import imageUrlBuilder from "@sanity/image-url";
+import { spanToPlainText } from "@portabletext/toolkit";
 
 const builder = imageUrlBuilder(myConfiguredSanityClient);
 
@@ -123,9 +125,59 @@ const ImageSite = ({ post, dataAll }) => {
                             />
                         )}{" "}
                     </motion.div>
-                    <div className="col-span-12 px-4">
-                        <h2 className="font-bold uppercase text-2xl tracking-widest">{post.titel_Bild}</h2>
+                    <div className="col-span-12 px-4 mt-2">
+                        <h2 className="font-bold uppercase text-xl tracking-wide">{post.titel_Bild}</h2>
+                        <p className="font-semibold text-sm mt-2">{post.year}</p>
+                        <p className="font-regular text-sm mt-2">{post.description}</p>
+                        <p className="font-regular text-sm mt-2">{post.technik}</p>
+                        <div className="mt-4">
+                            <CheckboxContainer1
+                                onCheckboxClick={(e) => {
+                                    console.log(e);
+                                }}
+                            ></CheckboxContainer1>
+                            <div className="details text-xs mt-4">
+                                <hr />
+                                <div className="flex py-2">
+                                    <div className="left w-1/3 font-semibold">Dimensionen</div>
+                                    <div className="right">{post.dimensions}</div>
+                                </div>
+                                <hr />
+                                <div className="flex py-2">
+                                    <div className="left w-1/3 font-semibold">Location</div>
+                                    <div className="right">{post.location}</div>
+                                </div>
+                                <hr />
+                                <div className="flex py-2">
+                                    <div className="left w-1/3 font-semibold">Verfügbarkeit</div>
+                                    <div className="right">
+                                        {post.sold ? (
+                                            <span className="font-semibold text-[#FB5012]">Verkauft</span>
+                                        ) : (
+                                            <span className="font-semibold text-[#60b862]">Verfügbar</span>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </ContainerStandard>
+                <ContainerStandard klasse="gap-1 sm:gap-2 pt-20">
+                    {dataAll.map((e, i) => {
+                        return (
+                            <div className="col-span-6 sm:col-span-3  relative h-32 sm:h-64">
+                                <Image
+                                    // {...ImagePropsGallery(i)}
+                                    src={urlFor(e.image).url()}
+                                    layout="fill"
+                                    loading="lazy"
+                                    objectFit="cover"
+                                    alt="hero"
+                                    className="z-10"
+                                />
+                            </div>
+                        );
+                    })}
                 </ContainerStandard>
             </>
         </>

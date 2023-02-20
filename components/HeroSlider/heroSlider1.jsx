@@ -36,6 +36,12 @@ function urlFor(source) {
 const HeroSlider1 = (props) => {
     const [loading, setLoading] = useState(true);
     const [swiper, setSwiper] = useState(null);
+    const [clicked, setClicked] = useState(false);
+
+    const handleClick = () => {
+        setClicked(true);
+        setTimeout(() => setClicked(false), 100);
+    };
 
     return (
         <>
@@ -78,8 +84,9 @@ const HeroSlider1 = (props) => {
                                 setSwiper(swiper);
                             }
                         }}
+                        onClick={handleClick}
                         onSlideChange={() => console.log("slide change")}
-                        className="h-full "
+                        className={`swiper-slide-link h-full transition-all ${clicked ? "scale-[0.975]" : ""}`}
                     >
                         {props.data.map((e, i) => {
                             return (
