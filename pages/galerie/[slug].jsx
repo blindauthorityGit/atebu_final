@@ -181,15 +181,24 @@ const ImageSite = ({ post, dataAll }) => {
                                                     if (e.target.value === "druck1") {
                                                         setDruckPreis(post.druckeInfos.titel);
                                                     } else if (e.target.value === "druck2") {
-                                                        setDruckPreis(post.druckeInfos.druck1Preis);
+                                                        setDruckPreis(
+                                                            post.druckeInfos.druck1Preis && post.druckeInfos.druck1Preis
+                                                        );
                                                     } else {
-                                                        setDruckPreis(post.druckeInfos.druck2Preis);
+                                                        setDruckPreis(
+                                                            post.druckeInfos.druck2Preis && post.druckeInfos.druck2Preis
+                                                        );
                                                     }
                                                 }}
                                             >
                                                 <option value="druck1"> {post.dimensions} (Originalgröße)</option>
-                                                <option value="druck2"> {post.druckeInfos.druck1}</option>
-                                                <option value="druck3">{post.druckeInfos.druck2}</option>
+                                                <option value="druck2">
+                                                    {" "}
+                                                    {post.druckeInfos.druck1 && post.druckeInfos.druck1}
+                                                </option>
+                                                <option value="druck3">
+                                                    {post.druckeInfos.druck2 && post.druckeInfos.druck2}
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
