@@ -17,7 +17,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { menuItems, socialMedia } from "../../components/menues/config";
 import Logo from "../../assets/logoFin.svg";
 
-//ImageBuilder
+// Framer motion
+import { motion, useScroll, useAnimation } from "framer-motion";
 //ImageBuilder
 import myConfiguredSanityClient from "../../client";
 
@@ -95,7 +96,7 @@ const ImageSite = ({ post, dataAll }) => {
                     }}
                 ></Menu1>
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-12">
-                    <div className="col-span-12 relative h-[420px] sm:h-64">
+                    <motion.div layoutId="hero" className="col-span-12 relative h-[420px] sm:h-64">
                         {post.image && (
                             <Image
                                 // {...ImagePropsGallery(i)}
@@ -107,7 +108,7 @@ const ImageSite = ({ post, dataAll }) => {
                                 className="z-10"
                             />
                         )}
-                    </div>
+                    </motion.div>
                     <div className="col-span-12 px-4">
                         <h2 className="font-bold uppercase text-2xl tracking-widest">{post.titel_Bild}</h2>
                     </div>

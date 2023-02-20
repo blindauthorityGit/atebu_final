@@ -15,6 +15,9 @@ import "swiper/css/scrollbar";
 //config
 import sliderConfig from "./slides/config";
 
+// Framer motion
+import { motion, useScroll, useAnimation } from "framer-motion";
+
 // icons
 import { BsArrowRightShort } from "react-icons/bs";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
@@ -82,15 +85,18 @@ const HeroSlider1 = (props) => {
                                 <>
                                     <SwiperSlide
                                         key={`sliderKey${i}`}
+                                        layoutId="hero"
                                         className="bg-cover grid grid-cols-12 bg-no-repeat relative h-full"
                                         // style={{ backgroundImage: `url(${urlFor(e.image)})` }}
                                     >
-                                        <div
+                                        <motion.div
                                             style={{ boxShadow: "var(--shadow-elevation-high)" }}
                                             className="h-[92%] lg:h-[93%] sm:border-8 border-white relative"
                                             data-swiper-parallax="100"
                                             data-swiper-parallax-opacity="0.15"
                                             data-swiper-parallax-scale="0.78"
+
+                                            // import "../styles/globals.css";
                                         >
                                             <Link href={`/galerie/${e.slug.current}`}>
                                                 <Image
@@ -109,7 +115,7 @@ const HeroSlider1 = (props) => {
                                                     className="max-w-[92%!important] min-w-[92%!important] sm:max-w-auto sm:min-w-none KNORKE"
                                                 />
                                             </Link>
-                                        </div>
+                                        </motion.div>
 
                                         {/* <div className="textBox z-40 px-16 sm:px-36 lg:px-48 col-span-12 lg:col-span-8 flex flex-col justify-center items-center sm:items-start">
                                 <h1 className="text-white text-2xl sm:text-6xl font-oswald uppercase font-bold text-center sm:text-left">
