@@ -264,7 +264,7 @@ export const getStaticPaths = async () => {
     });
     return {
         paths,
-        fallback: true,
+        fallback: false,
         // fallback: process.env.NEXT_DEV === "true" ? false : true,
     };
 };
