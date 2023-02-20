@@ -20,13 +20,11 @@ import "aos/dist/aos.css";
 
 // COMPONENTS
 import { ContainerVH100, ContainerVH100Children, ContainerVH100Children2 } from "../components/container";
-import { Menu1 } from "../components/menues";
 import { HeroSlider1 } from "../components/HeroSlider";
 import { FloaterTop, FloaterContact, FloaterBlackFull } from "../components/floaters";
 import { ImgText1, ImgText2, ImgText3 } from "../components/imgText";
 import { Thumbnail1 } from "../components/imgThumbnails";
 import { EventSlider1 } from "../components/elementSliders";
-import { MobileBar1 } from "../components/mobileBar";
 
 export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog }) {
     useEffect(() => {
@@ -40,18 +38,9 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
             <Head>
                 <title>Site title</title>
             </Head>
-            <Menu1
-                logo={Logo.src}
-                menuItems={menuItems}
-                socialMedia={socialMedia}
-                burgerIcon={<RxHamburgerMenu />}
-                onBurgerClick={(e) => {
-                    console.log(e);
-                }}
-            ></Menu1>
+
             <ContainerVH100 hFull first>
                 <HeroSlider1 dataAos="fade-up" data={dataBilder}></HeroSlider1>
-                <MobileBar1></MobileBar1>
                 <FloaterTop></FloaterTop>
                 <FloaterContact></FloaterContact>
             </ContainerVH100>

@@ -9,13 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 // COMPS
-import { Menu1 } from "../../components/menues";
 import { ContainerStandard } from "../../components/container";
-
-//ASSETS
-import { RxHamburgerMenu } from "react-icons/rx";
-import { menuItems, socialMedia } from "../../components/menues/config";
-import Logo from "../../assets/logoFin.svg";
 
 // Framer motion
 import { motion, useScroll, useAnimation } from "framer-motion";
@@ -108,15 +102,7 @@ const ImageSite = ({ post, dataAll }) => {
                         <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                         <meta property="og:locale" content="de_DE" /> */}
                 </Head>
-                <Menu1
-                    logo={Logo.src}
-                    menuItems={menuItems}
-                    socialMedia={socialMedia}
-                    burgerIcon={<RxHamburgerMenu />}
-                    onBurgerClick={(e) => {
-                        console.log(e);
-                    }}
-                ></Menu1>
+
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-12">
                     <motion.div
                         // layoutId="hero"

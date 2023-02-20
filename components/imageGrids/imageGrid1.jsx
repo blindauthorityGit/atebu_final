@@ -98,28 +98,32 @@ const ImageGrid1 = (props) => {
                         )}
                     </div>
                     <div className="col-span-8 row-span-1 relative group">
-                        <Image
-                            // {...ImagePropsGallery(i)}
-                            src={urlFor(images[numbers[3]].image).url()}
-                            layout="fill"
-                            loading="lazy"
-                            objectFit="cover"
-                            alt="hero"
-                            className="group-hover:scale-110 transition-all duration-500"
-                            onClick={props.onClick}
-                        />
+                        {images && (
+                            <Image
+                                // {...ImagePropsGallery(i)}
+                                src={urlFor(images[numbers[3]].image).url()}
+                                layout="fill"
+                                loading="lazy"
+                                objectFit="cover"
+                                alt="hero"
+                                className="group-hover:scale-110 transition-all duration-500"
+                                onClick={props.onClick}
+                            />
+                        )}
                     </div>
                     <div className="col-span-4 row-span-1 relative group">
-                        <Image
-                            // {...ImagePropsGallery(i)}
-                            src={urlFor(images[numbers[4]].image).url()}
-                            layout="fill"
-                            loading="lazy"
-                            objectFit="cover"
-                            alt="hero"
-                            className="group-hover:scale-110 transition-all duration-500"
-                            onClick={props.onClick}
-                        />
+                        {images && (
+                            <Image
+                                // {...ImagePropsGallery(i)}
+                                src={urlFor(images[numbers[4]].image).url()}
+                                layout="fill"
+                                loading="lazy"
+                                objectFit="cover"
+                                alt="hero"
+                                className="group-hover:scale-110 transition-all duration-500"
+                                onClick={props.onClick}
+                            />
+                        )}
                     </div>
                 </>
             )}

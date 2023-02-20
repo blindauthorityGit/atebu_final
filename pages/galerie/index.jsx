@@ -42,15 +42,7 @@ export default function Galerie({ dataBilder, dataAkademie, dataChristine, dataB
             <Head>
                 <title>Site title</title>
             </Head>
-            <Menu1
-                logo={Logo.src}
-                menuItems={menuItems}
-                socialMedia={socialMedia}
-                burgerIcon={<RxHamburgerMenu />}
-                onBurgerClick={(e) => {
-                    console.log(e);
-                }}
-            ></Menu1>
+
             <ContainerStandard klasse="gap-1 sm:gap-2 pt-20">
                 {dataBilder.map((e, i) => {
                     return (
