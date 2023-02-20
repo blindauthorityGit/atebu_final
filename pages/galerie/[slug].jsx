@@ -33,6 +33,18 @@ function urlFor(source) {
 const ImageSite = ({ post, dataAll }) => {
     const [url, setUrl] = useState("");
 
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        const image = container.querySelector("img");
+
+        if (image) {
+            const aspectRatio = image.naturalWidth / image.naturalHeight;
+            container.style.paddingBottom = `${100 / aspectRatio}%`;
+        }
+    }, [post]);
+
     useEffect(() => {
         console.log(post, dataAll);
         setUrl(window.location.href);
@@ -97,9 +109,10 @@ const ImageSite = ({ post, dataAll }) => {
                 ></Menu1>
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-12">
                     <motion.div
-                        layoutId="hero"
+                        // layoutId="hero"
                         transition={{ duration: 0.5, delay: 0.5, ease: "easeInOut" }}
-                        className="col-span-12 relative h-[420px] sm:h-64"
+                        className="col-span-12 relative aspect-w-16 aspect-h-9 sm:h-64"
+                        ref={containerRef}
                     >
                         {post.image && (
                             <Image
@@ -111,7 +124,7 @@ const ImageSite = ({ post, dataAll }) => {
                                 alt="hero"
                                 className="z-10"
                             />
-                        )}
+                        )}{" "}
                     </motion.div>
                     <div className="col-span-12 px-4">
                         <h2 className="font-bold uppercase text-2xl tracking-widest">{post.titel_Bild}</h2>

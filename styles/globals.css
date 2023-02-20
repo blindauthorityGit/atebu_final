@@ -36,6 +36,37 @@ a {
   box-sizing: border-box;
 }
 
+.detailImg {
+  position: relative;
+}
+
+.detailImg::after {
+  content: "";
+  display: block;
+  padding-bottom: calc(100% / (16 / 9)); /* 16:9 aspect ratio */
+}
+
+.detailImg img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.detailImg img[width]:not([height]) {
+  height: 100% !important;
+}
+
+.aspect-w-16 {
+  width: 100%;
+}
+
+.aspect-h-9 {
+  height: 0;
+  padding-bottom: 56.25%; /* 9/16 aspect ratio */
+}
+
 .swiper-pagination-bullet-active-main, .swiper-pagination-bullet-active {
   color: black;
   border: solid thick #323232
