@@ -16,10 +16,11 @@ import "aos/dist/aos.css";
 
 // COMPONENTS
 import { ContainerStandard } from "../../components/container";
+import { KurseTxtImg } from "../../components/imgText";
 
 import urlFor from "../../components/functions/urlFor";
 
-export default function Galerie({ dataBilder, dataAkademie, dataChristine, dataBlog }) {
+export default function Kurse({ dataBilder, dataAkademie, dataChristine, dataBlog }) {
     useEffect(() => {
         console.log(dataBilder, dataAkademie, dataChristine, dataBlog);
         AOS.init({
@@ -32,23 +33,10 @@ export default function Galerie({ dataBilder, dataAkademie, dataChristine, dataB
                 <title>Site title</title>
             </Head>
 
-            <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 ">
-                {dataBilder.map((e, i) => {
-                    return (
-                        <div className="col-span-6 sm:col-span-3  relative h-32 sm:h-64">
-                            <Link href={`/galerie/${e.slug.current}`}>
-                                <Image
-                                    // {...ImagePropsGallery(i)}
-                                    src={urlFor(e.image).url()}
-                                    layout="fill"
-                                    loading="lazy"
-                                    objectFit="cover"
-                                    alt="hero"
-                                    className="z-10"
-                                />
-                            </Link>
-                        </div>
-                    );
+            <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 bg-blackText">
+                {dataAkademie.map((e, i) => {
+                    console.log(e);
+                    return <KurseTxtImg image={urlFor(e.image).url()} data={e}></KurseTxtImg>;
                 })}
             </ContainerStandard>
         </>

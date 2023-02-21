@@ -77,7 +77,7 @@ const Thumbnail1 = (props) => {
                                 loading="lazy"
                                 objectFit="cover"
                                 alt="hero"
-                                className="sm:grayscale thumbnail group-hover:grayscale-0 duration-500 ease-in-out transition-all group-hover:scale-110"
+                                className="grayscale thumbnail group-hover:grayscale-0 duration-500 ease-in-out transition-all group-hover:scale-110"
                             />
 
                             <motion.div

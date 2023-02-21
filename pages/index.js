@@ -45,14 +45,14 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
                 <FloaterContact></FloaterContact>
             </ContainerVH100>
             <ContainerVH100 klasse="bg-blackText" showBG center>
-                <ImgText1>
+                <ImgText1 link="/kurse">
                     <div className="grid grid-cols-12 gap-1 sm:gap-4 h-full">
                         {dataAkademie.map((e, i) => {
                             return (
                                 <Thumbnail1
-                                    dataAos="fade-in-color"
+                                    dataAos="fade-in-color grayscale"
                                     motto={e.thema}
-                                    link="#"
+                                    link="/kurse"
                                     date={e.datumShort}
                                     image={e.image}
                                 ></Thumbnail1>

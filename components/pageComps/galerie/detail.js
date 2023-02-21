@@ -7,6 +7,7 @@ import { CheckboxContainer1 } from "../../inputs/checkmarks";
 import { PaymentIconsContainer } from "../../iconBars";
 import { NavButtons } from "../../buttons";
 import { InfoBox1 } from "../../collapsables";
+import { Anfrage, Kaufen } from "../../modalContent";
 import ModalMobile from "../../modal/modalMobile";
 import Overlay from "../../modal/overlay";
 
@@ -48,6 +49,7 @@ export default function Detail({
     currentIndex,
 }) {
     const [showModal, setShowModal] = useState(false);
+    const [showPayment, setShowPayment] = useState(false);
 
     const boxRef = useRef();
     const modalRef = useRef();
@@ -58,6 +60,7 @@ export default function Detail({
         AOS.init({
             duration: 800,
         });
+        console.log(post);
     }, []);
     return (
         <>
@@ -73,12 +76,18 @@ export default function Detail({
                             }, 300);
                             setTimeout(() => {
                                 setShowModal(false);
+                                setShowPayment(false);
                             }, 301);
                         }}
                     >
-                        BUBU
+                        {showPayment ? <Kaufen product={post}></Kaufen> : <Anfrage sold={post.sold} />}
                     </ModalMobile>
-                    <Overlay></Overlay>
+                    <Overlay
+                        onClick={(e) => {
+                            setShowModal(false);
+                            setShowPayment(false);
+                        }}
+                    ></Overlay>
                 </>
             ) : null}
 
@@ -213,7 +222,7 @@ export default function Detail({
                             )}
                         </div>
                     </div>
-                    <div className="w-full flex justify-center space-x-4">
+                    <div className="w-full flex justify-center space-x-4 mt-4">
                         <button
                             onClick={(e) => {
                                 setShowModal(true);
@@ -227,11 +236,21 @@ export default function Detail({
                         >
                             <span className=""> Anfragen</span>
                         </button>
-                        <Link href="/galerie">
-                            <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full max-w-[100%]  uppercase rounded-md">
-                                <span className=""> Kaufen</span>
-                            </button>
-                        </Link>
+
+                        <button
+                            onClick={(e) => {
+                                setShowModal(true);
+                                setShowPayment(true);
+
+                                // modalRef.current.classList.add("slide-in-bottom");
+                                setTimeout(() => {
+                                    modalRef.current.classList.remove("slide-in-bottom");
+                                }, 300);
+                            }}
+                            className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full max-w-[100%]  uppercase rounded-md"
+                        >
+                            <span className=""> Kaufen</span>
+                        </button>
                     </div>
                     <div className="mt-6">
                         <PaymentIconsContainer></PaymentIconsContainer>
