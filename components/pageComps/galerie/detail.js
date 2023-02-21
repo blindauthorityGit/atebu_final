@@ -53,10 +53,6 @@ export default function Detail({
     const modalRef = useRef();
 
     const router = useRouter();
-    const handleLeftClick = () => {
-        const index = Math.max(0, currentIndex - 1);
-        router.push(`/galerie/${dataAll[index].slug.current}`);
-    };
 
     useEffect(() => {
         AOS.init({
@@ -101,7 +97,7 @@ export default function Detail({
                         delay: 0.5,
                         ease: "easeInOut",
                     }}
-                    className="col-span-12 relative aspect-w-16 aspect-h-9 sm:h-64"
+                    className="col-span-12 relative aspect-w-16 aspect-h-9 sm:h-64 transition-all"
                     ref={containerRef}
                 >
                     {post.image && (

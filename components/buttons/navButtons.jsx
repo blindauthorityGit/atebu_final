@@ -9,7 +9,7 @@ const Button = ({ href, onClick, children }) => (
         <motion.a
             whileTap={{ scale: 0.95 }}
             onClick={onClick}
-            className="p-2 rounded-full bg-gray-200 hover:bg-gray-300"
+            className="p-2 rounded-full bg-primaryColor-100 hover:bg-primaryColor-200"
         >
             {children}
         </motion.a>
@@ -32,7 +32,7 @@ const TwoButtons = ({ onLeftClick, onRightClick, currentIndex, dataAll }) => {
     }, [onLeftClick, onRightClick]);
 
     return (
-        <div className="absolute top-1/4 transform -translate-y-1/2 w-full z-30">
+        <div className="absolute top-[12.5rem] transform -translate-y-1/2 w-full z-30">
             <div className="flex justify-between">
                 <Button href={`/galerie/${dataAll[Math.max(0, currentIndex - 1)].slug.current}`} onClick={onLeftClick}>
                     <FaChevronLeft />

@@ -50,19 +50,21 @@ const ImageSite = ({ post, dataAll }) => {
         const image = container.querySelector("img");
         setDruckPreis(post.druckeInfos.titel);
         setCurrentIndex(dataAll.findIndex((e) => e.slug.current === post.slug.current));
-        if (image) {
-            const aspectRatio = image.naturalWidth / image.naturalHeight;
-            container.style.paddingBottom = `${100 / aspectRatio}%`;
+        setTimeout(() => {
+            if (image) {
+                const aspectRatio = image.naturalWidth / image.naturalHeight;
+                container.style.paddingBottom = `${100 / aspectRatio}%`;
 
-            if (!image.complete) {
-                const handleLoad = () => {
-                    const aspectRatio = image.naturalWidth / image.naturalHeight;
-                    container.style.paddingBottom = `${100 / aspectRatio}%`;
-                    image.removeEventListener("load", handleLoad);
-                };
-                image.addEventListener("load", handleLoad);
+                if (!image.complete) {
+                    const handleLoad = () => {
+                        const aspectRatio = image.naturalWidth / image.naturalHeight;
+                        container.style.paddingBottom = `${100 / aspectRatio}%`;
+                        image.removeEventListener("load", handleLoad);
+                    };
+                    image.addEventListener("load", handleLoad);
+                }
             }
-        }
+        }, 100);
     }, [post]);
 
     useEffect(() => {
