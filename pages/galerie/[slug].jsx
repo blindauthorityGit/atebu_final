@@ -13,6 +13,7 @@ import "aos/dist/aos.css";
 import { ContainerStandard } from "../../components/container";
 import { CheckboxContainer1 } from "../../components/inputs/checkmarks";
 import { PaymentIconsContainer } from "../../components/iconBars";
+import { InfoBox1 } from "../../components/collapsables";
 
 // Framer motion
 import { motion, useScroll, useAnimation } from "framer-motion";
@@ -20,7 +21,6 @@ import { motion, useScroll, useAnimation } from "framer-motion";
 import myConfiguredSanityClient from "../../client";
 
 import imageUrlBuilder from "@sanity/image-url";
-import { spanToPlainText } from "@portabletext/toolkit";
 
 const builder = imageUrlBuilder(myConfiguredSanityClient);
 
@@ -34,9 +34,14 @@ const ImageSite = ({ post, dataAll }) => {
     // Chjeckbox state
     const [original, setOriginal] = useState(true);
     // Druck Preis State
-    const [druckPreis, setDruckPreis] = useState(post.druckeInfos.titel);
+    const [druckPreis, setDruckPreis] = useState(0);
 
     const containerRef = useRef(null);
+
+    useEffect(() => {
+        setDruckPreis(post.druckeInfos.titel);
+        return () => {};
+    }, [post]);
 
     useEffect(() => {
         const container = containerRef.current;
@@ -131,15 +136,16 @@ const ImageSite = ({ post, dataAll }) => {
                             />
                         )}{" "}
                     </motion.div>
-                    <div className="col-span-12 px-4 mt-2">
+                    <div data-aos="fade-up" className="col-span-12 px-4 mt-2">
                         <h2 className="font-bold uppercase text-xl tracking-wide">{post.titel_Bild}</h2>
-                        <p className="font-semibold text-sm mt-2">{post.year}</p>
+                        <p className="font-semibold text-sm">{post.year}</p>
                         <p className="font-regular text-sm mt-2">{post.description}</p>
                         <p className="font-regular text-sm mt-2">{post.technik}</p>
                         <div className="mt-4">
                             <CheckboxContainer1
                                 onCheckboxClick={(e) => {
                                     e.target.value === "original" ? setOriginal(true) : setOriginal(false);
+                                    e.target.value === "original" ? null : setDruckPreis(post.druckeInfos.titel);
                                     console.log(e.target.value);
                                 }}
                             ></CheckboxContainer1>
@@ -212,10 +218,33 @@ const ImageSite = ({ post, dataAll }) => {
                             )}
                         </div>
                         <div className="preis mt-4">
-                            <div className="original text-xs text-primaryColor-700">ORIGINAL</div>
-                            <div className="sum text-lg font-bold">EUR {original ? post.price : druckPreis},-</div>
+                            <div className="original text-xs text-primaryColor-700">
+                                {" "}
+                                {original ? "ORIGINAL" : "PRINT"}
+                            </div>
+                            <div className="sum text-lg font-bold">
+                                {original ? (
+                                    post.sold ? (
+                                        <div>
+                                            verkauft{" "}
+                                            <span className="text-xs text-primaryColor-600 font-regular">
+                                                (Prints verfügbar)
+                                            </span>{" "}
+                                        </div>
+                                    ) : (
+                                        `EUR ${post.price},-`
+                                    )
+                                ) : (
+                                    `EUR ${druckPreis},-`
+                                )}
+                            </div>
                         </div>
-                        <div className="w-full flex justify-center">
+                        <div className="w-full flex justify-center space-x-4">
+                            <Link href="/galerie">
+                                <button className="border border-blackText  hover-underline-animation  flex items-center justify-center text-blackText mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full max-w-[100%]  uppercase rounded-md">
+                                    <span className=""> Anfragen</span>
+                                </button>
+                            </Link>
                             <Link href="/galerie">
                                 <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full max-w-[100%]  uppercase rounded-md">
                                     <span className=""> Kaufen</span>
@@ -224,6 +253,9 @@ const ImageSite = ({ post, dataAll }) => {
                         </div>
                         <div className="mt-6">
                             <PaymentIconsContainer></PaymentIconsContainer>
+                        </div>
+                        <div className="mt-8">
+                            <InfoBox1></InfoBox1>
                         </div>
                     </div>
                 </ContainerStandard>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { motion, useAnimation } from "framer-motion";
-import Logo from "../../assets/logoWhite.svg";
+import Logo from "../../assets/logoFin.svg";
 import { GrClose } from "react-icons/gr";
 import { useRouter } from "next/router";
 
@@ -85,9 +85,9 @@ const Mobile1 = (props) => {
             <motion.nav
                 variants={boxMotion}
                 className={`navbar slide-in-right ${props.klasse} 
-                w-[90%] right-0 h-screen bg-blackText fixed z-50 top-0 `}
+                w-[90%] right-0 h-screen bg-primaryColor-100 fixed z-50 top-0 `}
             >
-                <div onClick={props.onClick} className="closer absolute bg-primaryColor rounded-full p-1 right-6 top-3">
+                <div onClick={props.onClick} className="closer absolute  rounded-full p-1 right-6 top-3">
                     <GrClose className=""></GrClose>
                 </div>
                 <div className="container h-screen py-3 px-12 font-europa tracking-wider">
@@ -101,12 +101,12 @@ const Mobile1 = (props) => {
                     <div className="MenuItems text-sm sm:text-4xl pt-4 font-oswald ">
                         <motion.ul variants={boxMotion} className="">
                             <motion.li variants={textMotion} className="mb-4">
-                                <div className="wrap dropdown text-primaryColor-200  ">
-                                    <a className="text-text block my-4 subNav relative hover:text-primaryColor cursor-pointer">
+                                <div className="wrap dropdown text-primaryColor-900  ">
+                                    <a className="text-text block my-3 subNav relative hover:text-primaryColor cursor-pointer">
                                         Kurse{" "}
                                     </a>
                                     <hr />
-                                    <ul className="pl-8 mt-4 mb-4 text-primaryColor-500">
+                                    <ul className="pl-8 mt-4 mb-4 text-primaryColor-900">
                                         <Link href="/about">
                                             <li className="mb-3">Winterakademie</li>
                                         </Link>
@@ -125,26 +125,26 @@ const Mobile1 = (props) => {
                                     </ul>
                                     <hr />
                                     <Link href="./besuch">
-                                        <a className="text-text block my-4 subNav relative mt-4 hover:text-primaryColor cursor-pointer">
+                                        <a className="text-text block my-3 subNav relative mt-4 hover:text-primaryColor cursor-pointer">
                                             Galerie
                                         </a>
                                     </Link>
                                 </div>
                             </motion.li>
-                            <li className="mr-8 hover:text-primaryColor hover:underline mb-4 text-primaryColor-200">
+                            <li className="mr-8 hover:text-primaryColor hover:underline mb-4 text-primaryColor-900">
                                 <Link href="/events">
                                     <a>News</a>
                                 </Link>
                             </li>
-                            <li className="text-primaryColor-200">
+                            <li className="text-primaryColor-900">
                                 <Link href="/kontakt ">
                                     <a>Kontakt</a>
                                 </Link>
                             </li>
                         </motion.ul>
                         <hr className="mt-4" />
-                        <ul className="tracking-widest text-primaryColor-200">
-                            <li className="mb-4 mt-8 text-xs">
+                        <ul className="tracking-widest text-primaryColor-900">
+                            <li className="mb-3 mt-8 text-xs">
                                 <div className="wrap dropdown   ">
                                     <Link href="/impressum">
                                         <a className="text-text block my-4 subNav relative hover:text-primaryColor cursor-pointer">

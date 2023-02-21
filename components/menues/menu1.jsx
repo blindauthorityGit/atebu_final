@@ -35,11 +35,9 @@ const Menu1 = (props) => {
                 navRef.current.classList.add("fixed", "top-0");
                 ref.current.classList.remove("hidden");
                 ref.current.classList.add("scale-up-hor-left", "block");
-                console.log("BUBU");
             } else {
                 // navRef.current.classList.remove("fixed");
             }
-            console.log(scrollYProgress);
         };
 
         window.addEventListener("scroll", handleScroll);
