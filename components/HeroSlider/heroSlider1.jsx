@@ -84,7 +84,6 @@ const HeroSlider1 = (props) => {
                                 setSwiper(swiper);
                             }
                         }}
-                        onClick={handleClick}
                         onSlideChange={() => console.log("slide change")}
                         className={`swiper-slide-link h-full transition-all ${clicked ? "scale-[0.975]" : ""}`}
                     >
