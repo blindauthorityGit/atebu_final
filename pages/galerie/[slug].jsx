@@ -1,3 +1,4 @@
+import Detail from "../../components/pageComps/galerie/detail";
 import client, { getAsset } from "../../client";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,18 +36,20 @@ const ImageSite = ({ post, dataAll }) => {
     const [original, setOriginal] = useState(true);
     // Druck Preis State
     const [druckPreis, setDruckPreis] = useState(0);
+    // CURRENT INDEX
+    const [currentIndex, setCurrentIndex] = useState(null);
 
     const containerRef = useRef(null);
 
     useEffect(() => {
-        setDruckPreis(post.druckeInfos.titel);
-        return () => {};
-    }, [post]);
+        console.log(dataAll.findIndex((e) => e.slug.current === post.slug.current));
+    }, []);
 
     useEffect(() => {
         const container = containerRef.current;
         const image = container.querySelector("img");
-
+        setDruckPreis(post.druckeInfos.titel);
+        setCurrentIndex(dataAll.findIndex((e) => e.slug.current === post.slug.current));
         if (image) {
             const aspectRatio = image.naturalWidth / image.naturalHeight;
             container.style.paddingBottom = `${100 / aspectRatio}%`;
@@ -116,149 +119,19 @@ const ImageSite = ({ post, dataAll }) => {
                         <meta property="og:locale" content="de_DE" /> */}
                 </Head>
 
-                <ContainerStandard klasse="gap-1 sm:gap-2 pt-12">
-                    <motion.div
-                        // layoutId="hero"
-                        transition={{ duration: 0.5, delay: 0.5, ease: "easeInOut" }}
-                        className="col-span-12 relative aspect-w-16 aspect-h-9 sm:h-64"
-                        ref={containerRef}
-                    >
-                        {post.image && (
-                            <Image
-                                // {...ImagePropsGallery(i)}
-                                src={urlFor(post.image).url()}
-                                layout="fill"
-                                loading="lazy"
-                                objectFit="contain"
-                                alt="hero"
-                                className={`z-10 ${imageLoaded ? "fade-in-fwd" : "hidden"}`}
-                                onLoad={() => setImageLoaded(true)}
-                            />
-                        )}{" "}
-                    </motion.div>
-                    <div data-aos="fade-up" className="col-span-12 px-4 mt-2">
-                        <h2 className="font-bold uppercase text-xl tracking-wide">{post.titel_Bild}</h2>
-                        <p className="font-semibold text-sm">{post.year}</p>
-                        <p className="font-regular text-sm mt-2">{post.description}</p>
-                        <p className="font-regular text-sm mt-2">{post.technik}</p>
-                        <div className="mt-4">
-                            <CheckboxContainer1
-                                onCheckboxClick={(e) => {
-                                    e.target.value === "original" ? setOriginal(true) : setOriginal(false);
-                                    e.target.value === "original" ? null : setDruckPreis(post.druckeInfos.titel);
-                                    console.log(e.target.value);
-                                }}
-                            ></CheckboxContainer1>
-                            {original ? (
-                                <div className="details text-xs mt-4">
-                                    <hr />
-                                    <div className="flex py-2">
-                                        <div className="left w-1/3 font-semibold">Dimensionen</div>
-                                        <div className="right">{post.dimensions}</div>
-                                    </div>
-                                    <hr />
-                                    <div className="flex py-2">
-                                        <div className="left w-1/3 font-semibold">Location</div>
-                                        <div className="right">{post.location}</div>
-                                    </div>
-                                    <hr />
-                                    <div className="flex py-2">
-                                        <div className="left w-1/3 font-semibold">Verfügbarkeit</div>
-                                        <div className="right">
-                                            {post.sold ? (
-                                                <span className="font-semibold text-[#FB5012]">Verkauft</span>
-                                            ) : (
-                                                <span className="font-semibold text-[#60b862]">Verfügbar</span>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className="details text-xs mt-4">
-                                    <hr />
-                                    <div className="flex py-2">
-                                        <div className="left w-1/3 font-semibold">Dimensionen</div>
-                                        <div className="right">
-                                            <select
-                                                id="printSelect"
-                                                name="printSelect"
-                                                onChange={(e) => {
-                                                    console.log(e.target.value);
-                                                    if (e.target.value === "druck1") {
-                                                        setDruckPreis(post.druckeInfos.titel);
-                                                    } else if (e.target.value === "druck2") {
-                                                        setDruckPreis(
-                                                            post.druckeInfos.druck1Preis && post.druckeInfos.druck1Preis
-                                                        );
-                                                    } else {
-                                                        setDruckPreis(
-                                                            post.druckeInfos.druck2Preis && post.druckeInfos.druck2Preis
-                                                        );
-                                                    }
-                                                }}
-                                            >
-                                                <option value="druck1"> {post.dimensions} (Originalgröße)</option>
-                                                <option value="druck2">
-                                                    {" "}
-                                                    {post.druckeInfos.druck1 && post.druckeInfos.druck1}
-                                                </option>
-                                                <option value="druck3">
-                                                    {post.druckeInfos.druck2 && post.druckeInfos.druck2}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div className="flex py-2">
-                                        <div className="left w-1/3 font-semibold">Lieferzeit</div>
-                                        <div className="right">3-5 Werktage</div>
-                                    </div>
-                                    <hr />
-                                </div>
-                            )}
-                        </div>
-                        <div className="preis mt-4">
-                            <div className="original text-xs text-primaryColor-700">
-                                {" "}
-                                {original ? "ORIGINAL" : "PRINT"}
-                            </div>
-                            <div className="sum text-lg font-bold">
-                                {original ? (
-                                    post.sold ? (
-                                        <div>
-                                            verkauft{" "}
-                                            <span className="text-xs text-primaryColor-600 font-regular">
-                                                (Prints verfügbar)
-                                            </span>{" "}
-                                        </div>
-                                    ) : (
-                                        `EUR ${post.price},-`
-                                    )
-                                ) : (
-                                    `EUR ${druckPreis},-`
-                                )}
-                            </div>
-                        </div>
-                        <div className="w-full flex justify-center space-x-4">
-                            <Link href="/galerie">
-                                <button className="border border-blackText  hover-underline-animation  flex items-center justify-center text-blackText mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full max-w-[100%]  uppercase rounded-md">
-                                    <span className=""> Anfragen</span>
-                                </button>
-                            </Link>
-                            <Link href="/galerie">
-                                <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full max-w-[100%]  uppercase rounded-md">
-                                    <span className=""> Kaufen</span>
-                                </button>
-                            </Link>
-                        </div>
-                        <div className="mt-6">
-                            <PaymentIconsContainer></PaymentIconsContainer>
-                        </div>
-                        <div className="mt-8">
-                            <InfoBox1></InfoBox1>
-                        </div>
-                    </div>
-                </ContainerStandard>
+                <Detail
+                    post={post}
+                    containerRef={containerRef}
+                    imageLoaded={imageLoaded}
+                    setImageLoaded={setImageLoaded}
+                    // e={e}
+                    setOriginal={setOriginal}
+                    setDruckPreis={setDruckPreis}
+                    original={original}
+                    druckPreis={druckPreis}
+                    currentIndex={currentIndex}
+                    dataAll={dataAll}
+                />
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-20">
                     {dataAll.map((e, i) => {
                         return (
