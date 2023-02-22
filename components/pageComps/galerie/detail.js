@@ -53,6 +53,7 @@ export default function Detail({
 
     const boxRef = useRef();
     const modalRef = useRef();
+    const imgRef = useRef();
 
     const router = useRouter();
 
@@ -62,6 +63,14 @@ export default function Detail({
         });
         console.log(post);
     }, []);
+    useEffect(() => {
+        console.log(containerRef.current.children[0]);
+        containerRef.current.children[0].classList.add("fade-in");
+        return () => {
+            containerRef.current.children[0].classList.remove("fade-in");
+        };
+    }, [post]);
+
     return (
         <>
             {showModal ? (
@@ -94,8 +103,12 @@ export default function Detail({
             <ContainerStandard klasse="gap-1 sm:gap-2 pt-12">
                 <NavButtons
                     onLeftClick={(e) => {
-                        console.log(boxRef.current);
-                        // boxRef.current.classList.add("slide-out-right");
+                        console.log(imgRef.current);
+                        containerRef.current.children[0].classList.remove("fade-in");
+                    }}
+                    onRightClick={(e) => {
+                        console.log(imgRef.current);
+                        containerRef.current.children[0].classList.remove("fade-in");
                     }}
                     currentIndex={currentIndex}
                     dataAll={dataAll}
@@ -116,8 +129,9 @@ export default function Detail({
                             loading="lazy"
                             objectFit="contain"
                             alt="hero"
-                            className={`z-10 ${imageLoaded ? "fade-in-fwd" : "hidden"}`}
+                            className={`z-10 opacity-0  ${imageLoaded ? "fade-in" : "invisible"}`}
                             onLoad={() => setImageLoaded(true)}
+                            ref={imgRef}
                         />
                     )}{" "}
                 </motion.div>
