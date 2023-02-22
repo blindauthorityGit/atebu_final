@@ -36,7 +36,14 @@ export default function Kurse({ dataBilder, dataAkademie, dataChristine, dataBlo
             <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 bg-blackText">
                 {dataAkademie.map((e, i) => {
                     console.log(e);
-                    return <KurseTxtImg image={urlFor(e.image).url()} data={e}></KurseTxtImg>;
+                    return (
+                        <KurseTxtImg
+                            image={urlFor(e.image).url()}
+                            data={e}
+                            button
+                            link={`/kurse/${e.slug.current}`}
+                        ></KurseTxtImg>
+                    );
                 })}
             </ContainerStandard>
         </>
@@ -48,7 +55,11 @@ export const getStaticProps = async (context) => {
     const dataBilder = await resBilder;
 
     const resAkademie = await client.fetch(`*[_type in ["akademie"]]`);
-    const dataAkademie = await resAkademie;
+    const dataAkademie = await resAkademie.sort((a, b) => {
+        const aMonth = Number(a.datum.split(".")[1]);
+        const bMonth = Number(b.datum.split(".")[1]);
+        return aMonth - bMonth;
+    });
 
     const resChristine = await client.fetch(`*[_type in ["christine"]]`);
     const dataChristine = await resChristine;

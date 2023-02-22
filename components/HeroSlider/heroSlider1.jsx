@@ -76,7 +76,7 @@ const HeroSlider1 = (props) => {
                         keyboard={true}
                         virtual
                         fadeEffect={{ crossFade: true }}
-                        speed={250}
+                        speed={225}
                         pagination={{ clickable: true, dynamicBullets: true }}
                         onSwiper={(swiper) => {
                             console.log(swiper.params);
@@ -85,7 +85,7 @@ const HeroSlider1 = (props) => {
                             }
                         }}
                         onSlideChange={() => console.log("slide change")}
-                        className={`swiper-slide-link h-full transition-all ${clicked ? "scale-[0.975]" : ""}`}
+                        className={` h-full `}
                     >
                         {props.data.map((e, i) => {
                             return (
@@ -99,7 +99,9 @@ const HeroSlider1 = (props) => {
                                     >
                                         <motion.div
                                             style={{ boxShadow: "var(--shadow-elevation-high)" }}
-                                            className="h-[92%] lg:h-[93%] sm:border-8 border-white relative"
+                                            className={`h-[92%] lg:h-[93%] sm:border-8 border-white relative transition-all ${
+                                                clicked ? "scale-[0.975]" : ""
+                                            }`}
                                             data-swiper-parallax="100"
                                             data-swiper-parallax-opacity="0.15"
                                             data-swiper-parallax-scale="0.78"
@@ -107,21 +109,24 @@ const HeroSlider1 = (props) => {
                                             // import "../styles/globals.css";
                                         >
                                             <Link href={`/galerie/${e.slug.current}`}>
-                                                <Image
-                                                    // {...ImagePropsGallery(i)}
-                                                    src={urlFor(e.image).url()}
-                                                    layout="fill"
-                                                    loading="lazy"
-                                                    objectFit="cover"
-                                                    objectPosition="top"
-                                                    alt="hero"
-                                                    quality="10"
-                                                    onLoad={() => {
-                                                        console.log("LOADING");
-                                                        setLoading(false);
-                                                    }}
-                                                    className="max-w-[92%!important] min-w-[92%!important] sm:max-w-auto sm:min-w-none KNORKE"
-                                                />
+                                                <a>
+                                                    <Image
+                                                        // {...ImagePropsGallery(i)}
+                                                        src={urlFor(e.image).url()}
+                                                        layout="fill"
+                                                        loading="lazy"
+                                                        objectFit="cover"
+                                                        objectPosition="top"
+                                                        alt="hero"
+                                                        quality="10"
+                                                        onClick={handleClick}
+                                                        onLoad={() => {
+                                                            console.log("LOADING");
+                                                            setLoading(false);
+                                                        }}
+                                                        className="max-w-[92%!important] min-w-[92%!important] sm:max-w-auto sm:min-w-none KNORKE"
+                                                    />
+                                                </a>
                                             </Link>
                                         </motion.div>
 
@@ -138,7 +143,7 @@ const HeroSlider1 = (props) => {
                             </div> */}
                                         {/* <div className="absolute w-full h-full bg-black top-0 opacity-30"></div> */}
                                         {/* <img src={e.image} alt="" /> */}
-                                        <div
+                                        {/* <div
                                             className="absolute text-center sm:text-left py-3 sm:py-0 bottom-[2.25rem]  sm:bg-transparent sm:bottom-[2rem] lg:bottom-[0rem] pl-8 sm:pl-0 text-primaryColor-200 w-full sm:w-auto sm:text-textBlack sm:left-8 text-xs z-50  lg:block"
                                             data-swiper-parallax-opacity="0.5"
                                             data-swiper-parallax="-600"
@@ -150,7 +155,7 @@ const HeroSlider1 = (props) => {
                                             <p className="sm:hidden block font-semibold z-30 relative">
                                                 {e.year} {e.technik}
                                             </p>
-                                        </div>
+                                        </div> */}
                                     </SwiperSlide>
                                 </>
                             );

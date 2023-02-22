@@ -68,6 +68,13 @@ a {
     padding-bottom: 56.25%; /* 9/16 aspect ratio */
 }
 
+.list-disc > ul {
+    list-style-type: disc;
+}
+
+.list-disc > ul > li {
+margin-top: 1rem;}
+
 .swiper-pagination-bullet-active-main,
 .swiper-pagination-bullet-active {
     color: black;

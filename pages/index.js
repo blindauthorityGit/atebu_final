@@ -86,8 +86,12 @@ export const getStaticProps = async (context) => {
     const resBilder = await client.fetch(`*[_type in ["Bild"]]`);
     const dataBilder = await resBilder;
 
-    const resAkademie = await client.fetch(`*[_type in ["akademie"]]`);
-    const dataAkademie = await resAkademie;
+    const resAkademie = await client.fetch(`*[_type in ["akademie"]] `);
+    const dataAkademie = await resAkademie.sort((a, b) => {
+        const aMonth = Number(a.datum.split(".")[1]);
+        const bMonth = Number(b.datum.split(".")[1]);
+        return aMonth - bMonth;
+    });
 
     const resChristine = await client.fetch(`*[_type in ["christine"]]`);
     const dataChristine = await resChristine;
