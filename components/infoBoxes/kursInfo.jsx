@@ -4,7 +4,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 
 import { PortableText } from "@portabletext/react";
 
-const KurseInfo = ({ address, email, phone, infoText, mapboxAccessToken, mapboxStyleUrl }) => {
+const KurseInfo = ({ infoText }) => {
     return (
         <div className="flex flex-col my-8 bg-primaryColor-100 p-6 relative">
             <div className="flex justify-end absolute right-4 top- 4">
