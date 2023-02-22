@@ -54,17 +54,26 @@ const ImageSite = ({ post, dataAll }) => {
             if (image) {
                 const aspectRatio = image.naturalWidth / image.naturalHeight;
                 container.style.paddingBottom = `${100 / aspectRatio}%`;
+                const ratio = 100 / aspectRatio;
+                console.log(ratio);
+                ratio > 123 ? (container.style.paddingBottom = "123%") : (container.style.paddingBottom = ratio + "%");
 
                 if (!image.complete) {
                     const handleLoad = () => {
                         const aspectRatio = image.naturalWidth / image.naturalHeight;
                         container.style.paddingBottom = `${100 / aspectRatio}%`;
+                        const ratio = 100 / aspectRatio;
+                        console.log(ratio);
+                        ratio > 123
+                            ? (container.style.paddingBottom = "123%")
+                            : (container.style.paddingBottom = ratio + "%");
+
                         image.removeEventListener("load", handleLoad);
                     };
                     image.addEventListener("load", handleLoad);
                 }
             }
-        }, 100);
+        }, 50);
     }, [post]);
 
     useEffect(() => {

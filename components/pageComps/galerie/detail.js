@@ -106,7 +106,7 @@ export default function Detail({
                         delay: 0.5,
                         ease: "easeInOut",
                     }}
-                    className="col-span-12  relative aspect-w-16 aspect-h-9 sm:h-64 transition-all duration-500 ease-in-out"
+                    className="col-span-12  relative aspect-w-16 aspect-h-9 sm:h-64 transition-all duration-300 ease-in-out"
                     ref={containerRef}
                 >
                     {post.image && (
