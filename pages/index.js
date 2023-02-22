@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
-import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import MainContainer from "../components/layout/mainContainer";
 import Hero from "../components/Hero/hero";
@@ -48,11 +48,12 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
                 <ImgText1 link="/kurse">
                     <div className="grid grid-cols-12 gap-1 sm:gap-4 h-full">
                         {dataAkademie.map((e, i) => {
+                            console.log(e.slug.current);
                             return (
                                 <Thumbnail1
                                     dataAos="fade-in-color grayscale"
                                     motto={e.thema}
-                                    link="/kurse"
+                                    link={`/kurse/${e.slug.current}`}
                                     date={e.datumShort}
                                     image={e.image}
                                 ></Thumbnail1>
