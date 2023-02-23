@@ -98,7 +98,7 @@ export default function Detail({
                 </>
             ) : null}
 
-            <ContainerStandard klasse="gap-1 sm:gap-2 md:px-8 pt-20">
+            <ContainerStandard klasse="gap-1 sm:gap-2 md:px-8 pt-12 md:pt-20">
                 <NavButtons
                     onLeftClick={(e) => {
                         console.log(imgRef.current);

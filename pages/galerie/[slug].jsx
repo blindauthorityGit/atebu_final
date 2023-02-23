@@ -16,6 +16,9 @@ import { CheckboxContainer1 } from "../../components/inputs/checkmarks";
 import { PaymentIconsContainer } from "../../components/iconBars";
 import { InfoBox1 } from "../../components/collapsables";
 
+// functions
+import { useBreakpoints } from "../../components/functions/useBreakPoints";
+
 // Framer motion
 import { motion, useScroll, useAnimation } from "framer-motion";
 //ImageBuilder
@@ -38,12 +41,14 @@ const ImageSite = ({ post, dataAll }) => {
     const [druckPreis, setDruckPreis] = useState(0);
     // CURRENT INDEX
     const [currentIndex, setCurrentIndex] = useState(null);
+    // BREAKPOINTS
+    const { isMobile, isTablet, isDesktop } = useBreakpoints();
 
     const containerRef = useRef(null);
 
     useEffect(() => {
-        console.log(dataAll.findIndex((e) => e.slug.current === post.slug.current));
-    }, []);
+        console.log(isMobile, isTablet, isDesktop);
+    }, [isMobile, isTablet, isDesktop]);
 
     useEffect(() => {
         const container = containerRef.current;
@@ -55,29 +60,32 @@ const ImageSite = ({ post, dataAll }) => {
                 const aspectRatio = image.naturalWidth / image.naturalHeight;
                 container.style.paddingBottom = `${100 / aspectRatio}%`;
                 const ratio = 100 / aspectRatio;
-                console.log(ratio);
-                ratio > 123 ? (container.style.paddingBottom = "123%") : (container.style.paddingBottom = ratio + "%");
-                // ratio > 123
-                //     ? container.classList.add("pb-[123%]", "md:pb-[100%]")
-                //     : (container.style.paddingBottom = ratio + "%");
-
+                if (isTablet && ratio > 100) {
+                    container.style.paddingBottom = "100%";
+                } else if (ratio > 123) {
+                    container.style.paddingBottom = "123%";
+                } else {
+                    container.style.paddingBottom = ratio + "%";
+                }
                 if (!image.complete) {
                     const handleLoad = () => {
                         const aspectRatio = image.naturalWidth / image.naturalHeight;
                         container.style.paddingBottom = `${100 / aspectRatio}%`;
                         const ratio = 100 / aspectRatio;
-                        console.log(ratio);
-                        ratio > 123
-                            ? (container.style.paddingBottom = "123%")
-                            : (container.style.paddingBottom = ratio + "%");
-
+                        if (isTablet && ratio > 100) {
+                            container.style.paddingBottom = "100%";
+                        } else if (ratio > 123) {
+                            container.style.paddingBottom = "123%";
+                        } else {
+                            container.style.paddingBottom = ratio + "%";
+                        }
                         image.removeEventListener("load", handleLoad);
                     };
                     image.addEventListener("load", handleLoad);
                 }
             }
         }, 50);
-    }, [post]);
+    }, [post, isTablet, isMobile]);
 
     useEffect(() => {
         console.log(post, dataAll);
