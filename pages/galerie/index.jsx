@@ -31,21 +31,23 @@ export default function Galerie({ dataBilder, dataAkademie, dataChristine, dataB
             <Head>
                 <title>Site title</title>
             </Head>
-
-            <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 ">
+            <ContainerStandard klasse="gap-1 lg:gap-2 pt-12 md:px-12">
                 {dataBilder.map((e, i) => {
                     return (
-                        <div className="col-span-6 sm:col-span-3  relative h-32 sm:h-64">
+                        <div className="col-span-6 sm:col-span-4 relative h-32 sm:h-64 md:h-48">
                             <Link href={`/galerie/${e.slug.current}`}>
-                                <Image
-                                    // {...ImagePropsGallery(i)}
-                                    src={urlFor(e.image).url()}
-                                    layout="fill"
-                                    loading="lazy"
-                                    objectFit="cover"
-                                    alt="hero"
-                                    className="z-10"
-                                />
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        // {...ImagePropsGallery(i)}
+                                        src={urlFor(e.image).url()}
+                                        layout="fill"
+                                        loading="lazy"
+                                        objectFit="cover"
+                                        alt="hero"
+                                        className="z-10 transition duration-300 ease-in-out transform hover:scale-110 focus:scale-110 hover:brightness-105 focus:brightness-105"
+                                    />
+                                    <div className="absolute inset-0 bg-black opacity-0 transition duration-300 ease-in-out hover:opacity-50 focus:opacity-50"></div>
+                                </div>
                             </Link>
                         </div>
                     );

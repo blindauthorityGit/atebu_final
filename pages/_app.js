@@ -31,11 +31,14 @@
 
 import "../styles/globals.css";
 
+import { useState, useEffect } from "react";
+
 import { motion, AnimateSharedLayout } from "framer-motion";
 import { useRouter } from "next/router";
 
 import { Menu1 } from "../components/menues";
 import { MobileBar1 } from "../components/mobileBar";
+import { Popup1 } from "../components/popups";
 
 //ASSETS
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -44,6 +47,16 @@ import Logo from "../assets/logoFin.svg";
 
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleOpen = () => {
+        setIsOpen(true);
+    };
+
+    const handleClose = () => {
+        setIsOpen(false);
+    };
 
     return (
         <>
@@ -55,8 +68,21 @@ function MyApp({ Component, pageProps }) {
                 onBurgerClick={(e) => {
                     console.log(e);
                 }}
+                onClick={() => {
+                    console.log("IS CLICKED");
+                    setIsOpen(true);
+                }}
             ></Menu1>
-            <MobileBar1></MobileBar1>
+            <MobileBar1
+                onClick={() => {
+                    console.log("IS CLICKED");
+                    setIsOpen(true);
+                }}
+            ></MobileBar1>
+            <Popup1 isOpen={isOpen} onClose={handleClose}>
+                <h2 className="text-lg font-bold mb-4">Subscribe to my newsletter</h2>
+                <form>{/* form fields go here */}</form>
+            </Popup1>
 
             <AnimateSharedLayout type="crossfade">
                 <motion.div

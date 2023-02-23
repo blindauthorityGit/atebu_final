@@ -219,8 +219,8 @@ const Menu1 = (props) => {
                                 );
                             })}
                         </ul>
-                        <ul className="block sm:hidden lg:flex items-center list-style-none justify-end pr-8">
-                            <Newsletter></Newsletter>
+                        <ul className="block md:flex lg:hidden lg:flex items-center list-style-none justify-end pr-12">
+                            <Newsletter onClick={props.onClick}></Newsletter>
                         </ul>
                     </div>
                     <div className="col-span-1 social media flex justify-end text-xl md:text-4xl">
