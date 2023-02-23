@@ -51,16 +51,16 @@ function CheckboxContainer({ onCheckboxClick }) {
                     whileHover={{ scale: 1.1 }}
                 >
                     <motion.div
-                        className={`w-5 h-5 border-2 border-solid border-blackText rounded-full flex items-center justify-center ${
+                        className={`w-5 md:w-8 h-5 md:h-8 border-2 border-solid border-blackText rounded-full flex items-center justify-center ${
                             checked === "original" ? "bg-blackText" : ""
                         }`}
                         variants={variants}
                         initial={checked === "original" ? "checked" : "unchecked"}
                         animate={checked === "original" ? "checked" : "unchecked"}
                     >
-                        {checked === "original" && <MdCheck className="text-primaryColor-200" size="14px" />}
+                        {checked === "original" && <MdCheck className="text-primaryColor-200 text-base md:text-2xl" />}
                     </motion.div>
-                    <span className="ml-2 text-sm text-blackText">ORIGINAL</span>
+                    <span className="ml-2 text-sm md:text-lg text-blackText">ORIGINAL</span>
                 </motion.label>
             </div>
             <div className="flex items-center">
@@ -80,16 +80,16 @@ function CheckboxContainer({ onCheckboxClick }) {
                     whileHover={{ scale: 1.1 }}
                 >
                     <motion.div
-                        className={`w-5 h-5 border-2 border-solid border-blackText rounded-full flex items-center justify-center ${
+                        className={`w-5 md:w-8 h-5 md:h-8 border-2 border-solid border-blackText rounded-full flex items-center justify-center ${
                             checked === "print" ? "bg-blackText" : ""
                         }`}
                         variants={variants}
                         initial={checked === "print" ? "checked" : "unchecked"}
                         animate={checked === "print" ? "checked" : "unchecked"}
                     >
-                        {checked === "print" && <MdCheck className="text-primaryColor-200" size="14px" />}
+                        {checked === "print" && <MdCheck className="text-primaryColor-200 text-base md:text-2xl" />}
                     </motion.div>
-                    <span className="ml-2 text-sm text-blackText">PRINT</span>
+                    <span className="ml-2 text-sm md:text-lg text-blackText">PRINT</span>
                 </motion.label>
             </div>
         </div>

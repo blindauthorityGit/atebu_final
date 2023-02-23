@@ -127,7 +127,7 @@ const Form1 = (props) => {
                     ) : (
                         <div className="w-full col-span-12">
                             <button
-                                className="group w-full bg-primaryColor text-white  ease-in-out duration-200 hover:bg-darkGrey cursor-pointer p-4 flex items-center justify-center mt-8 sm:mt-4 mb-12 sm:mb-0 hover:bg-primaryColor hover:text-white border  text-blackText"
+                                className="group font-semibold w-full bg-primaryColor text-white  ease-in-out duration-200 hover:bg-darkGrey cursor-pointer p-4 flex items-center justify-center mt-8 sm:mt-4 mb-12 sm:mb-0 hover:bg-primaryColor hover:text-white border  text-blackText"
                                 type="submit"
                             >
                                 Absenden

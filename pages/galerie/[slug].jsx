@@ -146,7 +146,7 @@ const ImageSite = ({ post, dataAll }) => {
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-20">
                     {dataAll.map((e, i) => {
                         return (
-                            <div className="col-span-6 sm:col-span-3  relative h-32 sm:h-64">
+                            <div className="col-span-6 sm:col-span-4  relative h-32 sm:h-64">
                                 <Link href={`/galerie/${e.slug.current}`}>
                                     <Image
                                         // {...ImagePropsGallery(i)}

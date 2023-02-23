@@ -207,7 +207,7 @@ const EventSlider1 = (props) => {
                                 </p>
                             </div>
                             <Link href={`/events/${e.slug.current}`}>
-                                <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-2 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-16">
+                                <button className="bg-blackText font-semibold hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-2 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-16">
                                     <span className="text-primaryColor-200"> Mehr</span>
                                 </button>
                             </Link>

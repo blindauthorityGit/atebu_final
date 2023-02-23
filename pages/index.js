@@ -26,9 +26,9 @@ import { ImgText1, ImgText2, ImgText3 } from "../components/imgText";
 import { Thumbnail1 } from "../components/imgThumbnails";
 import { EventSlider1 } from "../components/elementSliders";
 
-export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog }) {
+export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog, dataLeistungen }) {
     useEffect(() => {
-        console.log(dataBilder, dataAkademie, dataChristine, dataBlog);
+        console.log(dataBilder, dataAkademie, dataChristine, dataBlog, dataLeistungen);
         AOS.init({
             duration: 1200,
         });
@@ -63,7 +63,7 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
                 </ImgText1>
             </ContainerVH100>
             <ContainerVH100 klasse="" showBG center>
-                <ImgText2 images={dataBilder}></ImgText2>
+                <ImgText2 images={dataLeistungen[0].images}></ImgText2>
             </ContainerVH100>
             <ContainerVH100Children klasse="bg-blackText" showBG center image={dataChristine[0].image}>
                 <ImgText3></ImgText3>
@@ -86,6 +86,9 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
 export const getStaticProps = async (context) => {
     const resBilder = await client.fetch(`*[_type in ["Bild"]]`);
     const dataBilder = await resBilder;
+
+    const resLeistungen = await client.fetch(`*[_type in ["leistungen"]]`);
+    const dataLeistungen = await resLeistungen;
 
     const resAkademie = await client.fetch(`*[_type in ["akademie"]] `);
     const dataAkademie = await resAkademie.sort((a, b) => {
@@ -118,6 +121,7 @@ export const getStaticProps = async (context) => {
             dataAkademie,
             dataChristine,
             dataBlog,
+            dataLeistungen,
         },
         revalidate: 1, // 10 seconds
     };

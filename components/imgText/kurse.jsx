@@ -35,7 +35,7 @@ const KurseTxtImg = (props) => {
             <motion.div
                 style={{ opacity: scrollYProgress }}
                 data-aos="fade-right"
-                className={`left h-64 sm:h-auto sm:block mb-8 lg:mb-0 col-span-12 order-first lg:order-last lg:col-span-7 relative   lg:h-auto ${props.order}`}
+                className={`left h-64 sm:h-auto md:h-[20rem] sm:block mb-8 lg:mb-0 col-span-12 order-first lg:order-last lg:col-span-7 relative   lg:h-auto ${props.order}`}
             >
                 <Image
                     // {...ImagePropsGallery(i)}
@@ -48,10 +48,10 @@ const KurseTxtImg = (props) => {
                 />
                 <div
                     style={{ left: scrollYProgress }}
-                    className="bgOverlay absolute bg-primaryColor opacity-20 w-full h-full md:left-[1.85rem] lg:left-[-2rem] top-[-2rem]"
+                    className="bgOverlay absolute md:hidden bg-primaryColor opacity-20 w-full h-full md:left-[1.85rem] lg:left-[-2rem] top-[-2rem]"
                 ></div>
             </motion.div>
-            <div className="right px-8 sm:px-0 col-span-12 lg:col-span-5 flex flex-col justify-center ">
+            <div className="right px-8 sm:px-0 md:px-12 col-span-12 lg:col-span-5 flex flex-col justify-center ">
                 <div
                     data-aos="fade-up"
                     className="font-montserrat text-primaryColor-200 mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100 mb-4"

@@ -8,6 +8,8 @@ import Overlay from "../modal/overlay";
 // Modal
 import Modal from "../modal/modal";
 
+import { Newsletter } from "../menues";
+
 //Mobile Nav
 import Mobile1 from "./mobile1";
 //Framer Motion
@@ -218,10 +220,10 @@ const Menu1 = (props) => {
                             })}
                         </ul>
                         <ul className="block sm:hidden lg:flex items-center list-style-none justify-end pr-8">
-                            <li>Test</li>
+                            <Newsletter></Newsletter>
                         </ul>
                     </div>
-                    <div className="col-span-1 social media flex justify-end text-xl">
+                    <div className="col-span-1 social media flex justify-end text-xl md:text-4xl">
                         <div
                             className="block lg:hidden cursor-pointer"
                             onClick={(e) => {

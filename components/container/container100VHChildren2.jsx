@@ -31,7 +31,7 @@ const ContainerVH100Children2 = (props) => {
                 </div>
             ) : null}
             <div className="container m-auto grid grid-cols-12 px-8 lg:px-0 lg:gap-16">
-                <div className="col-span-12  lg:col-span-6 relative h-64 lg:h-full">
+                <div className="col-span-12  lg:col-span-6 relative h-48 lg:h-full">
                     <Image
                         // {...ImagePropsGallery(i)}
                         src={Kontakt}

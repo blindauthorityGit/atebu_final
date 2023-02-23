@@ -124,7 +124,7 @@ const HeroSlider1 = (props) => {
                                                             console.log("LOADING");
                                                             setLoading(false);
                                                         }}
-                                                        className="max-w-[92%!important] min-w-[92%!important] sm:max-w-auto sm:min-w-none KNORKE"
+                                                        className="max-w-[92%!important] min-w-[92%!important]  sm:max-w-[100%!important] sm:min-w-[100%!important] KNORKE"
                                                     />
                                                 </a>
                                             </Link>
@@ -164,7 +164,7 @@ const HeroSlider1 = (props) => {
                 </div>
                 <div className="w-full flex justify-center">
                     <Link href="/galerie">
-                        <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] max-w-[12rem]  uppercase rounded-md">
+                        <button className="bg-blackText hover-underline-animation font-semibold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] max-w-[12rem]  uppercase rounded-md">
                             <span className=""> Alle ansehen</span>
                         </button>
                     </Link>

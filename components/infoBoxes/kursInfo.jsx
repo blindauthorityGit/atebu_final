@@ -6,7 +6,7 @@ import { PortableText } from "@portabletext/react";
 
 const KurseInfo = ({ infoText }) => {
     return (
-        <div className="flex flex-col my-8 bg-primaryColor-100 p-6 relative">
+        <div className="flex flex-col my-8 bg-primaryColor-200 p-6 relative">
             <div className="flex justify-end absolute right-4 top- 4">
                 <AiOutlineInfoCircle size={24} />
             </div>

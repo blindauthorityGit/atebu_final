@@ -98,7 +98,7 @@ export default function Detail({
                 </>
             ) : null}
 
-            <ContainerStandard klasse="gap-1 sm:gap-2 pt-12">
+            <ContainerStandard klasse="gap-1 sm:gap-2 md:px-8 pt-12">
                 <NavButtons
                     onLeftClick={(e) => {
                         console.log(imgRef.current);
@@ -134,10 +134,10 @@ export default function Detail({
                     )}{" "}
                 </motion.div>
                 <div ref={boxRef} className="col-span-12 px-4 mt-2">
-                    <h2 className="font-bold uppercase text-xl tracking-wide">{post.titel_Bild}</h2>
-                    <p className="font-semibold text-sm">{post.year}</p>
-                    <p className="font-regular text-sm mt-2">{post.description}</p>
-                    <p className="font-regular text-sm mt-2">{post.technik}</p>
+                    <h2 className="font-bold uppercase text-xl md:text-4xl tracking-wide">{post.titel_Bild}</h2>
+                    <p className="font-semibold text-sm md:text-lg">{post.year}</p>
+                    <p className="font-regular text-sm md:text-lg mt-2">{post.description}</p>
+                    <p className="font-regular text-sm md:text-lg mt-2">{post.technik}</p>
                     <div className="mt-8">
                         <CheckboxContainer1
                             onCheckboxClick={(e) => {
@@ -147,7 +147,7 @@ export default function Detail({
                             }}
                         ></CheckboxContainer1>
                         {original ? (
-                            <div className="details text-xs mt-8">
+                            <div className="details text-xs md:text-base mt-8">
                                 <hr />
                                 <div className="flex py-2">
                                     <div className="left w-1/3 font-semibold">Dimensionen</div>
@@ -171,7 +171,7 @@ export default function Detail({
                                 </div>
                             </div>
                         ) : (
-                            <div className="details text-xs mt-8">
+                            <div className="details text-xs md:text-base mt-8">
                                 <hr />
                                 <div className="flex py-2">
                                     <div className="left w-1/3 font-semibold">Dimensionen</div>
@@ -216,8 +216,11 @@ export default function Detail({
                         )}
                     </div>
                     <div className="preis mt-8">
-                        <div className="original text-xs text-primaryColor-700"> {original ? "ORIGINAL" : "PRINT"}</div>
-                        <div className="sum text-lg font-bold">
+                        <div className="original text-xs md:text-base text-primaryColor-700">
+                            {" "}
+                            {original ? "ORIGINAL" : "PRINT"}
+                        </div>
+                        <div className="sum text-lg md:text-2xl font-bold">
                             {original ? (
                                 post.sold ? (
                                     <div>

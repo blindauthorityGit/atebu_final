@@ -43,7 +43,7 @@ const TextImg3 = (props) => {
             <div className="right pt-64 lg:pt-0 px-8 sm:px-0 lg:pl-24  col-span-12 lg:col-span-8 flex flex-col justify-center ">
                 <div
                     data-aos="fade-up"
-                    className="font-montserrat italic  mt-4 lg:mt-0 font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-base lg:text-2xl text-primaryColor-100 mb-4"
+                    className="font-montserrat italic  mt-4 lg:mt-0 font-regular tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-base lg:text-2xl text-primaryColor-100 mb-4"
                 >
                     "{config.topTitle}"
                 </div>

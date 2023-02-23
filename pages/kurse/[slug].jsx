@@ -87,6 +87,7 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                             ref={modalRef}
                             onClick={(e) => {
                                 console.log(modalRef.current);
+                                modalRef.current.classList.remove("slide-out-bottom");
                                 modalRef.current.classList.add("slide-out-bottom");
                                 setTimeout(() => {
                                     modalRef.current.classList.remove("slide-out-bottom");
