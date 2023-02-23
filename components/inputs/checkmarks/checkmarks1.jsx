@@ -80,7 +80,7 @@ function CheckboxContainer({ onCheckboxClick }) {
                     whileHover={{ scale: 1.1 }}
                 >
                     <motion.div
-                        className={`w-5 md:w-6 h-5 md:h-6 md:h-8 border-2 border-solid border-blackText rounded-full flex items-center justify-center ${
+                        className={`w-5 md:w-6 h-5 md:h-6  border-2 border-solid border-blackText rounded-full flex items-center justify-center ${
                             checked === "print" ? "bg-blackText" : ""
                         }`}
                         variants={variants}
