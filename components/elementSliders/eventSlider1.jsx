@@ -81,7 +81,7 @@ const EventSlider1 = (props) => {
 
     return (
         <div
-            className={`${isLoaded ? "opacity-100" : "opacity-0"} container px-8 sm:px-24 m-auto relative ${
+            className={`${isLoaded ? "opacity-100" : "opacity-0"} container sm:px-8 sm:px-24 m-auto relative ${
                 props.colspan
             }`}
         >
@@ -122,7 +122,7 @@ const EventSlider1 = (props) => {
             <Swiper
                 // install Swiper modules
                 modules={[Pagination, Navigation, A11y]}
-                spaceBetween={50}
+                spaceBetween={0}
                 slidesPerView={4}
                 pagination={{ clickable: true }}
                 onSwiper={(swiper) => {
@@ -141,11 +141,11 @@ const EventSlider1 = (props) => {
                 breakpoints={{
                     // when window width is >= 640px
                     320: {
-                        slidesPerView: 1,
+                        slidesPerView: 1.1,
                         navigation: true,
                     },
                     768: {
-                        slidesPerView: 1,
+                        slidesPerView: 1.2,
                         navigation: true,
                     },
                     1024: {

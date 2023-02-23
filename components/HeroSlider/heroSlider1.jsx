@@ -72,6 +72,7 @@ const HeroSlider1 = (props) => {
                         spaceBetween={20}
                         slidesPerView={1}
                         parallax
+                        centeredSlides
                         // autoplay
                         keyboard={true}
                         virtual
