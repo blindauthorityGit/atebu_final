@@ -134,9 +134,9 @@ export default function Detail({
                     )}{" "}
                 </motion.div>
                 <div ref={boxRef} className="col-span-12 px-4 mt-2">
-                    <h2 className="font-bold uppercase text-xl md:text-4xl tracking-wide">{post.titel_Bild}</h2>
+                    <h2 className="font-bold uppercase text-xl md:text-3xl tracking-wide">{post.titel_Bild}</h2>
                     <p className="font-semibold text-sm md:text-lg">{post.year}</p>
-                    <p className="font-regular text-sm md:text-lg mt-2">{post.description}</p>
+                    <p className="font-regular text-sm md:text-lg mt-2 md:mt-4">{post.description}</p>
                     <p className="font-regular text-sm md:text-lg mt-2">{post.technik}</p>
                     <div className="mt-8">
                         <CheckboxContainer1
@@ -147,7 +147,7 @@ export default function Detail({
                             }}
                         ></CheckboxContainer1>
                         {original ? (
-                            <div className="details text-xs md:text-base mt-8">
+                            <div className="details text-xs md:text-sm mt-8">
                                 <hr />
                                 <div className="flex py-2">
                                     <div className="left w-1/3 font-semibold">Dimensionen</div>
@@ -249,7 +249,7 @@ export default function Detail({
                             }}
                             className="border border-blackText  hover-underline-animation  flex items-center justify-center text-blackText mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full max-w-[100%]  uppercase rounded-md"
                         >
-                            <span className=""> Anfragen</span>
+                            <span className="font-semibold"> Anfragen</span>
                         </button>
 
                         <button
@@ -267,7 +267,7 @@ export default function Detail({
                                 disabled ? "opacity-30" : ""
                             }`}
                         >
-                            <span className=""> Kaufen</span>
+                            <span className="font-semibold"> Kaufen</span>
                         </button>
                     </div>
                     <div className="mt-6">

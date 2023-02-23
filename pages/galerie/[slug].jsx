@@ -57,6 +57,9 @@ const ImageSite = ({ post, dataAll }) => {
                 const ratio = 100 / aspectRatio;
                 console.log(ratio);
                 ratio > 123 ? (container.style.paddingBottom = "123%") : (container.style.paddingBottom = ratio + "%");
+                // ratio > 123
+                //     ? container.classList.add("pb-[123%]", "md:pb-[100%]")
+                //     : (container.style.paddingBottom = ratio + "%");
 
                 if (!image.complete) {
                     const handleLoad = () => {
