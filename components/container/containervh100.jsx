@@ -6,7 +6,7 @@ const ContainerVH100 = (props) => {
         <div
             className={`containervh100 lg:min-h-screen relative overflow-hidden ${
                 props.center ? "items-center flex" : ""
-            }  ${props.hFull ? "h-full" : ""} ${props.first ? "py-12 sm:py-24" : "py-8 sm:py-24"}  w-full ${
+            }  ${props.hFull ? "h-full" : ""} ${props.first ? "py-12 md:py-20 lg:py-24" : "py-8 sm:py-24"}  w-full ${
                 props.klasse
             }`}
         >
