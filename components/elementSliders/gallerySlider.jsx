@@ -102,7 +102,7 @@ const GallerySlider1 = (props) => {
                     pagination={{ clickable: true }}
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log("slide change")}
-                    className="h-full eventSlider pb-[1rem!important]"
+                    className="h-full eventSlider pb-[3rem!important]"
                     style={{ paddingBottom: "3.75rem!important" }}
                     breakpoints={{
                         // when window width is >= 640px
@@ -110,7 +110,7 @@ const GallerySlider1 = (props) => {
                             slidesPerView: 1,
                         },
                         768: {
-                            slidesPerView: 2,
+                            slidesPerView: 2.2,
                         },
                         1024: {
                             slidesPerView: 3,
@@ -141,7 +141,7 @@ const GallerySlider1 = (props) => {
                                         src={urlFor(e).url()}
                                         layout="fill"
                                         loading="lazy"
-                                        objectFit="contain"
+                                        objectFit="cover"
                                         alt="hero"
                                         onClick={(e) => {
                                             setShowOverlay(true);

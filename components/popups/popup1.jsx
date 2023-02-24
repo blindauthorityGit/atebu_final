@@ -16,14 +16,14 @@ const Popup1 = ({ children, isOpen, onClose }) => {
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    className="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 z-50"
+                    className="fixed top-0 left-0 w-full h-full bg-blackText bg-opacity-50 z-50"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
                 >
                     <motion.div
-                        className="bg-white rounded-lg p-6 max-w-md mx-auto relative"
+                        className="bg-white rounded-lg p-6 max-w-lg mx-auto relative"
                         initial={{ y: -50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -50, opacity: 0 }}

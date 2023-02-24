@@ -19,7 +19,7 @@ const MobileBar = () => {
             </a>
             <a
                 href="https://wa.link/iwtvkn"
-                className="w-1/3 p-4 flex flex-col justify-center items-center text-[#6DC593] hover:text-green-600"
+                className="w-1/3 p-4 flex flex-col justify-center items-center text-primaryColor hover:text-green-600"
             >
                 <FaWhatsapp size={18} />
                 <span className="text-xs font-base mt-1">WHATSAPP</span>

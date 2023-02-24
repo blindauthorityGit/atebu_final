@@ -38,7 +38,7 @@ import { useRouter } from "next/router";
 
 import { Menu1 } from "../components/menues";
 import { MobileBar1 } from "../components/mobileBar";
-import { Popup1 } from "../components/popups";
+import { Popup1, NewsletterSub } from "../components/popups";
 
 //ASSETS
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -80,8 +80,7 @@ function MyApp({ Component, pageProps }) {
                 }}
             ></MobileBar1>
             <Popup1 isOpen={isOpen} onClose={handleClose}>
-                <h2 className="text-lg font-bold mb-4">Subscribe to my newsletter</h2>
-                <form>{/* form fields go here */}</form>
+                <NewsletterSub></NewsletterSub>
             </Popup1>
 
             <AnimateSharedLayout type="crossfade">

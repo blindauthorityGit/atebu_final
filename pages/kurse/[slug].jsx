@@ -15,9 +15,9 @@ import { KurseInfo, InfoSummary, GoogleMaps } from "../../components/infoBoxes";
 import { GallerySlider1 } from "../../components/elementSliders";
 import ModalMobile from "../../components/modal/modalMobile";
 import Overlay from "../../components/modal/overlay";
+import { Stoerer1 } from "../../components/stoerer";
+import { Buchen } from "../../components/modalContent";
 
-// Framer motion
-import { motion, useScroll, useAnimation } from "framer-motion";
 //ImageBuilder
 import urlFor from "../../components/functions/urlFor";
 
@@ -96,7 +96,9 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                                     setShowModal(false);
                                 }, 301);
                             }}
-                        ></ModalMobile>
+                        >
+                            <Buchen title={post.akademieTitel} image={post.image} datum={post.datum}></Buchen>
+                        </ModalMobile>
                         <Overlay
                             onClick={(e) => {
                                 setShowModal(false);
@@ -105,12 +107,12 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                     </>
                 ) : null}
 
-                <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 bg-blackText">
+                <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 md:pt-16 bg-blackText">
                     <KurseTxtImg image={urlFor(post.image).url()} data={post}></KurseTxtImg>;
                 </ContainerStandard>
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 ">
                     <div className="col-span-12 px-8">
-                        <div className="einleitung ">
+                        <div className="einleitung md:mb-12">
                             <PortableText value={post.description} />
                         </div>{" "}
                         <GallerySlider1 data={post.imageGallery}></GallerySlider1>
@@ -132,12 +134,14 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                             onClick={(e) => {
                                 setShowModal(true);
                             }}
-                            className="hover-underline-animation mt-12 bg-primaryColor-500 font-bold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 w-full uppercase rounded-md md:mt-16"
+                            className="hover-underline-animation  bg-primaryColor-600 font-bold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 w-full uppercase rounded-md md:mt-10"
                         >
-                            <span className="text-primaryColor-200"> Buchen</span>
+                            <span className="text-white"> Buchen</span>
                         </button>
                     </div>
                 </ContainerStandard>
+                <div className="h-10"></div>
+                <Stoerer1></Stoerer1>
                 <div className="spacer h-32"></div>
             </>
         </>

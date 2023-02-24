@@ -56,32 +56,34 @@ const KurseTxtImg = (props) => {
                     data-aos="fade-up"
                     className="font-montserrat text-primaryColor-200 mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100 mb-4"
                 >
-                    <div className="datum bg-primaryColor-300 py-2 text-center font-bold text-primaryColor-900 absolute w-full top-[-4rem]">
+                    <div className="datum bg-primaryColor-300 py-2 text-center font-bold text-primaryColor-900 absolute w-full top-[-4rem] md:top-[-5rem]">
                         {props.data.datum}
                     </div>
-                    <h2 className="font-bold uppercase text-xl mb-2">{props.data.akademieTitel}</h2>
+                    <h2 className="font-bold uppercase text-xl md:text-3xl mb-2">{props.data.akademieTitel}</h2>
                     <hr className="border-primaryColor " />
                     <h4 className="mt-2 font-bold">{props.data.thema}</h4>
-                    <h4>{props.data.headline}</h4>{" "}
-                    <div className="ablaufTop flex mt-4 mb-2">
+                    <h4 className="font-thin leading-normal mt-2">{props.data.headline}</h4>{" "}
+                    <div className="ablaufTop flex mt-4 mb-2 md:mb-4">
                         <div className="left text-xs font-bold w-1/4">Ablauf:</div>
-                        <div className="right border-b border-primaryColor w-full"></div>
+                        <div className="right border-b border-primaryColor w-full "></div>
                     </div>
                     {props.data.ablauf.map((e, i) => {
                         return (
                             <>
-                                <div className="ablaufTop flex text-xs  mb-2">
+                                <div className="ablaufTop flex text-xs font-thin mb-2 md:mb-3">
                                     <div className="left text-xs font-bold w-1/4">{e.TAG}</div>
                                     <div className="right  w-full pl-4">{e.Beschreibung}</div>
                                 </div>
                             </>
                         );
                     })}
-                    <hr className="border-primaryColor" />
+                    <hr className="border-primaryColor md:mt-4" />
                     <div className="kosten mt-4">
                         <div className="top text-primaryColor">KOSTEN</div>
-                        <div className="sum font-bold text-xl">{props.data.price}*</div>
-                        <div className="text-xs text-primaryColor-400">Das Kleingedruckte bububububu</div>
+                        <div className="sum font-bold text-xl md:text-3xl">{props.data.price}*</div>
+                        <div className="text-xs text-primaryColor-400 font-thin">
+                            *Preis exkl. Mittagsessen und Material
+                        </div>
                     </div>
                 </div>
 

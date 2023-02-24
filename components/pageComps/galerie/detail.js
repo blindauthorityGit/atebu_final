@@ -98,7 +98,7 @@ export default function Detail({
                 </>
             ) : null}
 
-            <ContainerStandard klasse="gap-1 sm:gap-2 md:px-8 pt-12 md:pt-20">
+            <ContainerStandard klasse="gap-1 sm:gap-2 md:px-6 pt-12 md:pt-20">
                 <NavButtons
                     onLeftClick={(e) => {
                         console.log(imgRef.current);
@@ -117,23 +117,30 @@ export default function Detail({
                         delay: 0.5,
                         ease: "easeInOut",
                     }}
-                    className="col-span-12  relative aspect-w-16 aspect-h-9 sm:h-64 transition-all duration-300 ease-in-out"
+                    className={`col-span-12  ${
+                        imageLoaded ? "fade-in" : "invisible"
+                    }  relative bg-cover aspect-w-16 aspect-h-9 sm:h-64 transition-all duration-300 ease-in-out`}
                     ref={containerRef}
+                    style={{ backgroundImage: `url(${urlFor(post.image).url()})` }}
                 >
                     {post.image && (
-                        <Image // {...ImagePropsGallery(i)}
-                            src={urlFor(post.image).url()}
-                            layout="fill"
-                            loading="lazy"
-                            objectFit="contain"
-                            alt="hero"
-                            className={`z-10 opacity-0  ${imageLoaded ? "fade-in" : "invisible"}`}
-                            onLoad={() => setImageLoaded(true)}
-                            ref={imgRef}
-                        />
+                        <div className="backdrop-blur-lg absolute top-0 left-0 w-full h-full">
+                            <Image // {...ImagePropsGallery(i)}
+                                src={urlFor(post.image).url()}
+                                layout="fill"
+                                loading="lazy"
+                                objectFit="contain"
+                                alt="hero"
+                                className={`z-10 opacity-0 
+
+                            ${imageLoaded ? "fade-in  " : "invisible"}`}
+                                onLoad={() => setImageLoaded(true)}
+                                ref={imgRef}
+                            />
+                        </div>
                     )}{" "}
                 </motion.div>
-                <div ref={boxRef} className="col-span-12 px-4 mt-2">
+                <div ref={boxRef} className="col-span-12 px-4 md:px-0 mt-2">
                     <h2 className="font-bold uppercase text-xl md:text-3xl tracking-wide">{post.titel_Bild}</h2>
                     <p className="font-semibold text-sm md:text-lg">{post.year}</p>
                     <p className="font-regular text-sm md:text-lg mt-2 md:mt-4">{post.description}</p>

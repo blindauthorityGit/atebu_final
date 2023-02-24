@@ -12,15 +12,11 @@ import "aos/dist/aos.css";
 
 // COMPS
 import { ContainerStandard } from "../../components/container";
-import { CheckboxContainer1 } from "../../components/inputs/checkmarks";
-import { PaymentIconsContainer } from "../../components/iconBars";
-import { InfoBox1 } from "../../components/collapsables";
+import { Stoerer1 } from "../../components/stoerer";
 
 // functions
 import { useBreakpoints } from "../../components/functions/useBreakPoints";
 
-// Framer motion
-import { motion, useScroll, useAnimation } from "framer-motion";
 //ImageBuilder
 import myConfiguredSanityClient from "../../client";
 
@@ -140,7 +136,6 @@ const ImageSite = ({ post, dataAll }) => {
                         <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                         <meta property="og:locale" content="de_DE" /> */}
                 </Head>
-
                 <Detail
                     post={post}
                     containerRef={containerRef}
@@ -154,7 +149,7 @@ const ImageSite = ({ post, dataAll }) => {
                     currentIndex={currentIndex}
                     dataAll={dataAll}
                 />
-                <ContainerStandard klasse="gap-1 lg:gap-2 pt-12 md:px-12">
+                <ContainerStandard klasse="gap-1 lg:gap-2 pt-12 md:px-6">
                     {dataAll.map((e, i) => {
                         return (
                             <div className="col-span-6 sm:col-span-4 relative h-32 sm:h-64 md:h-48">
@@ -176,6 +171,8 @@ const ImageSite = ({ post, dataAll }) => {
                         );
                     })}
                 </ContainerStandard>
+                <div className="h-10"></div>
+                <Stoerer1></Stoerer1>
             </>
         </>
     );
@@ -207,9 +204,6 @@ export const getStaticProps = async (context) => {
 
     const resAll = await client.fetch(`*[_type in ["Bild"] ]`);
     const dataAll = await resAll;
-    // const dataAll = await resAll.sort((a, b) =>
-    //     a._createdAt < b._createdAt ? -1 : a._createdAt > b._createdAt ? 1 : 0
-    // );
 
     return {
         props: {

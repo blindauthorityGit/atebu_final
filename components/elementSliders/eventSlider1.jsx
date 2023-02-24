@@ -202,7 +202,7 @@ const EventSlider1 = (props) => {
                                     </div>
                                 </div>
                                 <hr />
-                                <p className="mb-6 sm:mb-12 mt-6 text-sm md:text-regular leading-relaxed">
+                                <p className="mb-6 sm:mb-12 sm:mt-6 text-xs md:text-regular leading-relaxed">
                                     <BlogTextShorter blocks={e.body}></BlogTextShorter>
                                 </p>
                             </div>

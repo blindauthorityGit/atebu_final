@@ -53,6 +53,8 @@ module.exports = {
                     900: "#3C392C",
                 },
                 lightPrimary: "#E6E4DD",
+                greenColor: "#6DC593",
+                redColor: "#FB5012",
             },
         },
     },
