@@ -19,6 +19,10 @@ import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+// SWIPER
+import { useSwipeable } from "react-swipeable";
+import Router from "next/router";
+
 // Framer motion
 import { motion, useScroll, useAnimation } from "framer-motion";
 //ImageBuilder
@@ -57,17 +61,50 @@ export default function Detail({
 
     const disabled = post.sold && original ? true : false;
 
+    // INDEX STUFF
+    const [currentI, setCurrentI] = useState(null);
+    const [prevSlug, setPrevSlug] = useState(null);
+    const [nextSlug, setNextSlug] = useState(null);
+
+    const [x, setX] = useState(0);
+
     const router = useRouter();
+
+    const handlers = useSwipeable({
+        onSwiped: (eventData) =>
+            console.log(
+                "User Swiped!",
+                eventData,
+                `/galerie/${dataAll[Math.max(0, currentIndex - 1)].slug.current}`,
+                `/galerie/${dataAll[Math.min(dataAll.length - 1, currentIndex + 1)].slug.current}`
+            ),
+        onSwipedLeft: (e) =>
+            Router.push(`/galerie/${dataAll[Math.min(dataAll.length - 1, currentIndex + 1)].slug.current}`),
+        onSwipedRight: (e) => Router.push(`/galerie/${dataAll[Math.max(0, currentIndex - 1)].slug.current}`),
+        onSwiping: ({ deltaX }) => {
+            setX(deltaX / 2);
+            console.log("test");
+        },
+    });
 
     useEffect(() => {
         AOS.init({
             duration: 800,
         });
-        console.log(post);
+        setX[0];
+        console.log(post, currentI, prevSlug, nextSlug);
     }, []);
     useEffect(() => {
         containerRef.current.children[0].classList.add("fade-in");
+        setCurrentI(dataAll.findIndex((e) => e.slug.current === post.slug.current));
+        setPrevSlug(currentI > 0 ? dataAll[currentIndex - 1].slug.current : "");
+        setNextSlug(currentI < dataAll.length - 1 ? dataAll[currentIndex + 1].slug.current : "");
+        setX(0);
     }, [post]);
+
+    useEffect(() => {
+        console.log(post, currentI, prevSlug, nextSlug);
+    }, [currentI, nextSlug, prevSlug]);
 
     return (
         <>
@@ -124,18 +161,23 @@ export default function Detail({
                     style={{ backgroundImage: `url(${urlFor(post.image).url()})` }}
                 >
                     {post.image && (
-                        <div className="backdrop-blur-lg absolute top-0 left-0 w-full h-full">
+                        <div
+                            {...handlers}
+                            className={`absolute top-0 left-0 w-full h-full ${imageLoaded ? "backdrop-blur-lg" : ""}`}
+                        >
                             <Image // {...ImagePropsGallery(i)}
                                 src={urlFor(post.image).url()}
                                 layout="fill"
                                 loading="lazy"
                                 objectFit="contain"
                                 alt="hero"
-                                className={`z-10 opacity-0 
-
-                            ${imageLoaded ? "fade-in  " : "invisible"}`}
+                                className={`z-10 opacity-0 ${imageLoaded ? "fade-in  " : "invisible"}`}
                                 onLoad={() => setImageLoaded(true)}
                                 ref={imgRef}
+                                style={{
+                                    transform: `translateX(${x}px) scale(${1 - Math.abs(x) / 1000})`,
+                                    opacity: `${1 - Math.abs(x) / 10}`,
+                                }}
                             />
                         </div>
                     )}{" "}

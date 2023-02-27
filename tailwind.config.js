@@ -56,6 +56,9 @@ module.exports = {
                 greenColor: "#6DC593",
                 redColor: "#FB5012",
             },
+            height: {
+                "calc-70px": "calc(100% - 70px)",
+            },
         },
     },
     plugins: [],

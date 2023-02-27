@@ -13,19 +13,40 @@ const courses = [
 ];
 
 const Buchen = (props) => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [course, setCourse] = useState(courses[0].id);
-    const [payment, setPayment] = useState("online");
+    const [formState, setFormState] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        payment: "online",
+    });
 
-    const handleFirstNameChange = (e) => setFirstName(e.target.value);
-    const handleLastNameChange = (e) => setLastName(e.target.value);
-    const handleEmailChange = (e) => setEmail(e.target.value);
-    const handlePhoneChange = (e) => setPhone(e.target.value);
-    const handleCourseChange = (e) => setCourse(e.target.value);
-    const handlePaymentChange = (e) => setPayment(e.target.value);
+    const [valid, setIsValid] = useState(false);
+
+    const handleFormChange = (e) => {
+        const { name, value } = e.target;
+        setFormState((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+        const { firstName, lastName, email, phone, payment } = formState;
+
+        firstName && lastName && email && phone && payment ? setIsValid(true) : setIsValid(false);
+        console.log(e.target.name, e.target.value, formState);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // const { firstName, lastName, email, phone, payment } = formState;
+        console.log(formState);
+        // Perform validation here
+        const isValid = firstName && lastName && email && phone && payment;
+        if (isValid) {
+            console.log(firstName, lastName, phone, email, payment);
+        } else {
+            alert("Please fill out all fields before submitting");
+        }
+    };
 
     return (
         <form className="grid grid-cols-12">
@@ -52,8 +73,10 @@ const Buchen = (props) => {
                     className="col-span-8 text-sm border-b bg-transparent border-blackText text-blackText"
                     type="text"
                     id="name"
-                    value={firstName}
-                    onChange={handleFirstNameChange}
+                    name="firstName"
+                    onChange={(e) => {
+                        handleFormChange(e);
+                    }}
                 />
             </div>
             <div className="col-span-12 grid grid-cols-12 mb-2">
@@ -64,8 +87,8 @@ const Buchen = (props) => {
                     className="col-span-8 text-sm border-b bg-transparent border-blackText text-blackText"
                     type="text"
                     id="name"
-                    value={lastName}
-                    onChange={handleLastNameChange}
+                    name="lastName"
+                    onChange={handleFormChange}
                 />
             </div>
             <div className="col-span-12 grid grid-cols-12 mb-2">
@@ -76,8 +99,8 @@ const Buchen = (props) => {
                     className="col-span-8 text-sm border-b bg-transparent border-blackText text-blackText"
                     type="email"
                     id="email"
-                    value={email}
-                    onChange={handleEmailChange}
+                    name="email"
+                    onChange={handleFormChange}
                 />
             </div>
             <div className="col-span-12 grid grid-cols-12 mb-4">
@@ -88,8 +111,8 @@ const Buchen = (props) => {
                     className="col-span-8 text-sm border-b bg-transparent border-blackText text-blackText"
                     type="tel"
                     id="phone"
-                    value={phone}
-                    onChange={handlePhoneChange}
+                    name="phone"
+                    onChange={handleFormChange}
                 />
             </div>
             <div className="col-span-12 grid grid-cols-12 mb-2">
@@ -97,24 +120,10 @@ const Buchen = (props) => {
                     Bezahlung:
                 </label>
                 <label className="col-span-4 text-sm">
-                    <input
-                        type="radio"
-                        name="payment"
-                        value="online"
-                        checked={payment === "online"}
-                        onChange={handlePaymentChange}
-                    />{" "}
-                    Online
+                    <input type="radio" name="payment" value="online" onChange={handleFormChange} /> Online
                 </label>
                 <label className="col-span-4 text-sm">
-                    <input
-                        type="radio"
-                        name="payment"
-                        value="cash"
-                        checked={payment === "cash"}
-                        onChange={handlePaymentChange}
-                    />{" "}
-                    Bar
+                    <input type="radio" name="payment" value="cash" onChange={handleFormChange} /> Bar
                 </label>
             </div>
             <div className="mt-2 col-span-12">
@@ -130,10 +139,12 @@ const Buchen = (props) => {
             <button
                 type="submit"
                 onClick={(e) => {
-                    e.preventDefault();
-                    console.log(firstName, lastName, phone, email, payment);
+                    handleSubmit(e);
                 }}
-                className="bg-blackText col-span-12 relative mt-6 font-semibold hover-underline-animation z-20 flex items-center justify-center text-primaryColor-200 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-8"
+                disabled={!valid}
+                className={`${
+                    valid ? "opacity-100" : "opacity-30"
+                } bg-blackText col-span-12 relative mt-6 font-semibold hover-underline-animation z-20 flex items-center justify-center text-primaryColor-200 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-8 `}
             >
                 <span className="">Weiter</span>
             </button>

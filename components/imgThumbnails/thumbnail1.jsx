@@ -58,7 +58,7 @@ const Thumbnail1 = (props) => {
         <>
             <div
                 data-aos={props.dataAos}
-                className={`col-span-6 sm:col-span-4 h-48  sm:h-64 relative mb-12 sm:mb-6 ${props.colspan}`}
+                className={`col-span-12 sm:col-span-4 h-48  sm:h-64 relative mb-12 sm:mb-6 ${props.colspan}`}
             >
                 <div className="date text-primaryColor-300 font-medium text-lg mb-2">{props.date}</div>
                 <Link href={props.link}>
@@ -86,7 +86,7 @@ const Thumbnail1 = (props) => {
                             >
                                 <h4 className="text-lg font-medium"> {props.motto}</h4>
                             </motion.div>
-                            <motion.div className="w-full block sm:hidden px-4 py-4 bottom-0 absolute bg-blackText-600 text-primaryColor-200">
+                            <motion.div className="w-full block sm:hidden px-4 py-4 bottom-0 absolute bg-blackText-800 text-primaryColor-200">
                                 <h4 className="text-sm font-base"> {props.motto}</h4>
                             </motion.div>
                         </motion.div>{" "}

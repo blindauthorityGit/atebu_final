@@ -63,7 +63,7 @@ const HeroSlider1 = (props) => {
                 <HiOutlineChevronRight></HiOutlineChevronRight>
             </div>
             <div
-                className={`h-[75%]  sm:h-[90%] lg:h-[95%] container xl:container-xl m-auto relative  ${props.colspan}`}
+                className={`h-[92%]  sm:h-[90%] lg:h-[95%] container xl:container-xl m-auto relative  ${props.colspan}`}
             >
                 <div className="relative h-full" data-aos={props.dataAos}>
                     <Swiper

@@ -56,12 +56,16 @@ const ImageSite = ({ post, dataAll }) => {
                 const aspectRatio = image.naturalWidth / image.naturalHeight;
                 container.style.paddingBottom = `${100 / aspectRatio}%`;
                 const ratio = 100 / aspectRatio;
+                console.log(container.children[0]);
                 if (isTablet && ratio > 100) {
                     container.style.paddingBottom = "100%";
+                    container.children[0].classList.add("backdrop-blur-lg");
                 } else if (ratio > 123) {
                     container.style.paddingBottom = "123%";
+                    container.children[0].classList.add("backdrop-blur-lg");
                 } else {
                     container.style.paddingBottom = ratio + "%";
+                    container.children[0].classList.add("backdrop-blur-lg");
                 }
                 if (!image.complete) {
                     const handleLoad = () => {
