@@ -16,7 +16,7 @@ function urlFor(source) {
 const ContainerVH100Children = (props) => {
     return (
         <div
-            className={`containervh100 min-h-screen relative overflow-hidden ${
+            className={`containervh100 min-h-screen relative overflow-hidden h-calc-70px ${
                 props.center ? "lg:items-center flex" : ""
             }  ${props.hFull ? "h-full" : ""} py-12 sm:py-24 w-full ${props.klasse}`}
         >
@@ -25,7 +25,12 @@ const ContainerVH100Children = (props) => {
                     <img src={HugeLogo.src} alt="" />
                 </div>
             ) : null}
-            <div className="absolute  w-full h-2/4 lg:h-full lg:w-2/4 right-0 top-0 h-full bg-red-600">
+            <div className="absolute  w-full h-[100%] md:h-full lg:w-2/4 right-0 top-0  ">
+                <div
+                    class="absolute inset-0 bgOverlay
+ z-10"
+                ></div>
+
                 <Image
                     // {...ImagePropsGallery(i)}
                     src={urlFor(props.image).url()}

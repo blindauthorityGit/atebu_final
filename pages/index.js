@@ -54,7 +54,7 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
                                     dataAos="fade-in-color grayscale"
                                     motto={e.thema}
                                     link={`/kurse/${e.slug.current}`}
-                                    date={e.datumShort}
+                                    date={e.datum}
                                     image={e.image}
                                 ></Thumbnail1>
                             );

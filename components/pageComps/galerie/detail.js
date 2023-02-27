@@ -161,19 +161,17 @@ export default function Detail({
                     style={{ backgroundImage: `url(${urlFor(post.image).url()})` }}
                 >
                     {post.image && (
-                        <div
-                            {...handlers}
-                            className={`absolute top-0 left-0 w-full h-full ${imageLoaded ? "backdrop-blur-lg" : ""}`}
-                        >
+                        <div {...handlers} className={`absolute top-0 left-0 w-full h-full ${imageLoaded ? "" : ""}`}>
                             <Image // {...ImagePropsGallery(i)}
                                 src={urlFor(post.image).url()}
                                 layout="fill"
-                                loading="lazy"
+                                // loading="lazy"
                                 objectFit="contain"
                                 alt="hero"
                                 className={`z-10 opacity-0 ${imageLoaded ? "fade-in  " : "invisible"}`}
                                 onLoad={() => setImageLoaded(true)}
                                 ref={imgRef}
+                                priority
                                 style={{
                                     transform: `translateX(${x}px) scale(${1 - Math.abs(x) / 1000})`,
                                     opacity: `${1 - Math.abs(x) / 10}`,

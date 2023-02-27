@@ -90,6 +90,11 @@ margin-top: 1rem;}
     opacity: 0.8 !important;
 }
 
+.bgOverlay {
+    background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 22%, rgba(27,27,28,0.1) 59%, rgba(27,27,28,0.4) 100%);
+}
+
 :root {
     --shadow-color: 0deg 0% 72%;
     --shadow-elevation-low: 0px 0.5px 0.4px hsl(var(--shadow-color) / 0.45),
