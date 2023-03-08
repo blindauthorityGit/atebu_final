@@ -38,7 +38,7 @@ const ContainerVH100Children2 = (props) => {
                         layout="fill"
                         loading="lazy"
                         objectFit="cover"
-                        objectPosition="top"
+                        objectPosition="center"
                         alt="hero"
                         quality="10"
                         onLoad={() => {
@@ -50,20 +50,20 @@ const ContainerVH100Children2 = (props) => {
                 {/* Background Image */}
                 {props.children}
                 <div className="col-span-12 lg:col-span-6">
-                    <div className="kontakt flex mt-6 md:mt-12 text-primaryColor-500 md:text-3xl lg:w-[100%] items-center justify-end">
+                    <div className="kontakt flex mt-6 md:mt-12 text-primaryColor-500 md:text-xl lg:w-[100%] items-center justify-end">
                         <div className="left">+43 650 944 4150</div>
                         <div className="left ml-4">
                             <FaPhone></FaPhone>
                         </div>
                     </div>
-                    <div className="kontakt flex text-primaryColor-500 mt-4 md:text-3xl lg:w-[100%] items-center justify-end">
+                    <div className="kontakt flex text-primaryColor-500 mt-4 md:text-xl lg:w-[100%] items-center justify-end">
                         <div className="left">christine@atelierbuchner.at</div>
                         <div className="left ml-4">
                             <FaEnvelope></FaEnvelope>
                         </div>
                     </div>
-                    <div className="kontakt flex text-primaryColor-500 mt-6 mb-8 sm:mb-0 sm:mt-12 md:text-3xl lg:w-[100%] items-center justify-end">
-                        <div className="left text-right text-primaryColor-200 text-xs">
+                    <div className="kontakt flex text-primaryColor-500 mt-6 mb-8 sm:mb-0 sm:mt-12 md:text-xl lg:w-[100%] items-center justify-end">
+                        <div className="left text-right text-primaryColor-200 text-xs md:text-sm">
                             Atelier Buchner <br></br>
                             Prof. Sepp Buchner - Straße 528 <br />
                             2823 Pitten

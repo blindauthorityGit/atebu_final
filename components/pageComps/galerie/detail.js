@@ -92,7 +92,7 @@ export default function Detail({
             duration: 800,
         });
         setX[0];
-        console.log(post, currentI, prevSlug, nextSlug);
+        console.log(post, currentI, prevSlug, nextSlug, imageLoaded);
     }, []);
     useEffect(() => {
         containerRef.current.children[0].classList.add("fade-in");
@@ -155,7 +155,7 @@ export default function Detail({
                         ease: "easeInOut",
                     }}
                     className={`col-span-12  ${
-                        imageLoaded ? "fade-in" : "invisible"
+                        imageLoaded ? "fade-in" : ""
                     }  relative bg-cover aspect-w-16 aspect-h-9 sm:h-64 transition-all duration-300 ease-in-out`}
                     ref={containerRef}
                     style={{ backgroundImage: `url(${urlFor(post.image).url()})` }}
@@ -168,8 +168,11 @@ export default function Detail({
                                 // loading="lazy"
                                 objectFit="contain"
                                 alt="hero"
-                                className={`z-10 opacity-0 ${imageLoaded ? "fade-in  " : "invisible"}`}
-                                onLoad={() => setImageLoaded(true)}
+                                className={`z-10 ${imageLoaded ? "fade-in  " : ""}`}
+                                onLoad={() => {
+                                    console.log("LOADED");
+                                    setImageLoaded(true);
+                                }}
                                 ref={imgRef}
                                 priority
                                 style={{

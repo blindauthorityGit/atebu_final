@@ -38,6 +38,7 @@ import { useRouter } from "next/router";
 
 import { Menu1 } from "../components/menues";
 import { MobileBar1 } from "../components/mobileBar";
+import Footer from "../components/footer";
 import { Popup1, NewsletterSub } from "../components/popups";
 
 //ASSETS
@@ -91,7 +92,7 @@ function MyApp({ Component, pageProps }) {
                     exit={{ opacity: 0 }}
                     style={router.route === "/" ? { height: "100%" } : { height: "auto" }}
                 >
-                    <Component {...pageProps} />
+                    <Component {...pageProps} /> <Footer></Footer>
                 </motion.div>
             </AnimateSharedLayout>
         </>

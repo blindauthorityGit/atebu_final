@@ -10,7 +10,7 @@ import { useNextSanityImage } from "next-sanity-image";
 import client from "../client";
 
 //ASSETS
-import { RxHamburgerMenu } from "react-icons/rx";
+import { Stoerer1 } from "../components/stoerer";
 import { menuItems, socialMedia } from "../components/menues/config";
 import Logo from "../assets/logoFin.svg";
 
@@ -73,6 +73,8 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
 
                 <EventSlider1 data={dataBlog}></EventSlider1>
             </ContainerVH100>
+            <div className="h-10"></div>
+            <Stoerer1></Stoerer1>
             <ContainerVH100Children2
                 klasse="bg-blackText"
                 showBG

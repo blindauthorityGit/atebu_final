@@ -1,11 +1,5 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import styles from "../../styles/Home.module.css";
-import MainContainer from "../../components/layout/mainContainer";
-import Hero from "../../components/Hero/hero";
-import { useNextSanityImage } from "next-sanity-image";
 
 //SANITY
 import client from "../../client";
@@ -17,6 +11,7 @@ import "aos/dist/aos.css";
 // COMPONENTS
 import { ContainerStandard } from "../../components/container";
 import { KurseTxtImg } from "../../components/imgText";
+import { Stoerer1 } from "../../components/stoerer";
 
 import urlFor from "../../components/functions/urlFor";
 
@@ -46,6 +41,7 @@ export default function Kurse({ dataBilder, dataAkademie, dataChristine, dataBlo
                     );
                 })}
             </ContainerStandard>
+            <Stoerer1></Stoerer1>
         </>
     );
 }

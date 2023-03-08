@@ -32,7 +32,7 @@ const TwoButtons = ({ onLeftClick, onRightClick, currentIndex, dataAll }) => {
     }, [onLeftClick, onRightClick]);
 
     return (
-        <div className="absolute top-[12.5rem] transform -translate-y-1/2 w-full z-30">
+        <div className="absolute top-[12.5rem] px-3 transform -translate-y-1/2 w-full z-20">
             <div className="flex justify-between">
                 <Button href={`/galerie/${dataAll[Math.max(0, currentIndex - 1)].slug.current}`} onClick={onLeftClick}>
                     <FaChevronLeft />

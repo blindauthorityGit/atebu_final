@@ -17,6 +17,9 @@ import ModalMobile from "../../components/modal/modalMobile";
 import Overlay from "../../components/modal/overlay";
 import { Stoerer1 } from "../../components/stoerer";
 import { Buchen } from "../../components/modalContent";
+import MapboxMap from "../../components/map";
+
+// LIGHTBOX
 
 //ImageBuilder
 import urlFor from "../../components/functions/urlFor";
@@ -28,6 +31,7 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
 
     useEffect(() => {
         console.log(dataSetting, post, post.imageGallery);
+        console.log(post.imageGallery.map((e) => ({ src: urlFor(e).url() })));
     }, []);
 
     useEffect(() => {
@@ -112,10 +116,16 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                 </ContainerStandard>
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 ">
                     <div className="col-span-12 px-8">
-                        <div className="einleitung md:mb-12">
+                        <h2 className="font-bold uppercase text-xl md:text-3xl mb-6">Der Workshop</h2>
+                        <div className="einleitung mb-12 md:mb-12 md:w-3/4">
                             <PortableText value={post.description} />
                         </div>{" "}
-                        <GallerySlider1 data={post.imageGallery}></GallerySlider1>
+                        <GallerySlider1
+                            onClick={(e) => {
+                                console.log(Number(e.target.id));
+                            }}
+                            data={post.imageGallery}
+                        ></GallerySlider1>
                         <KurseInfo
                             email="christine@atelierbuchner.at"
                             phone="+43 650 / 944 51 40"
@@ -124,9 +134,9 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                         ></KurseInfo>
                     </div>
                 </ContainerStandard>
-                <div className="">
-                    <GoogleMaps></GoogleMaps>
-                </div>
+
+                <MapboxMap></MapboxMap>
+
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-12  w-full">
                     <div className="col-span-12 px-8">
                         <InfoSummary datum={post.datum} address="Galerie Buchner" price={post.price}></InfoSummary>{" "}
@@ -134,7 +144,7 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                             onClick={(e) => {
                                 setShowModal(true);
                             }}
-                            className="hover-underline-animation  bg-primaryColor-600 font-bold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 w-full uppercase rounded-md md:mt-10"
+                            className="hover-underline-animation  bg-blackText font-bold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 w-full uppercase rounded-md md:mt-10"
                         >
                             <span className="text-white"> Buchen</span>
                         </button>
@@ -142,7 +152,7 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                 </ContainerStandard>
                 <div className="h-10"></div>
                 <Stoerer1></Stoerer1>
-                <div className="spacer h-32"></div>
+                {/* <div className="spacer h-32"></div> */}
             </>
         </>
     );

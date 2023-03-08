@@ -16,7 +16,7 @@ function urlFor(source) {
 const ContainerVH100Children = (props) => {
     return (
         <div
-            className={`containervh100 min-h-screen relative overflow-hidden h-calc-70px ${
+            className={`containervh100 md:min-h-screen relative overflow-hidden h-[600px] ${
                 props.center ? "lg:items-center flex" : ""
             }  ${props.hFull ? "h-full" : ""} py-12 sm:py-24 w-full ${props.klasse}`}
         >

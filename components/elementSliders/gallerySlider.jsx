@@ -143,11 +143,8 @@ const GallerySlider1 = (props) => {
                                         loading="lazy"
                                         objectFit="cover"
                                         alt="hero"
-                                        onClick={(e) => {
-                                            setShowOverlay(true);
-                                            setActiveImg(urlFor(props.data[i].image).url());
-                                            console.log(props.data[i]);
-                                        }}
+                                        onClick={props.onClick}
+                                        id={i}
                                     />
                                 </div>
                             </SwiperSlide>

@@ -40,7 +40,7 @@ const TextImg3 = (props) => {
         >
             <FloaterBlackFull style={{ opacity: scrollYProgress }}></FloaterBlackFull>
 
-            <div className="right pt-48 lg:pt-0 px-8 sm:px-0 lg:pl-24  col-span-12 lg:col-span-8 flex flex-col justify-center ">
+            <div className="absolute bottom-16 lg:pt-0 px-8 sm:px-0 lg:pl-24  col-span-12 lg:col-span-8 flex flex-col justify-center ">
                 {/* <div
                     data-aos="fade-up"
                     className="font-montserrat italic  mt-4 lg:mt-0 font-regular tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-base lg:text-2xl text-primaryColor-100 mb-4"
@@ -55,7 +55,7 @@ const TextImg3 = (props) => {
                 </div> */}
                 <h2
                     data-aos="fade-left"
-                    className="font-montserrat text-2xl sm:text-4xl text-primaryColor lg:text-6xl font-bold mt-8 tracking-widest mb-8 lg:mb-12"
+                    className="font-montserrat text-2xl z-10 sm:text-4xl text-primaryColor-300 lg:text-6xl font-bold mt-8 tracking-widest mb-8 lg:mb-12"
                 >
                     CHRISTINE BUCHNER
                 </h2>
@@ -71,13 +71,13 @@ const TextImg3 = (props) => {
                         </a>
                     </Link>
                 </div>
-                <div className="kontakt flex mt-6 md:mt-12 text-primaryColor-500 z-20 md:text-3xl lg:w-[70%] items-center justify-end">
+                <div className="kontakt flex mt-6 font-semibold  md:mt-12 text-primaryColor-400 z-20 md:text-3xl lg:w-[70%] items-center justify-end">
                     <div className="left">+43 650 944 4150</div>
                     <div className="left ml-4">
                         <FaPhone></FaPhone>
                     </div>
                 </div>
-                <div className="kontakt flex text-primaryColor-500 z-20 mt-4 md:text-3xl lg:w-[70%] items-center justify-end">
+                <div className="kontakt flex font-semibold text-primaryColor-400 z-20 mt-4 md:text-3xl lg:w-[70%] items-center justify-end">
                     <div className="left">christine@atelierbuchner.at</div>
                     <div className="left ml-4">
                         <FaEnvelope></FaEnvelope>

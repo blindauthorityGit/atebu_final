@@ -143,10 +143,12 @@ const EventSlider1 = (props) => {
                     320: {
                         slidesPerView: 1.1,
                         navigation: true,
+                        spaceBetween: 0,
                     },
                     768: {
                         slidesPerView: 1.2,
                         navigation: true,
+                        spaceBetween: 40,
                     },
                     1024: {
                         slidesPerView: 2,
@@ -174,7 +176,7 @@ const EventSlider1 = (props) => {
                                 {/* {e.date.split("-").reverse().join(".")} */}
                             </h3>
                             <Link href={`/events/${e.slug.current}`}>
-                                <div className="cursor-pointer relative overflow-hidden">
+                                <div className="cursor-pointer relative overflow-hidden h-[10rem]">
                                     <motion.img
                                         whileHover={{
                                             scale: 1.1,
@@ -182,6 +184,7 @@ const EventSlider1 = (props) => {
                                         }}
                                         src={urlFor(e.featuredImage)}
                                         alt={e.title}
+                                        className="object-cover w-full h-full absolute top-0 left-0"
                                     />
                                 </div>
                             </Link>

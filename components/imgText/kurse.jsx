@@ -54,9 +54,9 @@ const KurseTxtImg = (props) => {
             <div className="right px-8 sm:px-0 md:px-12 col-span-12 lg:col-span-5 flex flex-col justify-center ">
                 <div
                     data-aos="fade-up"
-                    className="font-montserrat text-primaryColor-200 mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100 mb-4"
+                    className="font-montserrat md:max-w-[80%]  text-primaryColor-200 mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100 mb-4"
                 >
-                    <div className="datum bg-primaryColor-300 py-2 text-center font-bold text-primaryColor-900 absolute w-full top-[-4rem] md:top-[-5rem]">
+                    <div className="datum bg-primaryColor-400 py-2 text-center md:text-lg font-bold text-primaryColor-900 absolute w-full md:w-[60%] rounded-md top-[-4rem] md:top-[-5rem]">
                         {props.data.datum}
                     </div>
                     <h2 className="font-bold uppercase text-xl md:text-3xl mb-2">{props.data.akademieTitel}</h2>
@@ -90,19 +90,19 @@ const KurseTxtImg = (props) => {
                 {props.children}
                 {/* <div className="text font-serif">{parse(config.text)}</div> */}
                 {props.button ? (
-                    <>
+                    <div className="grid grid-cols-12 w-full gap-4">
                         {" "}
                         <Link href={props.link}>
-                            <button className="hover-underline-animation border font-bold border-primaryColor-100 flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6  uppercase rounded-md md:mt-16">
-                                <span className="text-primaryColor-200"> MEHR</span>
+                            <button className="hover-underline-animation col-span-12 md:col-span-6 border font-bold border-primaryColor-300 flex items-center justify-center text-primaryColor-300 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6  uppercase rounded-md md:mt-8">
+                                <span className="text-primaryColor-300"> MEHR</span>
                             </button>
                         </Link>
                         <Link href={config.buttonLink}>
-                            <button className="hover-underline-animation bg-primaryColor-500 font-bold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6  uppercase rounded-md md:mt-16">
-                                <span className="text-primaryColor-200"> Buchen</span>
+                            <button className="hover-underline-animation col-span-12 md:col-span-6  bg-primaryColor-500 font-bold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6  uppercase rounded-md md:mt-8">
+                                <span className="text-primaryColor-50"> Buchen</span>
                             </button>
                         </Link>
-                    </>
+                    </div>
                 ) : null}
             </div>
             <style jsx>{`
