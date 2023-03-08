@@ -63,7 +63,7 @@ const HeroSlider1 = (props) => {
                 <HiOutlineChevronRight></HiOutlineChevronRight>
             </div>
             <div
-                className={`h-[92%]  sm:h-[90%] lg:h-[95%] container xl:container-xl m-auto relative  ${props.colspan}`}
+                className={`h-[93%]  sm:h-[90%] lg:h-[95%] container xl:container-xl m-auto relative  ${props.colspan}`}
             >
                 <div className="relative h-full" data-aos={props.dataAos}>
                     <Swiper
@@ -99,8 +99,8 @@ const HeroSlider1 = (props) => {
                                         // style={{ backgroundImage: `url(${urlFor(e.image)})` }}
                                     >
                                         <motion.div
-                                            style={{ boxShadow: "var(--shadow-elevation-high)" }}
-                                            className={`h-[92%] lg:h-[93%] sm:border-8 border-white relative transition-all ${
+                                            // style={{ boxShadow: "var(--shadow-elevation-high)" }}
+                                            className={`h-[94%] lg:h-[93%] sm:border-8 border-white relative transition-all ${
                                                 clicked ? "scale-[0.975]" : ""
                                             }`}
                                             data-swiper-parallax="100"
@@ -125,7 +125,8 @@ const HeroSlider1 = (props) => {
                                                             console.log("LOADING");
                                                             setLoading(false);
                                                         }}
-                                                        className="max-w-[92%!important] min-w-[92%!important]  sm:max-w-[100%!important] sm:min-w-[100%!important] KNORKE"
+                                                        className="  sm:max-w-[100%!important] sm:min-w-[100%!important] KNORKE"
+                                                        // max-w-[99%!important] min-w-[92%!important]
                                                     />
                                                 </a>
                                             </Link>
