@@ -23,6 +23,7 @@ module.exports = {
             fontFamily: {
                 ...fontFamily,
                 sans: ["Montserrat", "sans-serif"],
+                serif: ["Playfair Display", "serif"],
             },
             colors: {
                 blackText: {

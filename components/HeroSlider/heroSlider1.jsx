@@ -12,8 +12,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-//config
-import sliderConfig from "./slides/config";
+// FUNCTIONS
+import shuffleArray from "../functions/shuffleArray";
 
 // Framer motion
 import { motion, useScroll, useAnimation } from "framer-motion";
@@ -63,7 +63,7 @@ const HeroSlider1 = (props) => {
                 <HiOutlineChevronRight></HiOutlineChevronRight>
             </div>
             <div
-                className={`h-[93%]  sm:h-[90%] lg:h-[95%] container xl:container-xl m-auto relative  ${props.colspan}`}
+                className={`h-[70%]  sm:h-[90%] lg:h-[95%] container xl:container-xl m-auto relative  ${props.colspan}`}
             >
                 <div className="relative h-full" data-aos={props.dataAos}>
                     <Swiper
@@ -73,7 +73,6 @@ const HeroSlider1 = (props) => {
                         slidesPerView={1}
                         parallax
                         centeredSlides
-                        // autoplay
                         keyboard={true}
                         virtual
                         fadeEffect={{ crossFade: true }}
@@ -88,7 +87,7 @@ const HeroSlider1 = (props) => {
                         onSlideChange={() => console.log("slide change")}
                         className={` h-full `}
                     >
-                        {props.data.map((e, i) => {
+                        {shuffleArray(props.data).map((e, i) => {
                             return (
                                 <>
                                     <SwiperSlide
@@ -96,18 +95,15 @@ const HeroSlider1 = (props) => {
                                         layoutId="hero"
                                         transition={{ duration: 0.5 }}
                                         className="bg-cover grid grid-cols-12 bg-no-repeat relative h-full"
-                                        // style={{ backgroundImage: `url(${urlFor(e.image)})` }}
                                     >
                                         <motion.div
                                             // style={{ boxShadow: "var(--shadow-elevation-high)" }}
-                                            className={`h-[94%] lg:h-[93%] sm:border-8 border-white relative transition-all ${
+                                            className={`h-[90%] lg:h-[93%] sm:border-8 border-white relative transition-all ${
                                                 clicked ? "scale-[0.975]" : ""
                                             }`}
                                             data-swiper-parallax="100"
                                             data-swiper-parallax-opacity="0.15"
                                             data-swiper-parallax-scale="0.78"
-
-                                            // import "../styles/globals.css";
                                         >
                                             <Link href={`/galerie/${e.slug.current}`}>
                                                 <a>
@@ -145,7 +141,7 @@ const HeroSlider1 = (props) => {
                             </div> */}
                                         {/* <div className="absolute w-full h-full bg-black top-0 opacity-30"></div> */}
                                         {/* <img src={e.image} alt="" /> */}
-                                        {/* <div
+                                        <div
                                             className="absolute text-center sm:text-left py-3 sm:py-0 bottom-[2.25rem]  sm:bg-transparent sm:bottom-[2rem] lg:bottom-[0rem] pl-8 sm:pl-0 text-primaryColor-200 w-full sm:w-auto sm:text-textBlack sm:left-8 text-xs z-50  lg:block"
                                             data-swiper-parallax-opacity="0.5"
                                             data-swiper-parallax="-600"
@@ -157,19 +153,12 @@ const HeroSlider1 = (props) => {
                                             <p className="sm:hidden block font-semibold z-30 relative">
                                                 {e.year} {e.technik}
                                             </p>
-                                        </div> */}
+                                        </div>
                                     </SwiperSlide>
                                 </>
                             );
                         })}
                     </Swiper>
-                </div>
-                <div className="w-full flex justify-center">
-                    <Link href="/galerie">
-                        <button className="bg-blackText hover-underline-animation font-semibold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] max-w-[12rem]  uppercase rounded-md">
-                            <span className=""> Alle ansehen</span>
-                        </button>
-                    </Link>
                 </div>
 
                 <style jsx>{`
@@ -200,6 +189,17 @@ const HeroSlider1 = (props) => {
                         background-color: #fff !important;
                     }
                 `}</style>
+            </div>
+            <div className=" container text-blackText-500 px-8 mx-auto flex-col items-center justify-center mt-6 mb-4">
+                <h1 className="text-3xl font-semibold tracking-wide font-serif">ATELIER BUCHNER</h1>
+                <p className="text-sm text-center">Atelier für Kunstmalerei, Kurse und viel mehr</p>
+            </div>
+            <div className="w-full flex justify-center">
+                <Link href="/galerie">
+                    <button className="bg-blackText hover-underline-animation font-semibold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] max-w-[12rem]  uppercase rounded-md">
+                        <span className=""> Alle Bilder</span>
+                    </button>
+                </Link>
             </div>
         </>
     );
