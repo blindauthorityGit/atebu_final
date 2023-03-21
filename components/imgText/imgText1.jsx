@@ -62,7 +62,7 @@ const TextImg1 = (props) => {
             <div className="right px-8 sm:px-0 col-span-12 lg:col-span-7 flex flex-col justify-center ">
                 <div
                     data-aos="fade-up"
-                    className="font-montserrat  mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-primaryColor-100 mb-4"
+                    className="font-montserrat  mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-xs sm:text-base lg:text-2xl text-primaryColor-100 mb-4"
                 >
                     {config.topTitle}
                 </div>
@@ -74,7 +74,7 @@ const TextImg1 = (props) => {
                 </div> */}
                 <h2
                     data-aos="fade-left"
-                    className="font-montserrat text-2xl sm:text-4xl text-primaryColor lg:text-6xl font-bold mt-8 tracking-widest mb-8 lg:mb-12"
+                    className="font-serif text-2xl sm:text-4xl text-primaryColor lg:text-6xl font-semibold mt-8 tracking-widest mb-8 lg:mb-12"
                 >
                     {config.title}
                 </h2>

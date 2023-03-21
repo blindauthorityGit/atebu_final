@@ -60,7 +60,7 @@ const Thumbnail1 = (props) => {
                 data-aos={props.dataAos}
                 className={`col-span-12 sm:col-span-4 h-48  sm:h-64 relative mb-12 sm:mb-6 ${props.colspan}`}
             >
-                <div className="date text-primaryColor-300 font-medium text-lg mb-2">{props.date}</div>
+                <div className="date text-primaryColor-300 font-medium text-sm sm:text-lg mb-2">{props.date}</div>
                 <Link href={props.link}>
                     <a className="">
                         {" "}
