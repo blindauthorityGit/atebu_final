@@ -190,7 +190,7 @@ const HeroSlider1 = (props) => {
                     }
                 `}</style>
             </div>
-            <div className="container h-[40%] text-blackText-500 px-8 mx-auto flex-col items-center justify-center ">
+            <div className="container h-[40%] text-blackText-500  mx-auto flex-col items-center justify-center ">
                 <div className="wrapper h-full flex flex-col justify-center py-4">
                     <h1 className="text-3xl text-center font-semibold tracking-wide font-serif mb-2">
                         ATELIER BUCHNER
