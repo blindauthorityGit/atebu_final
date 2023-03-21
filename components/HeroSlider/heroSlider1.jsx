@@ -87,7 +87,7 @@ const HeroSlider1 = (props) => {
                         onSlideChange={() => console.log("slide change")}
                         className={` h-full `}
                     >
-                        {shuffleArray(props.data).map((e, i) => {
+                        {props.data.map((e, i) => {
                             return (
                                 <>
                                     <SwiperSlide
@@ -192,7 +192,7 @@ const HeroSlider1 = (props) => {
             </div>
             <div className="container h-[40%] text-blackText-500 px-8 mx-auto flex-col items-center justify-center ">
                 <div className="wrapper h-full flex flex-col justify-center py-4">
-                    <h1 className="text-2xl text-center font-semibold tracking-wide font-serif mb-2">
+                    <h1 className="text-3xl text-center font-semibold tracking-wide font-serif mb-2">
                         ATELIER BUCHNER
                     </h1>
                     <p className="text-xs text-center">Atelier für Kunstmalerei & Kurse</p>

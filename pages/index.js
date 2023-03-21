@@ -1,18 +1,11 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import styles from "../styles/Home.module.css";
-import MainContainer from "../components/layout/mainContainer";
-import Hero from "../components/Hero/hero";
-import { useNextSanityImage } from "next-sanity-image";
 
 //SANITY
 import client from "../client";
 
 //ASSETS
 import { Stoerer1 } from "../components/stoerer";
-import { menuItems, socialMedia } from "../components/menues/config";
-import Logo from "../assets/logoFin.svg";
 
 // AOS
 import AOS from "aos";
@@ -25,6 +18,9 @@ import { FloaterTop, FloaterContact, FloaterBlackFull } from "../components/floa
 import { ImgText1, ImgText2, ImgText3 } from "../components/imgText";
 import { Thumbnail1 } from "../components/imgThumbnails";
 import { EventSlider1 } from "../components/elementSliders";
+
+// FUNCTIONS
+import shuffleArray from "../components/functions/shuffleArray";
 
 export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog, dataLeistungen }) {
     useEffect(() => {
@@ -87,7 +83,7 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
 
 export const getStaticProps = async (context) => {
     const resBilder = await client.fetch(`*[_type in ["Bild"]]`);
-    const dataBilder = await resBilder;
+    const dataBilder = await shuffleArray(resBilder);
 
     const resLeistungen = await client.fetch(`*[_type in ["leistungen"]]`);
     const dataLeistungen = await resLeistungen;
