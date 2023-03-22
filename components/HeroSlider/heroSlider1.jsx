@@ -12,6 +12,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
+// COMPS
+import { PrintAvailability } from "../floaters";
+
 // FUNCTIONS
 import shuffleArray from "../functions/shuffleArray";
 
@@ -32,6 +35,24 @@ const builder = imageUrlBuilder(myConfiguredSanityClient);
 function urlFor(source) {
     return builder.image(source);
 }
+
+// ANIMATIONS
+
+const containerVariants = {
+    hidden: {
+        opacity: 0,
+        scale: 0.9,
+    },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            delay: 0,
+            duration: 0.5,
+            ease: "easeOut",
+        },
+    },
+};
 
 const HeroSlider1 = (props) => {
     const [loading, setLoading] = useState(true);
@@ -65,6 +86,7 @@ const HeroSlider1 = (props) => {
             <div
                 className={`h-[65%]  sm:h-[90%] lg:h-[95%] container xl:container-xl m-auto relative  ${props.colspan}`}
             >
+                <PrintAvailability />
                 <div className="relative h-full" data-aos={props.dataAos}>
                     <Swiper
                         // install Swiper modules
@@ -190,15 +212,28 @@ const HeroSlider1 = (props) => {
                     }
                 `}</style>
             </div>
-            <div className="container h-[40%] text-blackText-500  mx-auto flex-col items-center justify-center ">
+            <div className="container h-[40%] text-blackText-500 p-4 mx-auto flex-col items-center justify-center ">
                 <div className="wrapper h-full flex flex-col justify-center py-4">
-                    <h1 className="text-3xl text-center font-semibold tracking-wide font-serif mb-2">
-                        ATELIER BUCHNER
-                    </h1>
+                    <motion.div className="text-center" variants={containerVariants} initial="hidden" animate="visible">
+                        <motion.h1
+                            className="text-4xl font-serif font-semibold tracking-wider mb-2"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut", delay: 0 } }}
+                        >
+                            <motion.span
+                                className="text-3xl block"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1, transition: { duration: 0.5, delay: 0 } }}
+                            >
+                                ATELIER
+                            </motion.span>
+                            BUCHNER
+                        </motion.h1>
+                    </motion.div>
                     <p className="text-xs text-center tracking-widest">Atelier für Kunstmalerei & Kurse</p>
                     <div className="w-full flex justify-center mt-4">
                         <Link href="/galerie">
-                            <button className="bg-blackText hover-underline-animation font-semibold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] max-w-[12rem]  uppercase rounded-md">
+                            <button className="bg-blackText hover-underline-animation font-semibold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-xs tracking-wider sm:text-base sm:py-3 px-6 min-w-[12rem] max-w-[12rem]  uppercase rounded-md">
                                 <span className=""> Alle Bilder</span>
                             </button>
                         </Link>
