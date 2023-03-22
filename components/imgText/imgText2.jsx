@@ -43,18 +43,24 @@ const TextImg2 = (props) => {
             <FloaterBlackFull style={{ opacity: scrollYProgress }}></FloaterBlackFull>
 
             <div className="right px-8 sm:px-0 col-span-12 lg:col-span-5 flex flex-col justify-center ">
+                <h2
+                    data-aos="fade-left"
+                    className="font-serif text-2xl sm:text-4xl text-blackText lg:text-6xl font-semibold mt-0 tracking-widest mb-4 lg:mb-12"
+                >
+                    LEISTUNGEN
+                </h2>
                 <div
                     data-aos="fade-up"
                     className="font-montserrat  mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100 mb-4"
                 >
-                    {config.topTitle}
+                    {props.data[0].description}
                 </div>
 
                 {props.children}
                 {/* <div className="text font-serif">{parse(config.text)}</div> */}
                 <Link href={config.buttonLink}>
                     <button className="bg-blackText font-semibold hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] uppercase rounded-md md:mt-16">
-                        <span className="text-primaryColor-200"> LEISTUNGEN</span>
+                        <span className="text-primaryColor-200"> Alle ansehen</span>
                     </button>
                 </Link>
             </div>

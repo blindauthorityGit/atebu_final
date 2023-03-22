@@ -81,7 +81,7 @@ const EventSlider1 = (props) => {
 
     return (
         <div
-            className={`${isLoaded ? "opacity-100" : "opacity-0"} container sm:px-8 sm:px-24 m-auto relative ${
+            className={`${isLoaded ? "opacity-100" : "opacity-0"} container pl-2 sm:px-24 m-auto relative ${
                 props.colspan
             }`}
         >
@@ -170,7 +170,7 @@ const EventSlider1 = (props) => {
                                 onClick={() => {
                                     swiper && swiper.slideNext();
                                 }}
-                                className="font-oswald text-xl font-semibold mb-2"
+                                className="font-oswald text-sm hidden font-semibold mb-2"
                             >
                                 {e.date.split("T")[0].split("-").reverse().join(".")}
                                 {/* {e.date.split("-").reverse().join(".")} */}
@@ -205,7 +205,7 @@ const EventSlider1 = (props) => {
                                     </div>
                                 </div>
                                 <hr />
-                                <p className="mb-6 sm:mb-12 sm:mt-6 text-xs md:text-regular leading-relaxed">
+                                <p className="mb-6 sm:mb-12  sm:mt-6 text-xs md:text-regular leading-relaxed">
                                     <BlogTextShorter blocks={e.body}></BlogTextShorter>
                                 </p>
                             </div>

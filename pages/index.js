@@ -18,6 +18,7 @@ import { FloaterTop, FloaterContact, FloaterBlackFull } from "../components/floa
 import { ImgText1, ImgText2, ImgText3 } from "../components/imgText";
 import { Thumbnail1 } from "../components/imgThumbnails";
 import { EventSlider1 } from "../components/elementSliders";
+import { Vita } from "../components/collapsables";
 
 // FUNCTIONS
 import shuffleArray from "../components/functions/shuffleArray";
@@ -59,14 +60,21 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
                 </ImgText1>
             </ContainerVH100>
             <ContainerVH100 klasse="" showBG center>
-                <ImgText2 images={dataLeistungen[0].images}></ImgText2>
+                <ImgText2 data={dataLeistungen} images={dataLeistungen[0].images}></ImgText2>
             </ContainerVH100>
             <ContainerVH100Children klasse="bg-blackText" showBG center image={dataChristine[0].image}>
                 <ImgText3></ImgText3>
             </ContainerVH100Children>
-            <ContainerVH100 klasse="" showBG center>
-                <FloaterBlackFull></FloaterBlackFull>
+            <Vita text={dataChristine[0].text}></Vita>
 
+            <ContainerVH100 klasse="" showBG>
+                <FloaterBlackFull></FloaterBlackFull>
+                <h2
+                    data-aos="fade-left"
+                    className="font-serif px-8 text-2xl sm:text-4xl text-blackText lg:text-6xl font-semibold mt-0 tracking-widest mb-4 lg:mb-12"
+                >
+                    NEWS
+                </h2>
                 <EventSlider1 data={dataBlog}></EventSlider1>
             </ContainerVH100>
             <div className="h-10"></div>

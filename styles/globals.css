@@ -74,8 +74,9 @@ a {
     list-style-type: disc;
 }
 
-.list-disc > ul > li {
-margin-top: 1rem;}
+.list-disc > ul > li:not(:first-child) {
+    margin-top: 1rem;
+}
 
 .swiper-pagination-bullet-active-main,
 .swiper-pagination-bullet-active {

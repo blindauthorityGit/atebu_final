@@ -1,9 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { config } from "./config";
-import { BiChevronDown } from "react-icons/bi";
 import Image from "next/image";
-import parse from "html-react-parser";
 
 //Framer Motion
 import { motion, useScroll, useAnimation } from "framer-motion";

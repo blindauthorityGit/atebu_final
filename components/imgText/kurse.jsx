@@ -30,7 +30,7 @@ const KurseTxtImg = (props) => {
     }, []);
 
     return (
-        <div ref={ref} className={`col-span-12 mb-8  ${props.colspan}`}>
+        <div ref={ref} className={`col-span-12   ${props.colspan}`}>
             {" "}
             <motion.div
                 style={{ opacity: scrollYProgress }}
@@ -59,11 +59,13 @@ const KurseTxtImg = (props) => {
                     <div className="datum bg-primaryColor-400 py-2 text-center md:text-lg font-bold text-primaryColor-900 absolute w-full md:w-[60%] rounded-md top-[-4rem] md:top-[-5rem]">
                         {props.data.datum}
                     </div>
-                    <h2 className="font-bold uppercase text-xl md:text-3xl mb-2">{props.data.akademieTitel}</h2>
-                    <hr className="border-primaryColor " />
+                    <h2 className="font-bold font-serif tracking-wider uppercase text-xl md:text-3xl mb-2">
+                        {props.data.akademieTitel}
+                    </h2>
+                    <hr className="border-primaryColor mb-4" />
                     <h4 className="mt-2 font-bold">{props.data.thema}</h4>
-                    <h4 className="font-thin leading-normal mt-2">{props.data.headline}</h4>{" "}
-                    <div className="ablaufTop flex mt-4 mb-2 md:mb-4">
+                    <h4 className="font-thin mb-8 leading-normal mt-2">{props.data.headline}</h4>{" "}
+                    <div className="ablaufTop flex mt-4 mb-4 md:mb-4">
                         <div className="left text-xs font-bold w-1/4">Ablauf:</div>
                         <div className="right border-b border-primaryColor w-full "></div>
                     </div>
@@ -77,8 +79,8 @@ const KurseTxtImg = (props) => {
                             </>
                         );
                     })}
-                    <hr className="border-primaryColor md:mt-4" />
-                    <div className="kosten mt-4">
+                    <hr className="border-primaryColor mt-4 md:mt-4" />
+                    <div className="kosten mt-8">
                         <div className="top text-primaryColor">KOSTEN</div>
                         <div className="sum font-bold text-xl md:text-3xl">{props.data.price}*</div>
                         <div className="text-xs text-primaryColor-400 font-thin">

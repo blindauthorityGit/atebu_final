@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y } from "swiper";
@@ -10,15 +9,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
-//config
-import sliderConfig from "./slides/config";
-
-// animations
-import { motion } from "framer-motion";
-
-// icons
-import { BsArrowRightShort } from "react-icons/bs";
 
 //ImageBuilder
 import myConfiguredSanityClient from "../../client";
@@ -45,37 +35,12 @@ const GallerySlider1 = (props) => {
 
     useEffect(() => {
         setisLoaded(true);
-        console.log(swiperRef.current);
         swiperRef.current.style.paddingBottom = "3.75rem!important";
     }, []);
 
     useEffect(() => {
         swiperRef.current.style.paddingBottom = "3.75rem!important";
     }, [swiperRef.current]);
-
-    const textMotion = {
-        rest: {
-            x: -50,
-            opacity: 0,
-
-            transition: {
-                duration: 0.85,
-                type: "tween",
-                ease: "easeIn",
-            },
-        },
-        hover: {
-            // color: "blue",
-            x: 0,
-            opacity: 1,
-
-            transition: {
-                duration: 0.5,
-                type: "tween",
-                ease: "easeOut",
-            },
-        },
-    };
 
     return (
         <>
@@ -96,7 +61,7 @@ const GallerySlider1 = (props) => {
                 <Swiper
                     // install Swiper modules
                     modules={[Pagination, A11y]}
-                    spaceBetween={50}
+                    spaceBetween={25}
                     slidesPerView={4}
                     ref={swiperRef}
                     pagination={{ clickable: true }}
@@ -107,7 +72,7 @@ const GallerySlider1 = (props) => {
                     breakpoints={{
                         // when window width is >= 640px
                         320: {
-                            slidesPerView: 1,
+                            slidesPerView: 1.25,
                         },
                         768: {
                             slidesPerView: 2.2,
@@ -123,7 +88,7 @@ const GallerySlider1 = (props) => {
                     {props.data.map((e, i) => {
                         return (
                             <SwiperSlide key={`galleryKey${i}`} className="">
-                                <div className="cursor-pointer relative overflow-hidden h-64">
+                                <div className="cursor-pointer relative overflow-hidden h-48">
                                     {/* <motion.img
                                         whileHover={{
                                             scale: 1.1,

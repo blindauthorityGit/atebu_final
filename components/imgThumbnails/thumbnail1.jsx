@@ -68,7 +68,7 @@ const Thumbnail1 = (props) => {
                             initial="rest"
                             whileHover="hover"
                             animate="rest"
-                            className="h-full relative block overflow-hidden group"
+                            className="h-full relative block overflow-hidden group "
                         >
                             <Image
                                 // {...ImagePropsGallery(i)}

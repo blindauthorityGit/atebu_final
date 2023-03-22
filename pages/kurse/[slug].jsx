@@ -114,10 +114,10 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 md:pt-16 bg-blackText">
                     <KurseTxtImg image={urlFor(post.image).url()} data={post}></KurseTxtImg>;
                 </ContainerStandard>
-                <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 ">
+                <ContainerStandard klasse="gap-1 sm:gap-2 pt-8 sm:pt-12 ">
                     <div className="col-span-12 px-8">
                         <h2 className="font-bold uppercase text-xl md:text-3xl mb-6">Der Workshop</h2>
-                        <div className="einleitung mb-12 md:mb-12 md:w-3/4">
+                        <div className="einleitung mb-12 text-sm md:mb-12 md:w-3/4">
                             <PortableText value={post.description} />
                         </div>{" "}
                         <GallerySlider1

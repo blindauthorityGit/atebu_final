@@ -16,7 +16,7 @@ const MapboxMap = () => {
             style: "mapbox://styles/mapbox/light-v11",
             center: [16.1807, 47.711769],
             pitch: 45,
-            zoom: 13.5,
+            zoom: 15.5,
             bearing: -17.6,
             antialias: true,
         });
@@ -26,13 +26,6 @@ const MapboxMap = () => {
         })
             .setLngLat([16.1807, 47.711769])
             .addTo(map);
-
-        map.addControl(
-            new mapboxgl.NavigationControl({
-                visualizePitch: true,
-                showZoom: true,
-            })
-        );
 
         map.addControl(
             new mapboxgl.NavigationControl({
