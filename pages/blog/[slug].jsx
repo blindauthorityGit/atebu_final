@@ -10,7 +10,7 @@ import "aos/dist/aos.css";
 
 // COMPONENTS
 import { ContainerStandard } from "../../components/container";
-import { KurseTxtImg } from "../../components/imgText";
+import { BlogTxt } from "../../components/imgText";
 import { KurseInfo, InfoSummary, GoogleMaps } from "../../components/infoBoxes";
 import { GallerySlider1 } from "../../components/elementSliders";
 import ModalMobile from "../../components/modal/modalMobile";
@@ -24,14 +24,13 @@ import MapboxMap from "../../components/map";
 //ImageBuilder
 import urlFor from "../../components/functions/urlFor";
 
-const KursSite = ({ post, dataAll, dataSetting }) => {
+const BlogSite = ({ post, dataAll, dataBlog }) => {
     const [showModal, setShowModal] = useState(false);
 
     const modalRef = useRef();
 
     useEffect(() => {
-        console.log(dataSetting, post, post.imageGallery);
-        console.log(post.imageGallery.map((e) => ({ src: urlFor(e).url() })));
+        console.log(post, dataBlog);
     }, []);
 
     useEffect(() => {
@@ -110,46 +109,15 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                     </>
                 ) : null}
 
-                <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 md:pt-16 bg-blackText">
-                    <KurseTxtImg image={urlFor(post.image).url()} data={post}></KurseTxtImg>;
+                <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 md:pt-16">
+                    <BlogTxt image={urlFor(post.featuredImage).url()} data={post} dataBlog={post}></BlogTxt>;
                 </ContainerStandard>
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-8 sm:pt-12 ">
                     <div className="col-span-12 px-8">
                         <h2 className="font-bold uppercase text-xl md:text-3xl mb-6">Der Workshop</h2>
                         <div className="einleitung mb-12 text-sm md:mb-12 md:w-3/4">
-                            <PortableText value={post.description} />
+                            {/* <PortableText value={post.description} /> */}
                         </div>{" "}
-                        <GallerySlider1
-                            onClick={(e) => {
-                                console.log(Number(e.target.id));
-                            }}
-                            data={post.imageGallery}
-                        ></GallerySlider1>
-                        <KurseInfo
-                            email="christine@atelierbuchner.at"
-                            phone="+43 650 / 944 51 40"
-                            address="Prof. Sepp Buchner-Straße 528"
-                            infoText={dataSetting.kurseInfos}
-                        ></KurseInfo>
-                    </div>
-                </ContainerStandard>
-
-                <MapboxMap></MapboxMap>
-
-                <ContainerStandard klasse="gap-1 sm:gap-2 pt-6  w-full">
-                    <div className="col-span-12 px-8">
-                        <InfoSummary datum={post.datum} address="Galerie Buchner" price={post.price}></InfoSummary>{" "}
-                        <button
-                            onClick={(e) => {
-                                setShowModal(true);
-                                setTimeout(() => {
-                                    modalRef.current.classList.remove("slide-in-bottom");
-                                }, 300);
-                            }}
-                            className="hover-underline-animation  bg-blackText font-bold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 w-full uppercase rounded-md md:mt-10"
-                        >
-                            <span className="text-white"> Buchen</span>
-                        </button>
                     </div>
                 </ContainerStandard>
                 <div className="h-10"></div>
@@ -160,10 +128,10 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
     );
 };
 
-export default KursSite;
+export default BlogSite;
 
 export const getStaticPaths = async () => {
-    const res = await client.fetch(`*[_type in ["akademie"] ]`);
+    const res = await client.fetch(`*[_type in ["blogPost"] ]`);
     const data = await res;
 
     const paths = data.map((e) => {
@@ -180,12 +148,35 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const slug = context.params.slug;
-    const res = await client.fetch(`*[_type == "akademie" && slug.current == "${slug}"] 
-    `);
+    const res = await client.fetch(`*[_type == "blogPost" && slug.current == "${slug}"] {
+    title,
+    slug,
+    body,
+    date,
+    featuredImage,
+    author-> {
+      name,
+      email,
+      bio,
+      "avatarUrl": avatar.asset->url
+    }
+  }`);
     const data = await res;
 
-    const resAll = await client.fetch(`*[_type in ["akademie"] ]`);
-    const dataAll = await resAll;
+    const resBlog = await client.fetch(`*[_type == "blogPost"] {
+        title,
+        slug,
+        body,
+        date,
+        featuredImage,
+        author-> {
+          name,
+          email,
+          bio,
+          "avatarUrl": avatar.asset->url
+        }
+      }`);
+    const dataBlog = await resBlog;
 
     const resSetting = await client.fetch(`*[_type in ["settings"] ]`);
     const dataSetting = await resSetting[0];
@@ -196,8 +187,8 @@ export const getStaticProps = async (context) => {
     return {
         props: {
             post: data[0],
-            dataAll,
             dataSetting,
+            dataBlog,
         },
         revalidate: 1, // 10 seconds
     };

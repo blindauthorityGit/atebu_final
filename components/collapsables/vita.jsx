@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { HiOutlineChevronUp, HiOutlineChevronDown } from "react-icons/hi";
 import { PortableText } from "@portabletext/react";
 
 export default function Vita(props) {
     const [isCollapsed, setIsCollapsed] = useState(true);
+
+    const contentRef = useRef(null);
 
     const toggleCollapse = () => {
         setIsCollapsed(!isCollapsed);

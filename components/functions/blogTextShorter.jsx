@@ -19,7 +19,7 @@ function BlogTextShorter({ blocks }) {
         if (isMobile ? fullText.length <= 120 : fullText.length <= 300) {
             return fullText;
         } else {
-            let shortText = fullText.slice(0, isMobile ? 100 : 248) + "...";
+            let shortText = fullText.slice(0, isMobile ? 90 : 248) + "...";
             let lastSpace = shortText.lastIndexOf(" ");
             return shortText.slice(0, lastSpace) + "...";
         }

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 function InfoSummary(props) {
     return (
-        <div className="bg-primaryColor-100 grid grid-cols-12 p-6 rounded-lg shadow-md">
+        <div className="bg-primaryColor-50 grid grid-cols-12 p-6 rounded-lg ">
             <div className="col-span-12 md:col-span-6">
                 <div className="flex items-center mb-4">
                     <FaRegClock size={24} className="text-primaryColor mr-4" />

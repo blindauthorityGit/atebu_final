@@ -217,8 +217,12 @@ const HeroSlider1 = (props) => {
                     <motion.div className="text-center" variants={containerVariants} initial="hidden" animate="visible">
                         <motion.h1
                             className="text-4xl font-serif font-semibold tracking-wider mb-2"
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut", delay: 0 } }}
+                            initial={{ opacity: 0, scale: 0.85 }}
+                            animate={{
+                                opacity: 1,
+                                scale: 1,
+                                transition: { duration: 0.5, ease: "easeOut", delay: 0.5 },
+                            }}
                         >
                             <motion.span
                                 className="text-3xl block"

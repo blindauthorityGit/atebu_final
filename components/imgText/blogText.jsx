@@ -2,6 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { config } from "./config";
 import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+
+import urlFor from "../functions/urlFor";
 
 //Framer Motion
 import { motion, useScroll, useAnimation } from "framer-motion";
@@ -10,7 +13,7 @@ import { motion, useScroll, useAnimation } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const KurseTxtImg = (props) => {
+const BlogTxt = (props) => {
     const ref = useRef(null);
     const floaterRef = useRef(null);
 
@@ -26,16 +29,16 @@ const KurseTxtImg = (props) => {
         AOS.init({
             duration: 1200,
         });
-        console.log(props.images);
+        console.log(props.dataBlog);
     }, []);
 
     return (
-        <div ref={ref} className={`col-span-12   ${props.colspan}`}>
+        <div ref={ref} className={`col-span-12 grid grid-cols-12  ${props.colspan}`}>
             {" "}
             <motion.div
                 style={{ opacity: scrollYProgress }}
                 data-aos="fade-right"
-                className={`left h-64 sm:h-auto md:h-[20rem] sm:block mb-8 lg:mb-0 col-span-12 order-first lg:order-last lg:col-span-7 relative   lg:h-auto ${props.order}`}
+                className={`left h-64 sm:h-auto md:h-[20rem]  sm:block mb-8 lg:mb-0 col-span-12 order-first lg:order-last lg:col-span-7 relative   lg:h-auto ${props.order}`}
             >
                 <Image
                     // {...ImagePropsGallery(i)}
@@ -51,41 +54,29 @@ const KurseTxtImg = (props) => {
                     className="bgOverlay absolute md:hidden bg-primaryColor opacity-20 w-full h-full md:left-[1.85rem] lg:left-[-2rem] top-[-2rem]"
                 ></div>
             </motion.div>
-            <div className="right px-8 sm:px-0 md:px-12 col-span-12 lg:col-span-5 flex flex-col justify-center ">
+            <div className="right col-span-12 sm:col-span-8 px-8 sm:px-0 md:px-12  lg:col-span-5 flex flex-col justify-center ">
                 <div
                     data-aos="fade-up"
-                    className="font-montserrat md:max-w-[80%]  text-primaryColor-200 mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100 mb-4"
+                    className="font-montserrat  text-blackText mt-4 lg:mt-0  tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100 mb-4"
                 >
                     <div className="datum bg-primaryColor-400 py-2 text-center md:text-lg font-bold text-primaryColor-900 absolute w-full md:w-[60%] rounded-md top-[-4rem] md:top-[-5rem]">
-                        {props.data.datum}
+                        {props.data.date}
                     </div>
-                    <h2 className="font-bold font-serif tracking-wider uppercase text-xl md:text-3xl mb-2">
-                        {props.data.akademieTitel}
+                    <h2 className="font-bold font-serif tracking-wider uppercase text-xl md:text-3xl mb-6">
+                        {props.data.title}
                     </h2>
-                    <hr className="border-primaryColor mb-4" />
-                    <h4 className="mt-2 font-bold">{props.data.thema}</h4>
-                    <h4 className="font-thin mb-8 leading-normal mt-2">{props.data.headline}</h4>{" "}
-                    <div className="ablaufTop flex mt-4 mb-4 md:mb-4">
-                        <div className="left text-xs font-bold w-1/4">Ablauf:</div>
-                        <div className="right border-b border-primaryColor w-full "></div>
-                    </div>
-                    {props.data.ablauf.map((e, i) => {
-                        return (
-                            <>
-                                <div className="ablaufTop flex text-xs font-thin mb-2 md:mb-3">
-                                    <div className="left text-xs font-bold w-1/4">{e.TAG}</div>
-                                    <div className="right  w-full pl-4">{e.Beschreibung}</div>
-                                </div>
-                            </>
-                        );
-                    })}
-                    <hr className="border-primaryColor mt-4 md:mt-4" />
-                    <div className="kosten mt-8">
-                        <div className="top text-primaryColor">KOSTEN</div>
-                        <div className="sum font-bold text-xl md:text-3xl">{props.data.price}*</div>
-                        <div className="text-xs text-primaryColor-400 font-thin">
-                            *Preis exkl. Mittagsessen und Material
+                    <div className="author w-full hidden sm:block md:w-2/4">
+                        <div className="avatar items-center flex md:justify-end w-full">
+                            <img
+                                src={urlFor(props.dataBlog.author.avatarUrl)}
+                                className="rounded-full h-8 w-8 md:h-12 md:w-12"
+                                alt=""
+                            />
+                            <div className="name pl-2 text-xs">{props.dataBlog.author.name}</div>
                         </div>
+                    </div>
+                    <div className="text-sm leading-relaxed">
+                        <PortableText value={props.data.body} />
                     </div>
                 </div>
 
@@ -138,4 +129,4 @@ const KurseTxtImg = (props) => {
     );
 };
 
-export default KurseTxtImg;
+export default BlogTxt;

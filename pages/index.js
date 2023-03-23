@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 
 //SANITY
 import client from "../client";
@@ -18,7 +19,11 @@ import { FloaterTop, FloaterContact, FloaterBlackFull } from "../components/floa
 import { ImgText1, ImgText2, ImgText3 } from "../components/imgText";
 import { Thumbnail1 } from "../components/imgThumbnails";
 import { EventSlider1 } from "../components/elementSliders";
-import { Vita } from "../components/collapsables";
+import { BlogGrid1 } from "../components/elementGrid";
+// import { Vita } from "../components/collapsables";
+const Vita = dynamic(() => import("../components/collapsables/vita"), {
+    ssr: false,
+});
 
 // FUNCTIONS
 import shuffleArray from "../components/functions/shuffleArray";
@@ -75,7 +80,7 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
                 >
                     NEWS
                 </h2>
-                <EventSlider1 data={dataBlog}></EventSlider1>
+                <BlogGrid1 data={dataBlog}></BlogGrid1>
             </ContainerVH100>
             <div className="h-10"></div>
             <Stoerer1></Stoerer1>
