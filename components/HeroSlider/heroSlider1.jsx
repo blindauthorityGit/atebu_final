@@ -216,7 +216,7 @@ const HeroSlider1 = (props) => {
                 <div className="wrapper h-full flex flex-col justify-center py-4">
                     <motion.div className="text-center" variants={containerVariants} initial="hidden" animate="visible">
                         <motion.h1
-                            className="text-4xl font-serif font-semibold tracking-wider mb-2"
+                            className="text-4xl font-serif tracking-wider mb-2"
                             initial={{ opacity: 0, scale: 0.85 }}
                             animate={{
                                 opacity: 1,
@@ -225,7 +225,7 @@ const HeroSlider1 = (props) => {
                             }}
                         >
                             <motion.span
-                                className="text-3xl block"
+                                className="text-xl block"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1, transition: { duration: 0.5, delay: 0 } }}
                             >

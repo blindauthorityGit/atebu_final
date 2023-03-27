@@ -18,6 +18,7 @@ import Overlay from "../../components/modal/overlay";
 import { Stoerer1 } from "../../components/stoerer";
 import { Buchen } from "../../components/modalContent";
 import MapboxMap from "../../components/map";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 // LIGHTBOX
 

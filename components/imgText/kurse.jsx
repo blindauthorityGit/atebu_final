@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { config } from "./config";
 import Image from "next/image";
+import Breadcrumbs from "../Breadcrumbs";
 
 //Framer Motion
 import { motion, useScroll, useAnimation } from "framer-motion";
@@ -21,6 +22,23 @@ const KurseTxtImg = (props) => {
         target: ref,
         offset: ["start end", "end end"],
     });
+
+    // BREADCRUMBS
+    const [linkList, setLinkList] = useState([
+        {
+            title: "Home",
+            link: "/",
+        },
+        {
+            title: "Kurse",
+            link: "/kurse",
+        },
+    ]);
+
+    useEffect(() => {
+        setLinkList((prev) => [...prev, { title: props.data.akademieTitel, link: props.data.slug.current }]);
+        // setUrl(window.location.href);
+    }, []);
 
     useEffect(() => {
         AOS.init({
@@ -71,12 +89,12 @@ const KurseTxtImg = (props) => {
                     </div>
                     {props.data.ablauf.map((e, i) => {
                         return (
-                            <>
-                                <div className="ablaufTop flex text-xs font-thin mb-2 md:mb-3">
+                            <div key={`kurskey${i}`}>
+                                <div key={`kurskey${i}`} className="ablaufTop flex text-xs font-thin mb-2 md:mb-3">
                                     <div className="left text-xs font-bold w-1/4">{e.TAG}</div>
                                     <div className="right  w-full pl-4">{e.Beschreibung}</div>
                                 </div>
-                            </>
+                            </div>
                         );
                     })}
                     <hr className="border-primaryColor mt-4 md:mt-4" />

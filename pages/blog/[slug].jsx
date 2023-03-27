@@ -11,13 +11,11 @@ import "aos/dist/aos.css";
 // COMPONENTS
 import { ContainerStandard } from "../../components/container";
 import { BlogTxt } from "../../components/imgText";
-import { KurseInfo, InfoSummary, GoogleMaps } from "../../components/infoBoxes";
-import { GallerySlider1 } from "../../components/elementSliders";
 import ModalMobile from "../../components/modal/modalMobile";
 import Overlay from "../../components/modal/overlay";
 import { Stoerer1 } from "../../components/stoerer";
 import { Buchen } from "../../components/modalContent";
-import MapboxMap from "../../components/map";
+import { EventSlider1 } from "../../components/elementSliders";
 
 // LIGHTBOX
 
@@ -30,14 +28,27 @@ const BlogSite = ({ post, dataAll, dataBlog }) => {
     const modalRef = useRef();
 
     useEffect(() => {
-        console.log(post, dataBlog);
-    }, []);
-
-    useEffect(() => {
         AOS.init({
             duration: 800,
         });
     }, [dataAll, post]);
+
+    // BREADCRUMBS
+    const [linkList, setLinkList] = useState([
+        {
+            title: "Home",
+            link: "/",
+        },
+        {
+            title: "Blog",
+            link: "/blog",
+        },
+    ]);
+
+    useEffect(() => {
+        setLinkList((prev) => [...prev, { title: post.title, link: post.slug.current }]);
+        // setUrl(window.location.href);
+    }, []);
 
     return (
         <>
@@ -113,12 +124,15 @@ const BlogSite = ({ post, dataAll, dataBlog }) => {
                     <BlogTxt image={urlFor(post.featuredImage).url()} data={post} dataBlog={post}></BlogTxt>;
                 </ContainerStandard>
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-8 sm:pt-12 ">
-                    <div className="col-span-12 px-8">
-                        <h2 className="font-bold uppercase text-xl md:text-3xl mb-6">Der Workshop</h2>
-                        <div className="einleitung mb-12 text-sm md:mb-12 md:w-3/4">
-                            {/* <PortableText value={post.description} /> */}
-                        </div>{" "}
-                    </div>
+                    <h2 className="font-serif col-span-12 px-8 text-xl sm:text-4xl text-blackText lg:text-6xl font-semibold mt-0 tracking-widest mb-4 lg:mb-12">
+                        WEITERE BEITRÄGE:
+                    </h2>
+                    <EventSlider1
+                        colspan={"col-span-12"}
+                        data={dataBlog.filter((e) => {
+                            return e.slug.current !== post.slug.current;
+                        })}
+                    ></EventSlider1>
                 </ContainerStandard>
                 <div className="h-10"></div>
                 <Stoerer1></Stoerer1>

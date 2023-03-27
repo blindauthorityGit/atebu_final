@@ -175,7 +175,7 @@ const EventSlider1 = (props) => {
                                 {e.date.split("T")[0].split("-").reverse().join(".")}
                                 {/* {e.date.split("-").reverse().join(".")} */}
                             </h3>
-                            <Link href={`/events/${e.slug.current}`}>
+                            <Link href={`/blog/${e.slug.current}`}>
                                 <div className="cursor-pointer relative overflow-hidden h-[10rem]">
                                     <motion.img
                                         whileHover={{
@@ -190,9 +190,11 @@ const EventSlider1 = (props) => {
                             </Link>
                             <div className=" sm:text-left mt-4 ">
                                 <div className="md:flex mb-4">
-                                    <h2 className="font-oswald w-full md:w-2/4 font-semibold text-xl mt-3">
-                                        {e.title}
-                                    </h2>
+                                    <Link href={`/blog/${e.slug.current}`}>
+                                        <h2 className="font-oswald w-full md:w-2/4 font-semibold text-xl mt-3">
+                                            {e.title}
+                                        </h2>
+                                    </Link>
                                     <div className="author w-full hidden sm:block md:w-2/4">
                                         <div className="avatar items-center flex md:justify-end w-full">
                                             <img
@@ -209,7 +211,7 @@ const EventSlider1 = (props) => {
                                     <BlogTextShorter blocks={e.body}></BlogTextShorter>
                                 </p>
                             </div>
-                            <Link href={`/events/${e.slug.current}`}>
+                            <Link href={`/blog/${e.slug.current}`}>
                                 <button className="bg-blackText font-semibold hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-2 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-16">
                                     <span className="text-primaryColor-200"> Mehr</span>
                                 </button>

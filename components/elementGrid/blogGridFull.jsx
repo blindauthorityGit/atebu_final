@@ -26,16 +26,8 @@ function urlFor(source) {
     return builder.image(source);
 }
 
-const BlogGrid1 = (props) => {
+const BlogGridFull = (props) => {
     const [isLoaded, setisLoaded] = useState(false);
-
-    const [numEntriesDisplayed, setNumEntriesDisplayed] = useState(3);
-
-    const displayedEntries = props.data.slice(0, numEntriesDisplayed);
-
-    const handleShowMore = () => {
-        setNumEntriesDisplayed(numEntriesDisplayed + 3);
-    };
 
     useEffect(() => {
         setisLoaded(true);
@@ -72,7 +64,7 @@ const BlogGrid1 = (props) => {
             } container px-8 sm:px-12 lg:px-24 m-auto relative sm:mt-12 sm:mb-6 ${props.colspan}`}
         >
             <div className="grid grid-cols-12 sm:gap-12 ">
-                {displayedEntries.map((e, i) => {
+                {props.data.map((e, i) => {
                     return (
                         <>
                             <div
@@ -119,24 +111,7 @@ const BlogGrid1 = (props) => {
                     );
                 })}
             </div>
-            {numEntriesDisplayed < props.data.length && (
-                <div className="col-span-12 flex justify-center">
-                    <button
-                        onClick={handleShowMore}
-                        className="bg-blackText font-semibold hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] uppercase rounded-md md:mt-16"
-                    >
-                        <span className="text-primaryColor-200"> Mehr zeigen</span>
-                    </button>
-                </div>
-            )}
-            <div className={`mehr flex justify-center mt-4 ${props.alle ? "" : "hidden"}`}>
-                <Link href="/blog">
-                    <a className="font-oswald text-bold hover-underline-animation">
-                        {" "}
-                        <span>alle anzeigen</span>{" "}
-                    </a>
-                </Link>
-            </div>
+
             <style jsx>{`
                 .hover-underline-animation {
                     transition: all ease-in-out 250ms;
@@ -174,4 +149,4 @@ const BlogGrid1 = (props) => {
     );
 };
 
-export default BlogGrid1;
+export default BlogGridFull;
