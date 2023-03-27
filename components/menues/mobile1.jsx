@@ -87,10 +87,10 @@ const Mobile1 = (props) => {
                 className={`navbar slide-in-right ${props.klasse} 
                 w-[90%] right-0 h-screen bg-primaryColor-100 fixed z-50 top-0 `}
             >
-                <div onClick={props.onClick} className="closer absolute  rounded-full p-1 right-6 top-3">
+                <div onClick={props.onClick} className="closer absolute text-xl rounded-full p-1 right-4 top-3">
                     <GrClose className=""></GrClose>
                 </div>
-                <div className="container h-screen py-3 px-12 font-europa tracking-wider">
+                <div className="container h-screen py-3 px-8 font-europa tracking-widest">
                     <div className="middle flex justify-start">
                         <Link href="/">
                             <a>
@@ -98,15 +98,19 @@ const Mobile1 = (props) => {
                             </a>
                         </Link>
                     </div>
-                    <div className="MenuItems text-sm sm:text-4xl pt-4 font-oswald ">
+                    <div className="MenuItems text-lg sm:text-4xl pt-4 font-sans">
+                        <Link href="./besuch">
+                            <a className="text-text block my-3 subNav relative mt-4 hover:text-primaryColor cursor-pointer">
+                                Galerie
+                            </a>
+                        </Link>
                         <motion.ul variants={boxMotion} className="">
                             <motion.li variants={textMotion} className="mb-4">
                                 <div className="wrap dropdown text-primaryColor-900  ">
                                     <a className="text-text block my-3 subNav relative hover:text-primaryColor cursor-pointer">
                                         Kurse{" "}
                                     </a>
-                                    <hr />
-                                    <ul className="pl-8 mt-4 mb-4 text-primaryColor-900">
+                                    {/* <ul className="pl-8 mt-4 mb-4 text-primaryColor-900">
                                         <Link href="/about">
                                             <li className="mb-3">Winterakademie</li>
                                         </Link>
@@ -122,18 +126,17 @@ const Mobile1 = (props) => {
                                         <Link href="/kontakt">
                                             <li className="mb-3">Herbstakadmie</li>
                                         </Link>
-                                    </ul>
-                                    <hr />
-                                    <Link href="./besuch">
-                                        <a className="text-text block my-3 subNav relative mt-4 hover:text-primaryColor cursor-pointer">
-                                            Galerie
-                                        </a>
-                                    </Link>
+                                    </ul> */}
                                 </div>
                             </motion.li>
+                            <Link href="./leistungen">
+                                <a className="text-text block my-3 subNav relative mt-4 hover:text-primaryColor cursor-pointer">
+                                    Leistungen
+                                </a>
+                            </Link>
                             <li className="mr-8 hover:text-primaryColor hover:underline mb-4 text-primaryColor-900">
-                                <Link href="/events">
-                                    <a>News</a>
+                                <Link href="/blog">
+                                    <a>Blog</a>
                                 </Link>
                             </li>
                             <li className="text-primaryColor-900">

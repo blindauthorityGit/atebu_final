@@ -25,7 +25,6 @@ import urlFor from "../../components/functions/urlFor";
 
 export default function Blog({ dataBilder, dataAkademie, dataChristine, dataBlog }) {
     useEffect(() => {
-        console.log(dataBilder, dataAkademie, dataChristine, dataBlog);
         AOS.init({
             duration: 1200,
         });
@@ -37,10 +36,7 @@ export default function Blog({ dataBilder, dataAkademie, dataChristine, dataBlog
             </Head>
             <ContainerStandard klasse="gap-1 lg:gap-2 pt-20 md:px-12 ">
                 <div className="col-span-12">
-                    <h2
-                        data-aos="fade-left"
-                        className="font-serif px-8 text-2xl sm:text-4xl text-blackText lg:text-6xl font-semibold mt-0 tracking-widest mb-4 lg:mb-12"
-                    >
+                    <h2 className="font-serif px-8 text-2xl sm:text-4xl text-blackText lg:text-6xl font-semibold mt-0 tracking-widest mb-4 lg:mb-12">
                         NEWS
                     </h2>
                     <BlogGridFull data={dataBlog}></BlogGridFull>
