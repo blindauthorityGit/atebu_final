@@ -188,7 +188,7 @@ export default function Detail({
                     <p className="font-semibold text-sm md:text-lg">{post.year}</p>
                     <p className="font-regular text-sm md:text-lg mt-2 md:mt-4">{post.description}</p>
                     <p className="font-regular text-sm md:text-lg mt-2">{post.technik}</p>
-                    <div className="mt-8">
+                    <div className="mt-6">
                         <CheckboxContainer1
                             onCheckboxClick={(e) => {
                                 e.target.value === "original" ? setOriginal(true) : setOriginal(false);
@@ -197,7 +197,7 @@ export default function Detail({
                             }}
                         ></CheckboxContainer1>
                         {original ? (
-                            <div className="details text-xs md:text-sm mt-8">
+                            <div className="details text-xs md:text-sm mt-6">
                                 <hr />
                                 <div className="flex py-2">
                                     <div className="left w-1/3 font-semibold">Dimensionen</div>
@@ -221,7 +221,7 @@ export default function Detail({
                                 </div>
                             </div>
                         ) : (
-                            <div className="details text-xs md:text-base mt-8">
+                            <div className="details text-xs md:text-base mt-6">
                                 <hr />
                                 <div className="flex py-2">
                                     <div className="left w-1/3 font-semibold">Dimensionen</div>
@@ -265,7 +265,7 @@ export default function Detail({
                             </div>
                         )}
                     </div>
-                    <div className="preis mt-8">
+                    <div className="preis mt-6">
                         <div className="original text-xs md:text-base text-primaryColor-700">
                             {" "}
                             {original ? "ORIGINAL" : "PRINT"}

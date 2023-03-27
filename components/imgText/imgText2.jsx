@@ -58,7 +58,7 @@ const TextImg2 = (props) => {
 
                 {props.children}
                 {/* <div className="text font-serif">{parse(config.text)}</div> */}
-                <Link href={config.buttonLink}>
+                <Link href={"/leistungen"}>
                     <button className="bg-blackText font-semibold hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] uppercase rounded-md md:mt-16">
                         <span className="text-primaryColor-200"> Alle ansehen</span>
                     </button>

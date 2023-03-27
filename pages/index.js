@@ -78,7 +78,7 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
                     data-aos="fade-left"
                     className="font-serif px-8 text-2xl sm:text-4xl text-blackText lg:text-6xl font-semibold mt-0 tracking-widest mb-4 lg:mb-12"
                 >
-                    NEWS
+                    BLOG
                 </h2>
                 <BlogGrid1 data={dataBlog}></BlogGrid1>
             </ContainerVH100>

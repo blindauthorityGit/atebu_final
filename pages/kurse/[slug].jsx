@@ -190,9 +190,6 @@ export const getStaticProps = async (context) => {
 
     const resSetting = await client.fetch(`*[_type in ["settings"] ]`);
     const dataSetting = await resSetting[0];
-    // const dataAll = await resAll.sort((a, b) =>
-    //     a._createdAt < b._createdAt ? -1 : a._createdAt > b._createdAt ? 1 : 0
-    // );
 
     return {
         props: {

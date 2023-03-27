@@ -99,7 +99,7 @@ const Mobile1 = (props) => {
                         </Link>
                     </div>
                     <div className="MenuItems text-lg sm:text-4xl pt-4 font-sans">
-                        <Link href="./besuch">
+                        <Link href="/galerie">
                             <a className="text-text block my-3 subNav relative mt-4 hover:text-primaryColor cursor-pointer">
                                 Galerie
                             </a>
@@ -107,9 +107,12 @@ const Mobile1 = (props) => {
                         <motion.ul variants={boxMotion} className="">
                             <motion.li variants={textMotion} className="mb-4">
                                 <div className="wrap dropdown text-primaryColor-900  ">
-                                    <a className="text-text block my-3 subNav relative hover:text-primaryColor cursor-pointer">
-                                        Kurse{" "}
-                                    </a>
+                                    <Link href="/kurse">
+                                        <a className="text-text block my-3 subNav relative hover:text-primaryColor cursor-pointer">
+                                            Kurse
+                                        </a>
+                                    </Link>
+
                                     {/* <ul className="pl-8 mt-4 mb-4 text-primaryColor-900">
                                         <Link href="/about">
                                             <li className="mb-3">Winterakademie</li>
@@ -129,7 +132,7 @@ const Mobile1 = (props) => {
                                     </ul> */}
                                 </div>
                             </motion.li>
-                            <Link href="./leistungen">
+                            <Link href="/leistungen">
                                 <a className="text-text block my-3 subNav relative mt-4 hover:text-primaryColor cursor-pointer">
                                     Leistungen
                                 </a>
