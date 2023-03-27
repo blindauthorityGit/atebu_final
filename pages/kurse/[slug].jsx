@@ -135,7 +135,7 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                     </div>
                 </ContainerStandard>
 
-                <MapboxMap></MapboxMap>
+                {/* <MapboxMap></MapboxMap> */}
 
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-6  w-full">
                     <div className="col-span-12 px-8">
