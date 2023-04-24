@@ -23,7 +23,7 @@ module.exports = {
             fontFamily: {
                 ...fontFamily,
                 sans: ["Montserrat", "sans-serif"],
-                serif: ["Montserrat", "sans-serif"],
+                serif: ["freight-display-pro", "serif"],
             },
             colors: {
                 blackText: {
@@ -56,6 +56,7 @@ module.exports = {
                 lightPrimary: "#E6E4DD",
                 greenColor: "#6DC593",
                 redColor: "#FB5012",
+                brightBG: "#EFEDEA",
             },
             height: {
                 "calc-70px": "calc(100% - 70px)",

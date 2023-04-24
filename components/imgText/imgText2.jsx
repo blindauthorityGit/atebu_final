@@ -15,6 +15,8 @@ import "aos/dist/aos.css";
 //components
 import { FloaterBlackFull } from "../floaters";
 import { ImageGrid1 } from "../imageGrids";
+import { GhostButton } from "../buttons";
+import { MobileSwiper1 } from "../swiper";
 
 const TextImg2 = (props) => {
     const ref = useRef(null);
@@ -32,7 +34,7 @@ const TextImg2 = (props) => {
         AOS.init({
             duration: 1200,
         });
-        console.log(props.images);
+        console.log(props.data[0].leistungen);
     }, []);
 
     return (
@@ -45,26 +47,22 @@ const TextImg2 = (props) => {
             <div className="right px-8 sm:px-0 col-span-12 lg:col-span-5 flex flex-col justify-center ">
                 <h2
                     data-aos="fade-left"
-                    className="font-serif text-2xl sm:text-4xl text-blackText lg:text-6xl font-semibold mt-0 tracking-widest mb-4 lg:mb-12"
+                    className="font-serif text-4xl sm:text-4xl text-darkText lg:text-6xl font-thin mt-8 tracking-wider mb-2 lg:mb-12"
                 >
                     LEISTUNGEN
                 </h2>
                 <div
                     data-aos="fade-up"
-                    className="font-montserrat  mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100 mb-4"
+                    className="font-montserrat  mt-4 lg:mt-0  tracking-wide leading-relaxed sm:leading-relaxed lg:leading-relaxed text-sm sm:text-sm lg:text-2xl text-darkText mb-4"
                 >
                     {props.data[0].description}
                 </div>
 
-                {props.children}
+                <MobileSwiper1 data={props.data[0].leistungen}></MobileSwiper1>
                 {/* <div className="text font-serif">{parse(config.text)}</div> */}
-                <Link href={"/leistungen"}>
-                    <button className="bg-blackText font-semibold hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] uppercase rounded-md md:mt-16">
-                        <span className="text-primaryColor-200"> Alle ansehen</span>
-                    </button>
-                </Link>
+                <GhostButton link={"/leistungen"}>mehr</GhostButton>
             </div>
-            <motion.div
+            {/* <motion.div
                 style={{ opacity: scrollYProgress }}
                 data-aos="fade-right"
                 className={`left h-64 sm:h-auto sm:block mb-8 lg:mb-0 col-span-12 order-first lg:order-last lg:col-span-7 relative   lg:h-auto ${props.order}`}
@@ -74,7 +72,7 @@ const TextImg2 = (props) => {
                     style={{ left: scrollYProgress }}
                     className="bgOverlay absolute bg-primaryColor opacity-20 w-full h-full md:left-[1.85rem] lg:left-[-2rem] top-[-2rem]"
                 ></div>
-            </motion.div>
+            </motion.div> */}
             <style jsx>{`
                 .hover-underline-animation span {
                     display: inline-block;

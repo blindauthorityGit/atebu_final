@@ -77,7 +77,8 @@ const KurseTxtImg = (props) => {
                     <div className="datum bg-primaryColor-400 py-2 text-center md:text-lg font-bold text-primaryColor-900 absolute w-full md:w-[60%] rounded-md top-[-4rem] md:top-[-5rem]">
                         {props.data.datum}
                     </div>
-                    <h2 className="font-bold font-serif tracking-wider uppercase text-xl md:text-3xl mb-2">
+                    {props.breadcrumbs ? <Breadcrumbs links={linkList} /> : null}
+                    <h2 className="font-bold mt-4 font-serif tracking-wider uppercase text-xl md:text-3xl mb-2">
                         {props.data.akademieTitel}
                     </h2>
                     <hr className="border-primaryColor mb-4" />

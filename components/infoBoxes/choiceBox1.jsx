@@ -30,25 +30,28 @@ const ChoiceBox1 = (props) => {
                         className="z-10"
                     />
                 </div>
-                <div className="choiceBtns col-span-12 flex mt-2">
+                <div className="choiceBtns col-span-12 flex p-2 bg-primaryColor-200 text-sm">
                     {props.data.leistungElementFull.map((e, i) => {
                         const isActive = textIndex === i;
 
                         return (
-                            <div
-                                className={`button mr-8  ${
-                                    isActive ? "active underline font-bold" : "font-semibold opacity-40"
-                                }`}
-                                onClick={() => handleClick(i)}
-                            >
-                                {e.title}
-                            </div>
+                            <>
+                                <div
+                                    className={`button mr-8  ${
+                                        isActive ? "active underline font-bold" : "font-semibold opacity-40"
+                                    }`}
+                                    onClick={() => handleClick(i)}
+                                >
+                                    {e.title}
+                                </div>
+                            </>
                         );
                     })}
                 </div>
                 <div className="text-sm leading-relaxed col-span-12 mt-6">
                     <PortableText value={props.data.leistungElementFull[textIndex].richText} />
                 </div>
+                <hr className="col-span-12 mt-4  bg-primaryColor-600" />
             </div>
         </div>
     );

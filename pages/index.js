@@ -17,7 +17,7 @@ import { ContainerVH100, ContainerVH100Children, ContainerVH100Children2 } from 
 import { HeroSlider1 } from "../components/HeroSlider";
 import { FloaterTop, FloaterContact, FloaterBlackFull } from "../components/floaters";
 import { ImgText1, ImgText2, ImgText3 } from "../components/imgText";
-import { Thumbnail1 } from "../components/imgThumbnails";
+import { Thumbnail2 } from "../components/imgThumbnails";
 import { EventSlider1 } from "../components/elementSliders";
 import { BlogGrid1 } from "../components/elementGrid";
 // import { Vita } from "../components/collapsables";
@@ -46,19 +46,20 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
                 <FloaterTop></FloaterTop>
                 <FloaterContact></FloaterContact>
             </ContainerVH100>
-            <ContainerVH100 klasse="bg-blackText" showBG center>
+            <ContainerVH100 klasse="bg-brightBG" showBG center>
                 <ImgText1 link="/kurse">
                     <div className="grid grid-cols-12 gap-1 sm:gap-4 h-full">
                         {dataAkademie.map((e, i) => {
                             console.log(e.slug.current);
                             return (
-                                <Thumbnail1
+                                <Thumbnail2
                                     dataAos="fade-in-color grayscale"
                                     motto={e.thema}
                                     link={`/kurse/${e.slug.current}`}
                                     date={e.datum}
                                     image={e.image}
-                                ></Thumbnail1>
+                                    titel={e.akademieTitel}
+                                ></Thumbnail2>
                             );
                         })}
                     </div>

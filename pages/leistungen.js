@@ -31,8 +31,13 @@ export default function Leistungen({ dataLeistungen }) {
 
             <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 ">
                 <div className="px-8 col-span-12">
-                    <h2 className="font-bold mt-10 font-serif tracking-wider text-3xl md:text-3xl mb-4">LEISTUNGEN</h2>
+                    <h2 className=" mt-10 font-serif tracking-wider text-3xl md:text-3xl mb-4">LEISTUNGEN</h2>
                 </div>
+                <p className="col-span-12 px-8 mb-8">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis, maxime! Dolores molestiae eaque
+                    optio quia voluptas expedita voluptates deserunt. Nisi amet consequuntur officiis, similique labore
+                    facilis totam odio esse provident!
+                </p>
                 {/* <div className="col-span-12 bg-primaryColor-200 py-4 px-8 ">
                     <div className="elem mr-4">Freie Arbeiten | Malerei - Zeichnungen</div>
                     <div className="elem mr-4">Auftragsarbeiten</div>

@@ -12,6 +12,7 @@ import "aos/dist/aos.css";
 
 //components
 import { FloaterBlackFull } from "../floaters";
+import { GhostButton } from "../buttons";
 
 const TextImg1 = (props) => {
     const ref = useRef(null);
@@ -35,7 +36,7 @@ const TextImg1 = (props) => {
     return (
         <div
             ref={ref}
-            className={`w-full container  sm:px-0 md:px-12 lg:px-0 m-auto lg:gap-24 grid grid-cols-12  ${props.colspan}`}
+            className={`w-full container  sm:px-0 md:px-24 lg:px-0 m-auto lg:gap-24 grid grid-cols-12  ${props.colspan}`}
         >
             <FloaterBlackFull style={{ opacity: scrollYProgress }}></FloaterBlackFull>
             <motion.div
@@ -58,12 +59,6 @@ const TextImg1 = (props) => {
                 ></div>
             </motion.div>
             <div className="right px-8 sm:px-0 col-span-12 lg:col-span-7 flex flex-col justify-center ">
-                <div
-                    data-aos="fade-up"
-                    className="font-montserrat  mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-xs sm:text-base lg:text-2xl text-primaryColor-100 mb-4"
-                >
-                    {config.topTitle}
-                </div>
                 {/* <div
                     data-aos="fade-up"
                     className="font-montserrat  mt-4 lg:mt-0 font-base tracking-wide leading-loose lg:leading-relaxed text-xs lg:text-sm text-primaryColor-300 mb-4"
@@ -72,17 +67,20 @@ const TextImg1 = (props) => {
                 </div> */}
                 <h2
                     data-aos="fade-left"
-                    className="font-serif text-2xl sm:text-4xl text-primaryColor lg:text-6xl font-semibold mt-8 tracking-widest mb-8 lg:mb-12"
+                    className="font-serif text-4xl sm:text-4xl text-darkText lg:text-6xl font-thin mt-8 tracking-wider mb-2 lg:mb-12"
                 >
                     {config.title}
                 </h2>
+                <div
+                    data-aos="fade-right"
+                    className="font-montserrat  mt-4 lg:mt-0  tracking-wide leading-relaxed sm:leading-relaxed lg:leading-relaxed text-sm sm:text-sm lg:text-2xl text-darkText mb-4"
+                >
+                    {config.topTitle}
+                </div>
                 {props.children}
                 {/* <div className="text font-serif">{parse(config.text)}</div> */}
-                <Link href={props.link}>
-                    <button className="bg-primaryColor font-semibold hover-underline-animation z-20 flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-16">
-                        <span className=""> {config.buttonText}</span>
-                    </button>
-                </Link>
+
+                <GhostButton link={props.link}>mehr</GhostButton>
             </div>
             <style jsx>{`
                 .hover-underline-animation span {
