@@ -114,7 +114,7 @@ const ChoiceBox1 = (props) => {
                         className="z-10"
                     /> */}
                 </div>
-                <div className="choiceBtns col-span-12 flex p-2 bg-primaryColor-200 text-sm">
+                <div className="choiceBtns col-span-12 flex p-2 bg-blackText text-primaryColor-100 text-sm">
                     {props.data.leistungElementFull.map((e, i) => {
                         const isActive = textIndex === i;
 
@@ -122,7 +122,7 @@ const ChoiceBox1 = (props) => {
                             <>
                                 <div
                                     className={`button mr-8  ${
-                                        isActive ? "active underline font-bold" : "font-semibold opacity-40"
+                                        isActive ? "active underline font-bold" : "font-semibold opacity-60"
                                     }`}
                                     onClick={() => handleClick(i)}
                                 >
