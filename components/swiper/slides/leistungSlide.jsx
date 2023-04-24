@@ -6,7 +6,7 @@ import urlFor from "../../functions/urlFor";
 
 const LeistungSlide = (props) => {
     return (
-        <div className="slideHolder bg-brightBG p-6">
+        <div className="slideHolder bg-brightBG p-6 border-r-4">
             <h3 className="font-bold mb-4 underline">{props.data.title}</h3>
             <p className="mb-6 text-sm">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum nostrum tenetur, voluptates, dolorem

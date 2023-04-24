@@ -13,6 +13,7 @@ import "aos/dist/aos.css";
 
 //components
 import { FloaterBlackFull } from "../floaters";
+import { GhostButton } from "../buttons";
 
 const TextImg3 = (props) => {
     const ref = useRef(null);
@@ -68,10 +69,11 @@ const TextImg3 = (props) => {
                 </div>
                 <h2
                     data-aos="fade-left"
-                    className="font-serif text-2xl z-10 sm:text-4xl text-primaryColor-300 lg:text-6xl font-bold mt-8 tracking-widest mb-8 lg:mb-12"
+                    className="font-serif text-4xl sm:text-4xl text-primaryColor-50 lg:text-6xl font-thin mt-8 tracking-wider mb-2 lg:mb-12"
                 >
                     CHRISTINE BUCHNER
                 </h2>
+                <GhostButton link={"/about"}>Mehr</GhostButton>
                 {/* <div className="kontakt flex mt-6 font-semibold  md:mt-12 text-primaryColor-400 z-20 md:text-3xl lg:w-[70%] items-center justify-end">
                     <div className="left">+43 650 944 4150</div>
                     <div className="left ml-4">

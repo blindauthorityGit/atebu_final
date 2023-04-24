@@ -2,19 +2,19 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 
 //SANITY
-import client from "../client";
+import client from "../../client";
 
 // AOS
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 // COMPONENTS
-import { ContainerStandard } from "../components/container";
-import { KurseTxtImg } from "../components/imgText";
-import { Stoerer1 } from "../components/stoerer";
-import { ChoiceBox1 } from "../components/infoBoxes";
+import { ContainerStandard } from "../../components/container";
+import { KurseTxtImg } from "../../components/imgText";
+import { Stoerer1 } from "../../components/stoerer";
+import { ChoiceBox1 } from "../../components/infoBoxes";
 
-import urlFor from "../components/functions/urlFor";
+import urlFor from "../../components/functions/urlFor";
 
 export default function Leistungen({ dataLeistungen }) {
     useEffect(() => {

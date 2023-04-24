@@ -28,7 +28,7 @@ export default function Kurse({ dataBilder, dataAkademie, dataChristine, dataBlo
                 <title>Site title</title>
             </Head>
 
-            <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 bg-blackText">
+            <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 bg-brightBG">
                 {dataAkademie.map((e, i) => {
                     console.log(e);
                     return (

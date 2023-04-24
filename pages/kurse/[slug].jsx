@@ -111,7 +111,7 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                     </>
                 ) : null}
 
-                <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 md:pt-16 bg-blackText">
+                <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 md:pt-16 bg-brightBG">
                     <KurseTxtImg breadcrumbs image={urlFor(post.image).url()} data={post}></KurseTxtImg>;
                 </ContainerStandard>
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-8 sm:pt-12 ">

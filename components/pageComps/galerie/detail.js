@@ -184,7 +184,7 @@ export default function Detail({
                     )}{" "}
                 </motion.div>
                 <div ref={boxRef} className="col-span-12 px-4 md:px-0 mt-2">
-                    <h2 className="font-bold uppercase text-xl md:text-3xl tracking-wide">{post.titel_Bild}</h2>
+                    <h2 className="font-thin font-serif  text-3xl md:text-3xl tracking-wide">{post.titel_Bild}</h2>
                     <p className="font-semibold text-sm md:text-lg">{post.year}</p>
                     <p className="font-regular text-sm md:text-lg mt-2 md:mt-4">{post.description}</p>
                     <p className="font-regular text-sm md:text-lg mt-2">{post.technik}</p>

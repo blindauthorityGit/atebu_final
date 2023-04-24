@@ -11,6 +11,9 @@ import { motion, useScroll, useAnimation } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+//COMPS
+import { MainButtonNOLink, GhostButton } from "../buttons";
+
 const KurseTxtImg = (props) => {
     const ref = useRef(null);
     const floaterRef = useRef(null);
@@ -72,18 +75,18 @@ const KurseTxtImg = (props) => {
             <div className="right px-8 sm:px-0 md:px-12 col-span-12 lg:col-span-5 flex flex-col justify-center ">
                 <div
                     data-aos="fade-up"
-                    className="font-montserrat md:max-w-[80%]  text-primaryColor-200 mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100 mb-4"
+                    className="font-montserrat md:max-w-[80%]  text-blackText mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100 mb-4"
                 >
-                    <div className="datum bg-primaryColor-400 py-2 text-center md:text-lg font-bold text-primaryColor-900 absolute w-full md:w-[60%] rounded-md top-[-4rem] md:top-[-5rem]">
+                    <div className="datum bg-primaryColor-300 py-2 text-center md:text-lg font-bold text-primaryColor-900 absolute w-full md:w-[60%] rounded-md top-[-4rem] md:top-[-5rem]">
                         {props.data.datum}
                     </div>
                     {props.breadcrumbs ? <Breadcrumbs links={linkList} /> : null}
-                    <h2 className="font-bold mt-4 font-serif tracking-wider uppercase text-xl md:text-3xl mb-2">
+                    <h2 className="font-thin mt-4 font-serif tracking-wider  text-3xl md:text-3xl mb-2">
                         {props.data.akademieTitel}
                     </h2>
                     <hr className="border-primaryColor mb-4" />
                     <h4 className="mt-2 font-bold">{props.data.thema}</h4>
-                    <h4 className="font-thin mb-8 leading-normal mt-2">{props.data.headline}</h4>{" "}
+                    <h4 className="font-regular mb-8 leading-normal mt-2">{props.data.headline}</h4>{" "}
                     <div className="ablaufTop flex mt-4 mb-4 md:mb-4">
                         <div className="left text-xs font-bold w-1/4">Ablauf:</div>
                         <div className="right border-b border-primaryColor w-full "></div>
@@ -91,7 +94,7 @@ const KurseTxtImg = (props) => {
                     {props.data.ablauf.map((e, i) => {
                         return (
                             <div key={`kurskey${i}`}>
-                                <div key={`kurskey${i}`} className="ablaufTop flex text-xs font-thin mb-2 md:mb-3">
+                                <div key={`kurskey${i}`} className="ablaufTop flex text-xs font-regular mb-2 md:mb-3">
                                     <div className="left text-xs font-bold w-1/4">{e.TAG}</div>
                                     <div className="right  w-full pl-4">{e.Beschreibung}</div>
                                 </div>
@@ -100,9 +103,9 @@ const KurseTxtImg = (props) => {
                     })}
                     <hr className="border-primaryColor mt-4 md:mt-4" />
                     <div className="kosten mt-8">
-                        <div className="top text-primaryColor">KOSTEN</div>
+                        <div className="top text-primaryColor-700">KOSTEN</div>
                         <div className="sum font-bold text-xl md:text-3xl">{props.data.price}*</div>
-                        <div className="text-xs text-primaryColor-400 font-thin">
+                        <div className="text-xs text-primaryColor-800 font-thin">
                             *Preis exkl. Mittagsessen und Material
                         </div>
                     </div>
@@ -113,18 +116,22 @@ const KurseTxtImg = (props) => {
                 {props.button ? (
                     <div className="grid grid-cols-12 w-full gap-2 mb-6">
                         {" "}
-                        <Link href={props.link}>
+                        {/* <Link href={props.link}>
                             <button className="hover-underline-animation col-span-12 md:col-span-6 border font-bold border-primaryColor-300 flex items-center justify-center text-primaryColor-300 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6  uppercase rounded-md md:mt-8">
                                 <span className="text-primaryColor-300"> MEHR</span>
                             </button>
-                        </Link>
-                        <button
+                        </Link> */}
+                        <GhostButton link={props.link}>Mehr Infos</GhostButton>
+                        <MainButtonNOLink onClick={props.buchenClick} id={props.id}>
+                            Buchen
+                        </MainButtonNOLink>
+                        {/* <button
                             onClick={props.buchenClick}
                             id={props.id}
                             className="hover-underline-animation col-span-12 md:col-span-6  bg-primaryColor-500 font-bold flex items-center justify-center text-primaryColor-200 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6  uppercase rounded-md md:mt-8"
                         >
                             <span className="text-primaryColor-50"> Buchen</span>
-                        </button>
+                        </button> */}
                     </div>
                 ) : null}
             </div>
