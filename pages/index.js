@@ -18,7 +18,7 @@ import { HeroSlider1 } from "../components/HeroSlider";
 import { FloaterTop, FloaterContact, FloaterBlackFull } from "../components/floaters";
 import { ImgText1, ImgText2, ImgText3 } from "../components/imgText";
 import { Thumbnail2 } from "../components/imgThumbnails";
-import { EventSlider1 } from "../components/elementSliders";
+import { Contact } from "../components/sections";
 import { BlogGrid1 } from "../components/elementGrid";
 // import { Vita } from "../components/collapsables";
 const Vita = dynamic(() => import("../components/collapsables/vita"), {
@@ -28,9 +28,9 @@ const Vita = dynamic(() => import("../components/collapsables/vita"), {
 // FUNCTIONS
 import shuffleArray from "../components/functions/shuffleArray";
 
-export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog, dataLeistungen }) {
+export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog, dataLeistungen, dataSetting }) {
     useEffect(() => {
-        console.log(dataBilder, dataAkademie, dataChristine, dataBlog, dataLeistungen);
+        console.log(dataBilder, dataAkademie, dataChristine, dataBlog, dataLeistungen, dataSetting);
         AOS.init({
             duration: 1200,
         });
@@ -85,12 +85,13 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
             </ContainerVH100>
             <div className="h-10"></div>
             <Stoerer1></Stoerer1>
-            <ContainerVH100Children2
+            <Contact data={dataSetting}></Contact>
+            {/* <ContainerVH100Children2
                 klasse="bg-blackText"
                 showBG
                 center
                 image={dataChristine[0].image}
-            ></ContainerVH100Children2>
+            ></ContainerVH100Children2> */}
         </>
     );
 }
@@ -127,6 +128,11 @@ export const getStaticProps = async (context) => {
       }`);
     const dataBlog = await resBlog;
 
+    const resSetting = await client.fetch(`
+    *[_type == "settings"][0] 
+  `);
+    const dataSetting = await resSetting;
+
     return {
         props: {
             dataBilder,
@@ -134,6 +140,7 @@ export const getStaticProps = async (context) => {
             dataChristine,
             dataBlog,
             dataLeistungen,
+            dataSetting,
         },
         revalidate: 1, // 10 seconds
     };

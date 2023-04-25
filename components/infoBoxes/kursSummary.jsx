@@ -18,7 +18,9 @@ function InfoSummary(props) {
                 </div>
                 <div className="flex items-center mb-4">
                     <FaMoneyBillAlt size={24} className="text-primaryColor mr-4" />
-                    <p className="text-gray-700">{props.price}</p>
+                    <p className="text-gray-700">
+                        {props.price} <span className="text-xs">* Preis exkl. Essen und Material</span>{" "}
+                    </p>
                 </div>
                 <div className="flex items-center mb-4">
                     <FaPhoneAlt size={24} className="text-primaryColor mr-4" />

@@ -85,7 +85,7 @@ const KurseTxtImg = (props) => {
                         {props.data.akademieTitel}
                     </h2>
                     <hr className="border-primaryColor mb-4" />
-                    <h4 className="mt-2 font-bold">{props.data.thema}</h4>
+                    <h4 className="mt-2 text-lg font-bold">{props.data.thema}</h4>
                     <h4 className="font-regular mb-8 leading-normal mt-2">{props.data.headline}</h4>{" "}
                     <div className="ablaufTop flex mt-4 mb-4 md:mb-4">
                         <div className="left text-xs font-bold w-1/4">Ablauf:</div>

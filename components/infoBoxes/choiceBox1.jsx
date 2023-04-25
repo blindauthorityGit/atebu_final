@@ -4,6 +4,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import urlFor from "../functions/urlFor";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import Link from "next/link";
 
 //SLIDER
 // SWIPER
@@ -37,6 +38,10 @@ const ChoiceBox1 = (props) => {
         const nextIndex = (currentIndex + 1) % props.data.leistungElementFull.length;
         setTextIndex(textIndex + 1);
     };
+
+    useEffect(() => {
+        console.log(props.data);
+    }, []);
 
     return (
         <div className="col-span-12 mb-8">
@@ -86,7 +91,6 @@ const ChoiceBox1 = (props) => {
                                 className={` h-full `}
                             >
                                 {props.data.leistungElementFull[textIndex].image.map((e, i) => {
-                                    console.log(e);
                                     return (
                                         <>
                                             <SwiperSlide key={`sliderKeyMobileFull${i}`}>
@@ -135,6 +139,9 @@ const ChoiceBox1 = (props) => {
                 <div className="text-sm leading-relaxed col-span-12 mt-6">
                     <PortableText value={props.data.leistungElementFull[textIndex].richText} />
                 </div>
+                <Link href={`./leistungen/${props.data.slug.current}`}>
+                    <span className="text-black font-bold mt-4 block col-span-12"> Mehr lesen</span>
+                </Link>
                 <hr className="col-span-12 mt-4  bg-primaryColor-600" />
             </div>
         </div>

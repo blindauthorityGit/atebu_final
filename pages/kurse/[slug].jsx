@@ -19,19 +19,29 @@ import { Stoerer1 } from "../../components/stoerer";
 import { Buchen } from "../../components/modalContent";
 import MapboxMap from "../../components/map";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import LightBox from "../../components/lightbox";
+import { Thumbnail2 } from "../../components/imgThumbnails";
+import { MainButtonNOLink } from "../../components/buttons";
 
 // LIGHTBOX
 
 //ImageBuilder
 import urlFor from "../../components/functions/urlFor";
 
-const KursSite = ({ post, dataAll, dataSetting }) => {
+const KursSite = ({ post, dataAll, dataSetting, dataAkademie }) => {
     const [showModal, setShowModal] = useState(false);
+    const [showLightBox, setShowLightBox] = useState(false);
+    const [showBuchen, setShowBuchen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(null);
 
     const modalRef = useRef();
 
+    const handleImageClick = (index) => {
+        setLightboxIndex(index);
+    };
+
     useEffect(() => {
-        console.log(dataSetting, post, post.imageGallery);
+        console.log(dataAkademie.filter((e) => e.akademieTitel !== post.akademieTitel));
         console.log(post.imageGallery.map((e) => ({ src: urlFor(e).url() })));
     }, []);
 
@@ -92,20 +102,29 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                             ref={modalRef}
                             onClick={(e) => {
                                 console.log(modalRef.current);
+                                modalRef.current.classList.remove("slide-in-bottom");
+
                                 modalRef.current.classList.add("slide-out-bottom");
                                 setTimeout(() => {
                                     modalRef.current.classList.remove("slide-out-bottom");
                                 }, 300);
                                 setTimeout(() => {
                                     setShowModal(false);
+                                    setShowLightBox(false);
+                                    setShowBuchen(false);
                                 }, 301);
                             }}
                         >
-                            <Buchen title={post.akademieTitel} image={post.image} datum={post.datum}></Buchen>
+                            {showLightBox && <LightBox startIndex={lightboxIndex} data={post.imageGallery} />}
+                            {showBuchen && (
+                                <Buchen title={post.akademieTitel} image={post.image} datum={post.datum}></Buchen>
+                            )}
                         </ModalMobile>
                         <Overlay
                             onClick={(e) => {
                                 setShowModal(false);
+                                setShowLightBox(false);
+                                setShowBuchen(false);
                             }}
                         ></Overlay>
                     </>
@@ -120,9 +139,12 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                         <div className="einleitung mb-12 text-sm md:mb-12 md:w-3/4">
                             <PortableText value={post.description} />
                         </div>{" "}
+                        <h2 className="font-bold uppercase text-xl md:text-3xl mb-6">Beispiele / Eindrücke</h2>
                         <GallerySlider1
                             onClick={(e) => {
-                                console.log(Number(e.target.id));
+                                handleImageClick(Number(e.target.id));
+                                setShowModal(true);
+                                setShowLightBox(true);
                             }}
                             data={post.imageGallery}
                         ></GallerySlider1>
@@ -140,19 +162,40 @@ const KursSite = ({ post, dataAll, dataSetting }) => {
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-6  w-full">
                     <div className="col-span-12 px-8">
                         <InfoSummary datum={post.datum} address="Galerie Buchner" price={post.price}></InfoSummary>{" "}
-                        <button
+                        <MainButtonNOLink
                             onClick={(e) => {
                                 setShowModal(true);
+                                setShowBuchen(true);
+
                                 setTimeout(() => {
                                     modalRef.current.classList.remove("slide-in-bottom");
                                 }, 300);
                             }}
                             className="hover-underline-animation  bg-blackText font-bold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 w-full uppercase rounded-md md:mt-10"
                         >
-                            <span className="text-white"> Buchen</span>
-                        </button>
+                            Buchen
+                        </MainButtonNOLink>
                     </div>
                 </ContainerStandard>
+                <div className="grid container mx-auto text-center grid-cols-12 gap-1 sm:gap-4 h-full mt-12">
+                    <h2 className="font-bold col-span-12 uppercase text-xl md:text-3xl mb-6">Weitere Kurse</h2>
+
+                    {dataAkademie
+                        .filter((e) => e.akademieTitel !== post.akademieTitel)
+                        .map((e, i) => {
+                            console.log(e.slug.current);
+                            return (
+                                <Thumbnail2
+                                    dataAos="fade-in-color grayscale"
+                                    motto={e.thema}
+                                    link={`/kurse/${e.slug.current}`}
+                                    date={e.datum}
+                                    image={e.image}
+                                    titel={e.akademieTitel}
+                                ></Thumbnail2>
+                            );
+                        })}
+                </div>
                 <div className="h-10"></div>
                 <Stoerer1></Stoerer1>
                 {/* <div className="spacer h-32"></div> */}
@@ -191,11 +234,19 @@ export const getStaticProps = async (context) => {
     const resSetting = await client.fetch(`*[_type in ["settings"] ]`);
     const dataSetting = await resSetting[0];
 
+    const resAkademie = await client.fetch(`*[_type in ["akademie"]] `);
+    const dataAkademie = await resAkademie.sort((a, b) => {
+        const aMonth = Number(a.datum.split(".")[1]);
+        const bMonth = Number(b.datum.split(".")[1]);
+        return aMonth - bMonth;
+    });
+
     return {
         props: {
             post: data[0],
             dataAll,
             dataSetting,
+            dataAkademie,
         },
         revalidate: 1, // 10 seconds
     };
