@@ -66,23 +66,22 @@ const HeroSlider1 = (props) => {
 
     return (
         <>
-            {" "}
-            <div
+            {/* <div
                 className="left hidden lg:block absolute top-[45%] left-24 text-6xl text-primaryColor-800"
                 onClick={() => {
                     swiper.slidePrev();
                 }}
             >
                 <HiOutlineChevronLeft></HiOutlineChevronLeft>
-            </div>
-            <div
+            </div> */}
+            {/* <div
                 className="right hidden lg:block absolute top-[45%] right-24 text-6xl text-primaryColor-800"
                 onClick={() => {
                     swiper.slideNext();
                 }}
             >
                 <HiOutlineChevronRight></HiOutlineChevronRight>
-            </div>
+            </div> */}
             <div className={`h-[65%] sm:h-[70%] lg:h-[80%] lg:mt-16 container m-auto relative  ${props.colspan}`}>
                 <PrintAvailability />
                 <div className="relative col-span-8 h-full" data-aos={props.dataAos}>

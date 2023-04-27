@@ -13,8 +13,14 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 // COMPONENTS
-import { ContainerVH100, ContainerVH100Children, ContainerVH100Children2 } from "../components/container";
-import { HeroSlider1 } from "../components/HeroSlider";
+import {
+    ContainerVH100,
+    ContainerVH100Children,
+    ContainerVH100Children2,
+    ContainerStandard,
+    ContainerFullBG,
+} from "../components/container";
+import { HeroSlider1, HeroSliderDesktop } from "../components/HeroSlider";
 import { FloaterTop, FloaterContact, FloaterBlackFull } from "../components/floaters";
 import { ImgText1, ImgText2, ImgText3 } from "../components/imgText";
 import { Thumbnail2 } from "../components/imgThumbnails";
@@ -28,13 +34,24 @@ const Vita = dynamic(() => import("../components/collapsables/vita"), {
 // FUNCTIONS
 import shuffleArray from "../components/functions/shuffleArray";
 
+import useBreakpoints from "../components/functions/useBreakPoints";
+
 export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog, dataLeistungen, dataSetting }) {
     useEffect(() => {
         console.log(dataBilder, dataAkademie, dataChristine, dataBlog, dataLeistungen, dataSetting);
+        console.log(Array.from(new Set(dataLeistungen[0].leistungen.map((e) => e.category))));
         AOS.init({
             duration: 1200,
         });
     }, []);
+
+    // BREAKPOINTS
+    const { isMobile, isTablet, isDesktop } = useBreakpoints();
+
+    useEffect(() => {
+        console.log(isMobile, isTablet, isDesktop);
+    }, [isMobile, isTablet, isDesktop]);
+
     return (
         <>
             <Head>
@@ -42,29 +59,36 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
             </Head>
 
             <ContainerVH100 hFull first>
-                <HeroSlider1 dataAos="fade-up" data={dataBilder}></HeroSlider1>
+                {isDesktop ? (
+                    <HeroSliderDesktop dataAos="fade-up" data={dataBilder}></HeroSliderDesktop>
+                ) : (
+                    <HeroSlider1 dataAos="fade-up" data={dataBilder}></HeroSlider1>
+                )}
+                {/* <HeroSlider1 dataAos="fade-up" data={dataBilder}></HeroSlider1> */}
                 <FloaterTop></FloaterTop>
                 <FloaterContact></FloaterContact>
             </ContainerVH100>
-            <ContainerVH100 klasse="bg-brightBG" showBG center>
-                <ImgText1 link="/kurse">
-                    <div className="grid grid-cols-12 gap-1 sm:gap-4 h-full">
-                        {dataAkademie.map((e, i) => {
-                            console.log(e.slug.current);
-                            return (
-                                <Thumbnail2
-                                    dataAos="fade-in-color grayscale"
-                                    motto={e.thema}
-                                    link={`/kurse/${e.slug.current}`}
-                                    date={e.datum}
-                                    image={e.image}
-                                    titel={e.akademieTitel}
-                                ></Thumbnail2>
-                            );
-                        })}
-                    </div>
-                </ImgText1>
-            </ContainerVH100>
+            <ContainerFullBG>
+                <ContainerStandard klasse="bg-brightBG lg:h-auto col-span-12 overflow-hidden" showBG>
+                    <ImgText1 colspan="col-span-12 py-16" link="/kurse">
+                        <div className="grid grid-cols-12 gap-1 sm:gap-4 h-full">
+                            {dataAkademie.map((e, i) => {
+                                console.log(e.slug.current);
+                                return (
+                                    <Thumbnail2
+                                        dataAos="fade-in-color grayscale"
+                                        motto={e.thema}
+                                        link={`/kurse/${e.slug.current}`}
+                                        date={e.datum}
+                                        image={e.image}
+                                        titel={e.akademieTitel}
+                                    ></Thumbnail2>
+                                );
+                            })}
+                        </div>
+                    </ImgText1>
+                </ContainerStandard>
+            </ContainerFullBG>
             <ContainerVH100 klasse="" showBG center>
                 <ImgText2 data={dataLeistungen} images={dataLeistungen[0].images}></ImgText2>
             </ContainerVH100>
@@ -86,12 +110,6 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
             <div className="h-10"></div>
             <Stoerer1></Stoerer1>
             <Contact data={dataSetting}></Contact>
-            {/* <ContainerVH100Children2
-                klasse="bg-blackText"
-                showBG
-                center
-                image={dataChristine[0].image}
-            ></ContainerVH100Children2> */}
         </>
     );
 }

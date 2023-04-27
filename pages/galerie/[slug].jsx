@@ -15,7 +15,7 @@ import { ContainerStandard } from "../../components/container";
 import { Stoerer1 } from "../../components/stoerer";
 
 // functions
-import { useBreakpoints } from "../../components/functions/useBreakPoints";
+import useBreakpoints from "../../components/functions/useBreakPoints";
 
 //ImageBuilder
 import myConfiguredSanityClient from "../../client";

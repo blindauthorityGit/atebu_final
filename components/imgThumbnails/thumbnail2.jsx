@@ -58,7 +58,7 @@ const Thumbnail2 = (props) => {
         <>
             <div
                 data-aos={props.dataAos}
-                className={`col-span-12 sm:col-span-4 h-36  sm:h-64 relative mb-4 sm:mb-6 ${props.colspan}`}
+                className={`col-span-12 sm:col-span-4 h-36  sm:h-64 lg:h-96 relative mb-4 sm:mb-6 ${props.colspan}`}
             >
                 <Link href={props.link}>
                     <a className="">
@@ -81,19 +81,30 @@ const Thumbnail2 = (props) => {
 
                             <motion.div
                                 variants={boxMotion}
-                                className="w-full sm:block px-4 py-4 bottom-0 absolute bg-black text-primaryColor-200"
+                                className="w-full sm:block px-4 py-4 bottom-0 absolute  text-primaryColor-200"
                             >
-                                <h4 className="text-lg font-medium"> {props.motto}</h4>
+                                {/* <h4 className="text-lg font-medium"> {props.motto}</h4> */}
                             </motion.div>
 
-                            <motion.div className="w-full  sm:hidden px-4 py-4 flex flex-col justify-center items-center h-full absolute z-10 text-primaryColor-50">
+                            <motion.div className="w-full  px-4 py-4 flex flex-col justify-center transition-all duration-500 ease-in-out lg:justify-end group-hover:lg:justify-center items-center h-24 group-hover:lg:h-full  bottom-0 absolute z-10 text-primaryColor-50">
+                                <div className="date text-primaryColor-50 font-medium text-base sm:text-lg mb-2">
+                                    {props.date}
+                                </div>
+                                <h4 className="text-xl font-bold tracking-wider"> {props.titel}</h4>
+                                <hr className="border hidden group-hover:block border-primaryColor-500 w-3/4 my-3 " />
+                                <div className="date hidden group-hover:block text-primaryColor-50 font-medium text-base sm:text-lg mb-2">
+                                    {props.motto}
+                                </div>
+                            </motion.div>
+                            {/* 
+                            <motion.div className="w-full   px-4 py-4 flex flex-col justify-center transition-all duration-500 ease-in-out lg:justify-end group-hover:lg:justify-center items-center h-full absolute z-10 text-primaryColor-50">
                                 <div className="date text-primaryColor-50 font-medium text-base sm:text-lg mb-2">
                                     {props.date}
                                 </div>
 
                                 <h4 className="text-xl font-bold tracking-wider"> {props.titel}</h4>
-                            </motion.div>
-                            <div className="absolute bg-darkGrey  w-full h-full opacity-50"></div>
+                            </motion.div> */}
+                            <div className="absolute bg-darkGrey  w-full h-full duration-500 ease-in-out transition-all lg:h-24 lg:bottom-0 group-hover:lg:h-full opacity-50"></div>
                         </motion.div>{" "}
                     </a>
                 </Link>

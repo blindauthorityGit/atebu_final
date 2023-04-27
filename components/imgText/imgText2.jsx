@@ -17,6 +17,10 @@ import { FloaterBlackFull } from "../floaters";
 import { ImageGrid1 } from "../imageGrids";
 import { GhostButton } from "../buttons";
 import { MobileSwiper1 } from "../swiper";
+import { BigChoiceBox } from "../infoBoxes";
+
+//FUNCTIONS
+import useBreakpoints from "../functions/useBreakPoints";
 
 const TextImg2 = (props) => {
     const ref = useRef(null);
@@ -29,6 +33,13 @@ const TextImg2 = (props) => {
         target: ref,
         offset: ["start end", "end end"],
     });
+
+    // BREAKPOINTS
+    const { isMobile, isTablet, isDesktop } = useBreakpoints();
+
+    useEffect(() => {
+        console.log(isMobile, isTablet, isDesktop);
+    }, [isMobile, isTablet, isDesktop]);
 
     useEffect(() => {
         AOS.init({
@@ -57,11 +68,14 @@ const TextImg2 = (props) => {
                 >
                     {props.data[0].description}
                 </div>
-
-                <MobileSwiper1 data={props.data[0].leistungen}></MobileSwiper1>
-                {/* <div className="text font-serif">{parse(config.text)}</div> */}
-                <GhostButton link={"/leistungen"}>mehr</GhostButton>
             </div>
+            {isDesktop ? (
+                <BigChoiceBox data={props.data[0]} />
+            ) : (
+                <MobileSwiper1 data={props.data[0].leistungen}></MobileSwiper1>
+            )}
+            <GhostButton link={"/leistungen"}>mehr</GhostButton>
+
             {/* <motion.div
                 style={{ opacity: scrollYProgress }}
                 data-aos="fade-right"

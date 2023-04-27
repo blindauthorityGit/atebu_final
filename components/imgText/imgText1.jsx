@@ -38,27 +38,9 @@ const TextImg1 = (props) => {
             ref={ref}
             className={`w-full container  sm:px-0 md:px-24 lg:px-0 m-auto lg:gap-24 grid grid-cols-12  ${props.colspan}`}
         >
-            <FloaterBlackFull style={{ opacity: scrollYProgress }}></FloaterBlackFull>
-            <motion.div
-                style={{ opacity: scrollYProgress }}
-                data-aos="fade-right"
-                className={`left hidden sm:block col-span-12 lg:col-span-5 relative h-64 lg:h-auto ${props.order}`}
-            >
-                <Image
-                    // {...ImagePropsGallery(i)}
-                    src={config.image}
-                    layout="fill"
-                    loading="lazy"
-                    objectFit="cover"
-                    alt="hero"
-                    className="z-10"
-                />
-                <div
-                    style={{ left: scrollYProgress }}
-                    className="bgOverlay absolute bg-primaryColor opacity-20 w-full h-full md:left-[1.85rem] lg:left-[-2rem] top-[-2rem]"
-                ></div>
-            </motion.div>
-            <div className="right px-8 sm:px-0 col-span-12 lg:col-span-7 flex flex-col justify-center ">
+            {/* <FloaterBlackFull style={{ opacity: scrollYProgress }}></FloaterBlackFull> */}
+
+            <div className="right px-8 sm:px-0 col-span-12 lg:col-span-12 flex flex-col justify-center ">
                 {/* <div
                     data-aos="fade-up"
                     className="font-montserrat  mt-4 lg:mt-0 font-base tracking-wide leading-loose lg:leading-relaxed text-xs lg:text-sm text-primaryColor-300 mb-4"
@@ -73,14 +55,15 @@ const TextImg1 = (props) => {
                 </h2>
                 <div
                     data-aos="fade-right"
-                    className="font-montserrat  mt-4 lg:mt-0  tracking-wide leading-relaxed sm:leading-relaxed lg:leading-relaxed text-sm sm:text-sm lg:text-2xl text-darkText mb-4"
+                    className="font-montserrat lg:w-2/4  mt-4 lg:mt-0 lg:mb-12 tracking-wide leading-relaxed sm:leading-relaxed lg:leading-relaxed text-sm sm:text-sm lg:text-regular text-darkText mb-4"
                 >
                     {config.topTitle}
                 </div>
                 {props.children}
                 {/* <div className="text font-serif">{parse(config.text)}</div> */}
-
-                <GhostButton link={props.link}>mehr</GhostButton>
+                <div className="w-full flex justify-center">
+                    <GhostButton link={props.link}>mehr</GhostButton>
+                </div>
             </div>
             <style jsx>{`
                 .hover-underline-animation span {
