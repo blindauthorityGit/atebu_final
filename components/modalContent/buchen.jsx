@@ -99,8 +99,8 @@ const Buchen = (props) => {
         <>
             {showFirst && (
                 <form className="grid grid-cols-12">
-                    <div className="col-span-12">
-                        <div className="relative h-24 hidden">
+                    <div className="col-span-12 lg:grid lg:grid-cols-12 lg:gap-8">
+                        <div className="relative h-full hidden lg:block lg:col-span-4">
                             <Image
                                 // {...ImagePropsGallery(i)}
                                 src={urlFor(props.image).url()}
@@ -111,104 +111,126 @@ const Buchen = (props) => {
                                 className="z-10"
                             />
                         </div>
-                        <h3 className="text-xl font-serif uppercase tracking-wider font-bold">{props.title}</h3>
-                        <h4 className="text-base mt-1 font-regular">{props.datum}</h4>
-                    </div>
-                    <div className="hidden">
-                        <label htmlFor="firstName">Name</label>
-                        <input
-                            onChange={(e) => {
-                                handleFormChange(e);
-                            }}
-                            id="honey"
-                            name="honey"
-                            type="text"
-                            autoComplete="off"
-                        />
-                    </div>
-                    <div className="col-span-12 grid grid-cols-12 mt-4 mb-5">
-                        <label className="col-span-4 flex text-sm font-semibold" htmlFor="firstname">
-                            Vorname:
-                        </label>
-                        <input
-                            className="col-span-8 text-sm border-b bg-transparent border-blackText text-blackText"
-                            type="text"
-                            id="name"
-                            name="firstName"
-                            onChange={(e) => {
-                                handleFormChange(e);
-                            }}
-                        />
-                    </div>
-                    <div className="col-span-12 grid grid-cols-12 mb-5">
-                        <label className="col-span-4 flex text-sm font-semibold" htmlFor="lastname">
-                            Nachname:
-                        </label>
-                        <input
-                            className="col-span-8 text-sm border-b bg-transparent border-blackText text-blackText"
-                            type="text"
-                            id="name"
-                            name="lastName"
-                            onChange={handleFormChange}
-                        />
-                    </div>
-                    <div className="col-span-12 grid grid-cols-12 mb-5">
-                        <label className="col-span-4 text-sm flex font-semibold" htmlFor="email">
-                            Email:
-                        </label>
-                        <input
-                            className="col-span-8 text-sm border-b bg-transparent border-blackText text-blackText"
-                            type="email"
-                            id="email"
-                            name="email"
-                            onChange={handleFormChange}
-                        />
-                    </div>
-                    <div className="col-span-12 grid grid-cols-12 mb-5">
-                        <label className="col-span-4 text-sm flex font-semibold" htmlFor="phone">
-                            Telefon:
-                        </label>
-                        <input
-                            className="col-span-8 text-sm border-b bg-transparent border-blackText text-blackText"
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            onChange={handleFormChange}
-                        />
-                    </div>
-                    <div className="col-span-12 grid grid-cols-12 mb-5">
-                        <label className="col-span-4 text-sm flex font-semibold" htmlFor="payment">
-                            Bezahlung:
-                        </label>
-                        <label className="col-span-4 text-sm">
-                            <input type="radio" name="payment" value="online" onChange={handleFormChange} /> Online
-                        </label>
-                        <label className="col-span-4 text-sm">
-                            <input type="radio" name="payment" value="cash" onChange={handleFormChange} /> Bar
-                        </label>
-                    </div>
-                    <div className="mt-2 col-span-12">
-                        <PaymentIconsContainer></PaymentIconsContainer>
-                    </div>
+                        <div className="lg:col-span-8">
+                            <h3 className="text-xl lg:text-4xl font-serif uppercase tracking-wider font-bold">
+                                {props.title}
+                            </h3>
+                            <h4 className="text-base lg:text-xl mt-1 font-regular">{props.datum}</h4>
+                            <div className="hidden">
+                                <label htmlFor="firstName">Name</label>
+                                <input
+                                    onChange={(e) => {
+                                        handleFormChange(e);
+                                    }}
+                                    id="honey"
+                                    name="honey"
+                                    type="text"
+                                    autoComplete="off"
+                                />
+                            </div>
 
-                    <div className="col-span-12 mt-4">
-                        <p className="text-xs">
-                            <strong>Wichtig:</strong> Bei Barzahlung 3 Wochen vor Kursbeginn eine Anzahl von € 100,-
-                            notwendig um zu reservieren.
-                        </p>
+                            <div className="col-span-12 grid grid-cols-12 mt-4 mb-5 lg:mt-8 lg:mb-6">
+                                <label
+                                    className="col-span-4 lg:col-span-2 flex text-sm lg:text-base font-semibold"
+                                    htmlFor="firstname"
+                                >
+                                    Vorname:
+                                </label>
+                                <input
+                                    className="col-span-8 lg:col-span-10 text-sm lg:text-base border-b bg-transparent border-blackText text-blackText"
+                                    type="text"
+                                    id="name"
+                                    name="firstName"
+                                    onChange={(e) => {
+                                        handleFormChange(e);
+                                    }}
+                                />
+                            </div>
+                            <div className="col-span-12 grid grid-cols-12 mb-5">
+                                <label
+                                    className="col-span-4 lg:col-span-2 flex text-sm lg:text-base font-semibold"
+                                    htmlFor="lastname"
+                                >
+                                    Nachname:
+                                </label>
+                                <input
+                                    className="col-span-8 lg:col-span-10 text-sm lg:text-base border-b bg-transparent border-blackText text-blackText"
+                                    type="text"
+                                    id="name"
+                                    name="lastName"
+                                    onChange={handleFormChange}
+                                />
+                            </div>
+                            <div className="col-span-12 grid grid-cols-12 mb-5">
+                                <label
+                                    className="col-span-4 lg:col-span-2 flex text-sm lg:text-base font-semibold"
+                                    htmlFor="email"
+                                >
+                                    Email:
+                                </label>
+                                <input
+                                    className="col-span-8 lg:col-span-10 text-sm lg:text-base border-b bg-transparent border-blackText text-blackText"
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    onChange={handleFormChange}
+                                />
+                            </div>
+                            <div className="col-span-12 grid grid-cols-12 mb-5">
+                                <label
+                                    className="col-span-4 lg:col-span-2 flex text-sm lg:text-base font-semibold"
+                                    htmlFor="phone"
+                                >
+                                    Telefon:
+                                </label>
+                                <input
+                                    className="col-span-8 lg:col-span-10 text-sm lg:text-base border-b bg-transparent border-blackText text-blackText"
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    onChange={handleFormChange}
+                                />
+                            </div>
+                            <div className="col-span-12 grid grid-cols-12 mb-5">
+                                <label
+                                    className="col-span-4 lg:col-span-2 flex text-sm lg:text-base font-semibold"
+                                    htmlFor="payment"
+                                >
+                                    Bezahlung:
+                                </label>
+                                <label className="col-span-4 lg:col-span-2 text-sm lg:text-base">
+                                    <input type="radio" name="payment" value="online" onChange={handleFormChange} />{" "}
+                                    Online
+                                </label>
+                                <label className="col-span-4 text-sm lg:text-base">
+                                    <input type="radio" name="payment" value="cash" onChange={handleFormChange} /> Bar
+                                </label>
+                            </div>
+
+                            <div className="mt-2 lg:mt-12 col-span-12">
+                                <PaymentIconsContainer></PaymentIconsContainer>
+                            </div>
+
+                            <div className="col-span-12 mt-4 lg:mt-12">
+                                <p className="text-xs">
+                                    <strong>Wichtig:</strong> Bei Barzahlung 3 Wochen vor Kursbeginn eine Anzahl von €
+                                    100,- notwendig um zu reservieren.
+                                </p>
+                            </div>
+                            <button
+                                type="submit"
+                                onClick={(e) => {
+                                    handleSubmit(e);
+                                }}
+                                disabled={!valid}
+                                className={`${
+                                    valid ? "opacity-100" : "opacity-30"
+                                } bg-blackText col-span-12 relative mt-6 font-semibold hover-underline-animation z-20 flex items-center justify-center text-primaryColor-200 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-8 `}
+                            >
+                                <span className="">Weiter</span>
+                            </button>
+                        </div>
                     </div>
-                    <button
-                        type="submit"
-                        onClick={(e) => {
-                            handleSubmit(e);
-                        }}
-                        disabled={!valid}
-                        className={`${
-                            valid ? "opacity-100" : "opacity-30"
-                        } bg-blackText col-span-12 relative mt-6 font-semibold hover-underline-animation z-20 flex items-center justify-center text-primaryColor-200 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-8 `}
-                    >
-                        <span className="">Weiter</span>
-                    </button>
                 </form>
             )}
             {showBar && (

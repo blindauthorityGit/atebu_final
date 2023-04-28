@@ -51,11 +51,11 @@ const TextImg2 = (props) => {
     return (
         <div
             ref={ref}
-            className={`w-full container  sm:px-0 md:px-12 lg:px-0 m-auto lg:gap-24 grid grid-cols-12  ${props.colspan}`}
+            className={`w-full container  sm:px-0 md:px-12 lg:px-0 m-auto lg:gap-0 grid grid-cols-12  ${props.colspan}`}
         >
             <FloaterBlackFull style={{ opacity: scrollYProgress }}></FloaterBlackFull>
 
-            <div className="right px-8 sm:px-0 col-span-12 lg:col-span-5 flex flex-col justify-center ">
+            <div className="right overflow-hidden px-8 sm:px-0 col-span-12 lg:col-span-16 flex flex-col justify-center ">
                 <h2
                     data-aos="fade-left"
                     className="font-serif text-4xl sm:text-4xl text-darkText lg:text-6xl font-thin mt-8 tracking-wider mb-2 lg:mb-12"
@@ -64,7 +64,7 @@ const TextImg2 = (props) => {
                 </h2>
                 <div
                     data-aos="fade-up"
-                    className="font-montserrat  mt-4 lg:mt-0  tracking-wide leading-relaxed sm:leading-relaxed lg:leading-relaxed text-sm sm:text-sm lg:text-2xl text-darkText mb-4"
+                    className="font-montserrat lg:w-2/4  mt-4 lg:mt-0 lg:mb-12 tracking-wide leading-relaxed sm:leading-relaxed lg:leading-relaxed text-sm sm:text-sm lg:text-regular text-darkText mb-4"
                 >
                     {props.data[0].description}
                 </div>

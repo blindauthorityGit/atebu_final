@@ -153,9 +153,9 @@ const Menu1 = (props) => {
                 className="h-16 fixed top-0 left-0 right-0 origin-[0%] bg-white z-40"
                 style={{ scaleX: scrollYProgress }}
             /> */}
-            <nav ref={navRef} className={`w-full fixed z-30 px-4 sm:px-12 lg:py-4  ${props.colspan}`}>
+            <nav ref={navRef} className={`w-full fixed z-30 px-4 sm:px-12 lg:py-2  ${props.colspan}`}>
                 {/* BG */}
-                <div className=" z-30 grid relative grid-cols-12 m-auto items-center  py-3 sm:py-4 lg:px-0 lg:py-0">
+                <div className=" z-30 grid relative grid-cols-12 m-auto items-center  py-3 sm:py-4  lg:px-0 lg:py-0">
                     {/* Background Image */}
                     <div className="logo col-span-4 md:col-span-2 ">
                         <Link href="/">
@@ -183,7 +183,7 @@ const Menu1 = (props) => {
                                         }}
                                     >
                                         <Link href={`/${e.slug}`}>
-                                            <a className="flex items-end uppercase text-base">
+                                            <a className="flex items-end uppercase text-sm xl:text-base">
                                                 {e.title}{" "}
                                                 {e.subMenu ? (
                                                     <motion.span variants={pfeilMotion}>
@@ -223,7 +223,7 @@ const Menu1 = (props) => {
                             <Newsletter onClick={props.onClick}></Newsletter>
                         </ul>
                     </div>
-                    <div className="col-span-1 social media flex justify-end text-xl md:text-4xl">
+                    <div className="col-span-1 social media flex justify-end text-xl md:text-xl">
                         <div
                             className="block lg:hidden cursor-pointer"
                             onClick={(e) => {

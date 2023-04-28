@@ -33,7 +33,6 @@ const Vita = dynamic(() => import("../components/collapsables/vita"), {
 
 // FUNCTIONS
 import shuffleArray from "../components/functions/shuffleArray";
-
 import useBreakpoints from "../components/functions/useBreakPoints";
 
 export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog, dataLeistungen, dataSetting }) {
@@ -89,7 +88,7 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
                     </ImgText1>
                 </ContainerStandard>
             </ContainerFullBG>
-            <ContainerVH100 klasse="" showBG center>
+            <ContainerVH100 klasse=" lg:h-auto col-span-12 " showBG>
                 <ImgText2 data={dataLeistungen} images={dataLeistungen[0].images}></ImgText2>
             </ContainerVH100>
             <ContainerVH100Children klasse="bg-blackText" showBG center image={dataChristine[0].image}>
@@ -97,7 +96,7 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
             </ContainerVH100Children>
             <Vita text={dataChristine[0].text}></Vita>
 
-            <ContainerVH100 klasse="" showBG>
+            <ContainerVH100 klasse="overflow-hidden" showBG>
                 <FloaterBlackFull></FloaterBlackFull>
                 <h2
                     data-aos="fade-left"

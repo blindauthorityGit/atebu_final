@@ -51,12 +51,11 @@ const KurseTxtImg = (props) => {
     }, []);
 
     return (
-        <div ref={ref} className={`col-span-12   ${props.colspan}`}>
-            {" "}
+        <div ref={ref} className={`col-span-12 grid grid-cols-12 lg:mb-20 ${props.colspan}`}>
             <motion.div
-                style={{ opacity: scrollYProgress }}
+                // style={{ opacity: scrollYProgress }}
                 data-aos="fade-right"
-                className={`left h-64 sm:h-auto md:h-[20rem] sm:block mb-8 lg:mb-0 col-span-12 order-first lg:order-last lg:col-span-7 relative   lg:h-auto ${props.order}`}
+                className={`left h-64 sm:h-auto lg:h-full md:h-[20rem] mb-8 lg:mb-0 col-span-12  lg:col-span-6 relative  ${props.order}`}
             >
                 <Image
                     // {...ImagePropsGallery(i)}
@@ -69,33 +68,38 @@ const KurseTxtImg = (props) => {
                 />
                 <div
                     style={{ left: scrollYProgress }}
-                    className="bgOverlay absolute md:hidden bg-primaryColor opacity-20 w-full h-full md:left-[1.85rem] lg:left-[-2rem] top-[-2rem]"
+                    className="bgOverlay absolute  bg-primaryColor opacity-20 w-full h-full md:left-[1.85rem] lg:left-[-2rem] top-[-2rem]"
                 ></div>
             </motion.div>
-            <div className="right px-8 sm:px-0 md:px-12 col-span-12 lg:col-span-5 flex flex-col justify-center ">
+            <div className="right px-8 sm:px-0 md:px-12 lg:px-16 col-span-12 lg:col-span-6 flex flex-col justify-center ">
                 <div
                     data-aos="fade-up"
-                    className="font-montserrat md:max-w-[80%]  text-blackText mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100 mb-4"
+                    className="font-montserrat md:max-w-[80%] lg:max-w-[95%]  text-blackText mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100 mb-4"
                 >
-                    <div className="datum bg-primaryColor-300 py-2 text-center md:text-lg font-bold text-primaryColor-900 absolute w-full md:w-[60%] rounded-md top-[-4rem] md:top-[-5rem]">
+                    <div className="datum bg-primaryColor-200 py-2 text-center md:text-lg font-bold text-primaryColor-900 absolute lg:relative w-full md:w-[60%] rounded-md top-[-4rem] md:top-[0rem] lg:mb-10">
                         {props.data.datum}
                     </div>
                     {props.breadcrumbs ? <Breadcrumbs links={linkList} /> : null}
-                    <h2 className="font-thin mt-4 font-serif tracking-wider  text-3xl md:text-3xl mb-2">
+                    <h2 className="font-thin lg:mt-4 font-serif tracking-wider  text-3xl md:text-5xl mb-2">
                         {props.data.akademieTitel}
                     </h2>
                     <hr className="border-primaryColor mb-4" />
-                    <h4 className="mt-2 text-lg font-bold">{props.data.thema}</h4>
-                    <h4 className="font-regular mb-8 leading-normal mt-2">{props.data.headline}</h4>{" "}
+                    <h4 className="mt-2 text-lg lg:text-xl font-bold">{props.data.thema}</h4>
+                    <h4 className="[font-weight-400] mb-8 leading-normal text-sm xl:text-base mt-2">
+                        {props.data.headline}
+                    </h4>{" "}
                     <div className="ablaufTop flex mt-4 mb-4 md:mb-4">
-                        <div className="left text-xs font-bold w-1/4">Ablauf:</div>
+                        <div className="left text-xs lg:text-base font-bold w-1/4">Ablauf:</div>
                         <div className="right border-b border-primaryColor w-full "></div>
                     </div>
                     {props.data.ablauf.map((e, i) => {
                         return (
                             <div key={`kurskey${i}`}>
-                                <div key={`kurskey${i}`} className="ablaufTop flex text-xs font-regular mb-2 md:mb-3">
-                                    <div className="left text-xs font-bold w-1/4">{e.TAG}</div>
+                                <div
+                                    key={`kurskey${i}`}
+                                    className="ablaufTop flex text-xs lg:text-sm font-regular  mb-2 md:mb-3"
+                                >
+                                    <div className="left text-xs lg:text-sm  font-bold w-1/4">{e.TAG}</div>
                                     <div className="right  w-full pl-4">{e.Beschreibung}</div>
                                 </div>
                             </div>
@@ -103,7 +107,7 @@ const KurseTxtImg = (props) => {
                     })}
                     <hr className="border-primaryColor mt-4 md:mt-4" />
                     <div className="kosten mt-8">
-                        <div className="top text-primaryColor-700">KOSTEN</div>
+                        <div className="top text-primaryColor-500">KOSTEN</div>
                         <div className="sum font-bold text-xl md:text-3xl">{props.data.price}*</div>
                         <div className="text-xs text-primaryColor-800 font-thin">
                             *Preis exkl. Mittagsessen und Material
@@ -112,26 +116,16 @@ const KurseTxtImg = (props) => {
                 </div>
 
                 {props.children}
-                {/* <div className="text font-serif">{parse(config.text)}</div> */}
                 {props.button ? (
                     <div className="grid grid-cols-12 w-full gap-2 mb-6">
-                        {" "}
-                        {/* <Link href={props.link}>
-                            <button className="hover-underline-animation col-span-12 md:col-span-6 border font-bold border-primaryColor-300 flex items-center justify-center text-primaryColor-300 mt-4 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6  uppercase rounded-md md:mt-8">
-                                <span className="text-primaryColor-300"> MEHR</span>
-                            </button>
-                        </Link> */}
-                        <GhostButton link={props.link}>Mehr Infos</GhostButton>
-                        <MainButtonNOLink onClick={props.buchenClick} id={props.id}>
-                            Buchen
-                        </MainButtonNOLink>
-                        {/* <button
-                            onClick={props.buchenClick}
-                            id={props.id}
-                            className="hover-underline-animation col-span-12 md:col-span-6  bg-primaryColor-500 font-bold flex items-center justify-center text-primaryColor-200 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6  uppercase rounded-md md:mt-8"
-                        >
-                            <span className="text-primaryColor-50"> Buchen</span>
-                        </button> */}
+                        <div className="col-span-12 lg:col-span-6">
+                            <GhostButton link={props.link}>Mehr Infos</GhostButton>
+                        </div>
+                        <div className="col-span-12 lg:col-span-6">
+                            <MainButtonNOLink onClick={props.buchenClick} id={props.id}>
+                                Buchen
+                            </MainButtonNOLink>
+                        </div>
                     </div>
                 ) : null}
             </div>

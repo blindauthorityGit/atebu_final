@@ -82,7 +82,7 @@ const HeroSlider1 = (props) => {
             >
                 <HiOutlineChevronRight></HiOutlineChevronRight>
             </div> */}
-            <div className={`h-[65%] sm:h-[70%] lg:h-[80%] lg:mt-16 container m-auto relative  ${props.colspan}`}>
+            <div className={`h-[65%] sm:h-[70%] lg:h-[80%]  container m-auto relative  ${props.colspan}`}>
                 <PrintAvailability />
                 <div className="relative col-span-8 h-full" data-aos={props.dataAos}>
                     <Swiper
@@ -117,7 +117,7 @@ const HeroSlider1 = (props) => {
                                     >
                                         <motion.div
                                             // style={{ boxShadow: "var(--shadow-elevation-high)" }}
-                                            className={`h-[90%] md:h-[95%] lg:h-[93%] sm:border-8 border-white relative transition-all ${
+                                            className={`h-[90%] md:h-[95%] lg:h-[97%] sm:border-8 border-white relative transition-all ${
                                                 clicked ? "scale-[0.975]" : ""
                                             }`}
                                             data-swiper-parallax="100"
