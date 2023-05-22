@@ -87,7 +87,7 @@ const HeroSlider1 = (props) => {
             </div>
             <div className={`h-[95%] sm:h-[70%] lg:h-[80%] lg:mt-16 container m-auto relative  ${props.colspan}`}>
                 {/* <PrintAvailability /> */}
-                <div className="relative col-span-8 h-full" data-aos={props.dataAos}>
+                <div className="relative col-span-8 h-full">
                     <Swiper
                         // install Swiper modules
                         modules={[Navigation, Pagination, Scrollbar, A11y, Keyboard, Autoplay, Virtual]}
@@ -117,16 +117,16 @@ const HeroSlider1 = (props) => {
                                         transition={{ duration: 0.5 }}
                                         className="bg-cover  bg-no-repeat relative h-full"
                                     >
-                                        <motion.div
-                                            // style={{ boxShadow: "var(--shadow-elevation-high)" }}
-                                            className={`h-[95%] md:h-[95%] lg:h-[93%] sm:border-8 border-white relative transition-all ${
-                                                clicked ? "scale-[0.975]" : ""
-                                            }`}
-                                            data-swiper-parallax="100"
-                                            data-swiper-parallax-opacity="0"
-                                            data-swiper-parallax-scale="0.78"
-                                        >
-                                            <Parallax className="relative h-full" translateY={["-270px", "220px"]}>
+                                        <Parallax className="relative h-full" translateY={["-230px", "200px"]}>
+                                            <motion.div
+                                                // style={{ boxShadow: "var(--shadow-elevation-high)" }}
+                                                className={`h-[95%] md:h-[95%] lg:h-[93%] sm:border-8 border-white relative transition-all ${
+                                                    clicked ? "scale-[0.975]" : ""
+                                                }`}
+                                                data-swiper-parallax="100"
+                                                data-swiper-parallax-opacity="0"
+                                                data-swiper-parallax-scale="0.78"
+                                            >
                                                 <Link href={`/galerie/${e.slug.current}`}>
                                                     <a>
                                                         <Image
@@ -148,8 +148,8 @@ const HeroSlider1 = (props) => {
                                                         />
                                                     </a>
                                                 </Link>
-                                            </Parallax>
-                                        </motion.div>
+                                            </motion.div>
+                                        </Parallax>
 
                                         {/* <div className="textBox z-40 px-16 sm:px-36 lg:px-48 col-span-12 lg:col-span-8 flex flex-col justify-center items-center sm:items-start">
                                 <h1 className="text-white text-2xl sm:text-6xl font-oswald uppercase font-bold text-center sm:text-left">
