@@ -153,9 +153,9 @@ const Menu1 = (props) => {
                 className="h-16 fixed top-0 left-0 right-0 origin-[0%] bg-white z-40"
                 style={{ scaleX: scrollYProgress }}
             /> */}
-            <nav ref={navRef} className={`w-full fixed z-30 px-4 sm:px-12 lg:py-2  ${props.colspan}`}>
+            <nav ref={navRef} className={`w-full fixed z-40 px-4 sm:px-12 lg:py-2  ${props.colspan}`}>
                 {/* BG */}
-                <div className=" z-30 grid relative grid-cols-12 m-auto items-center  py-3 sm:py-4  lg:px-0 lg:py-0">
+                <div className=" z-40 grid relative grid-cols-12 m-auto items-center  py-3 sm:py-4  lg:px-0 lg:py-0">
                     {/* Background Image */}
                     <div className="logo col-span-4 md:col-span-2 ">
                         <Link href="/">
@@ -177,13 +177,13 @@ const Menu1 = (props) => {
                                         whileHover="hover"
                                         animate="rest"
                                         key={`menuKey${i}`}
-                                        className="relative mx-8 py-4 font-montserrat tracking-widest font-semibold text-blackText-500 hover:text-primaryColor-500"
+                                        className="relative mx-8 py-4 font-montserrat tracking-widest  text-blackText-500 hover:text-primaryColor-500"
                                         onMouseEnter={(e) => {
                                             onEnter(e);
                                         }}
                                     >
                                         <Link href={`/${e.slug}`}>
-                                            <a className="flex items-end uppercase text-sm xl:text-base">
+                                            <a className="flex items-end uppercase text-sm ">
                                                 {e.title}{" "}
                                                 {e.subMenu ? (
                                                     <motion.span variants={pfeilMotion}>

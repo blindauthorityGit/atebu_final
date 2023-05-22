@@ -40,6 +40,7 @@ import { Menu1 } from "../components/menues";
 import { MobileBar1 } from "../components/mobileBar";
 import Footer from "../components/footer";
 import { Popup1, NewsletterSub } from "../components/popups";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 //ASSETS
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -92,7 +93,9 @@ function MyApp({ Component, pageProps }) {
                     exit={{ opacity: 0 }}
                     style={router.route === "/" ? { height: "100%" } : { height: "auto" }}
                 >
-                    <Component {...pageProps} /> <Footer></Footer>
+                    <ParallaxProvider>
+                        <Component {...pageProps} /> <Footer></Footer>
+                    </ParallaxProvider>
                 </motion.div>
             </AnimateSharedLayout>
         </>

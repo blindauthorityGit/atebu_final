@@ -73,6 +73,7 @@ export default function Kurse({ dataBilder, dataAkademie, dataChristine, dataBlo
                     console.log(e);
                     return (
                         <KurseTxtImg
+                            showImage
                             image={urlFor(e.image).url()}
                             data={e}
                             buchenClick={(e) => {

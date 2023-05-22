@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -9,14 +9,14 @@ const Button = ({ href, onClick, children }) => (
         <motion.a
             whileTap={{ scale: 0.95 }}
             onClick={onClick}
-            className="p-2 rounded-full bg-primaryColor-100 hover:bg-primaryColor-200"
+            className="p-2 cursor-pointer opacity-60 hover:opacity-100 text-8xl font-thin rounded-full bg-primaryColor-100 hover:bg-primaryColor-200"
         >
             {children}
         </motion.a>
     </Link>
 );
 
-const TwoButtons = ({ onLeftClick, onRightClick, currentIndex, dataAll }) => {
+const TwoButtonsBig = ({ onLeftClick, onRightClick, currentIndex, dataAll }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -32,20 +32,20 @@ const TwoButtons = ({ onLeftClick, onRightClick, currentIndex, dataAll }) => {
     }, [onLeftClick, onRightClick]);
 
     return (
-        <div className="absolute lg:hidden top-[12.5rem] px-3 transform -translate-y-1/2 w-full z-20">
+        <div className="absolute hidden lg:block top-1/2 px-3 transform -translate-y-1/2  w-full z-20">
             <div className="flex justify-between">
                 <Button href={`/galerie/${dataAll[Math.max(0, currentIndex - 1)].slug.current}`} onClick={onLeftClick}>
-                    <FaChevronLeft />
+                    <VscChevronLeft />
                 </Button>
                 <Button
                     href={`/galerie/${dataAll[Math.min(dataAll.length - 1, currentIndex + 1)].slug.current}`}
                     onClick={onRightClick}
                 >
-                    <FaChevronRight />
+                    <VscChevronRight />
                 </Button>
             </div>
         </div>
     );
 };
 
-export default TwoButtons;
+export default TwoButtonsBig;

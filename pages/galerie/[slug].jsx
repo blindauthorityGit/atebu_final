@@ -57,9 +57,9 @@ const ImageSite = ({ post, dataAll }) => {
                 container.style.paddingBottom = `${100 / aspectRatio}%`;
                 const ratio = 100 / aspectRatio;
                 console.log(container.children[0]);
-                if (isTablet && ratio > 100) {
+                if ((isDesktop && ratio > 100) || (isTablet && ratio > 100)) {
                     container.style.paddingBottom = "100%";
-                    container.children[0].classList.add("backdrop-blur-lg");
+                    container.children[0].classList.add("backdrop-blur-lg", "lg:backdrop-blur-xl");
                 } else if (ratio > 123) {
                     container.style.paddingBottom = "123%";
                     container.children[0].classList.add("backdrop-blur-lg");
@@ -72,6 +72,7 @@ const ImageSite = ({ post, dataAll }) => {
                         const aspectRatio = image.naturalWidth / image.naturalHeight;
                         container.style.paddingBottom = `${100 / aspectRatio}%`;
                         const ratio = 100 / aspectRatio;
+                        console.log(ratio);
                         if (isTablet && ratio > 100) {
                             container.style.paddingBottom = "100%";
                         } else if (ratio > 123) {
@@ -85,7 +86,7 @@ const ImageSite = ({ post, dataAll }) => {
                 }
             }
         }, 50);
-    }, [post, isTablet, isMobile]);
+    }, [post, isTablet, isMobile, isDesktop]);
 
     useEffect(() => {
         console.log(post, dataAll);
@@ -152,13 +153,17 @@ const ImageSite = ({ post, dataAll }) => {
                     druckPreis={druckPreis}
                     currentIndex={currentIndex}
                     dataAll={dataAll}
+                    isMobile={isMobile}
+                    isTablet={isTablet}
+                    isDesktop={isDesktop}
                 />
-                <ContainerStandard klasse="gap-1 lg:gap-2 pt-12 md:px-6">
+                <ContainerStandard klasse="gap-1 lg:gap-6 pt-12 ">
                     {dataAll.map((e, i) => {
+                        console.log(e);
                         return (
-                            <div className="col-span-6 sm:col-span-4 relative h-36 sm:h-64 md:h-48">
+                            <div className="col-span-6 sm:col-span-4 lg:col-span-4 relative h-36 sm:h-64 md:h-48 lg:h-96 mb-8">
                                 <Link href={`/galerie/${e.slug.current}`}>
-                                    <div className="relative w-full h-full">
+                                    <div className="relative w-full h-full cursor-pointer">
                                         <Image
                                             // {...ImagePropsGallery(i)}
                                             src={urlFor(e.image).url()}
@@ -171,6 +176,7 @@ const ImageSite = ({ post, dataAll }) => {
                                         <div className="absolute inset-0 bg-black opacity-0 transition duration-300 ease-in-out hover:opacity-50 focus:opacity-50"></div>
                                     </div>
                                 </Link>
+                                <div className="text">{e.technik}</div>
                             </div>
                         );
                     })}

@@ -57,7 +57,7 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
                 <title>Site title</title>
             </Head>
 
-            <ContainerVH100 hFull first>
+            <ContainerVH100 klasse={isDesktop ? "grid grid-cols-12 container mx-auto" : ""} hFull first>
                 {isDesktop ? (
                     <HeroSliderDesktop dataAos="fade-up" data={dataBilder}></HeroSliderDesktop>
                 ) : (
@@ -69,7 +69,7 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
             </ContainerVH100>
             <ContainerFullBG>
                 <ContainerStandard klasse="bg-brightBG lg:h-auto col-span-12 overflow-hidden" showBG>
-                    <ImgText1 colspan="col-span-12 py-16" link="/kurse">
+                    <ImgText1 colspan="col-span-12 pb-8 sm:pb-0 sm:py-16" link="/kurse">
                         <div className="grid grid-cols-12 gap-1 sm:gap-4 h-full">
                             {dataAkademie.map((e, i) => {
                                 console.log(e.slug.current);

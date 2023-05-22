@@ -86,7 +86,7 @@ const Thumbnail2 = (props) => {
                                 {/* <h4 className="text-lg font-medium"> {props.motto}</h4> */}
                             </motion.div>
 
-                            <motion.div className="w-full  px-4 py-4 flex flex-col justify-center transition-all duration-500 ease-in-out lg:justify-end group-hover:lg:justify-center items-center h-24 group-hover:lg:h-full  bottom-0 absolute z-10 text-primaryColor-50">
+                            <div className="w-full  px-4 py-4 flex flex-col justify-center transition-all duration-500 ease-in-out lg:justify-end group-hover:lg:justify-center items-center h-24 group-hover:lg:h-full  bottom-0 absolute z-10 text-primaryColor-50">
                                 <div className="date text-primaryColor-50 font-medium text-base sm:text-lg mb-2">
                                     {props.date}
                                 </div>
@@ -95,7 +95,7 @@ const Thumbnail2 = (props) => {
                                 <div className="date hidden group-hover:block text-primaryColor-50 font-medium text-base sm:text-lg mb-2">
                                     {props.motto}
                                 </div>
-                            </motion.div>
+                            </div>
                             {/* 
                             <motion.div className="w-full   px-4 py-4 flex flex-col justify-center transition-all duration-500 ease-in-out lg:justify-end group-hover:lg:justify-center items-center h-full absolute z-10 text-primaryColor-50">
                                 <div className="date text-primaryColor-50 font-medium text-base sm:text-lg mb-2">

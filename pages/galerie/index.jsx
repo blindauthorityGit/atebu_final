@@ -32,11 +32,27 @@ export default function Galerie({ dataBilder, dataAkademie, dataChristine, dataB
                 <title>Site title</title>
             </Head>
             <ContainerStandard klasse="gap-1 lg:gap-2 pt-12 md:px-12">
+                <div className="right hidden lg:flex overflow-hidden px-8 sm:px-0 col-span-12 lg:col-span-16  flex-col justify-center ">
+                    <h2
+                        data-aos="fade-left"
+                        className="font-serif uppercase text-4xl sm:text-4xl text-darkText lg:text-6xl font-thin mt-8 tracking-wider mb-2 lg:mb-12"
+                    >
+                        Galerie
+                    </h2>
+                    <div
+                        data-aos="fade-up"
+                        className="font-montserrat lg:w-2/4  mt-4 lg:mt-0 lg:mb-12 tracking-wide leading-relaxed sm:leading-relaxed lg:leading-relaxed text-sm sm:text-sm lg:text-regular text-darkText mb-4"
+                    >
+                        Unser Mal-Kursangebot ist der perfekte Ort, um Farben fließen zu lassen und kreative Visionen
+                        zum Leben zu erwecken. Ob Sie ein Anfänger oder ein fortgeschrittener Künstler sind, hier gibt
+                        es Schwerpunkte für alle Stile und Interessen.
+                    </div>
+                </div>
                 {dataBilder.map((e, i) => {
                     return (
-                        <div className="col-span-6 sm:col-span-4 relative h-32 sm:h-64 md:h-48">
+                        <div className="col-span-6 sm:col-span-4 lg:col-span-3 relative h-32 sm:h-64 md:h-48 lg:h-64">
                             <Link href={`/galerie/${e.slug.current}`}>
-                                <div className="relative w-full h-full">
+                                <div className="relative w-full h-full cursor-pointer">
                                     <Image
                                         // {...ImagePropsGallery(i)}
                                         src={urlFor(e.image).url()}

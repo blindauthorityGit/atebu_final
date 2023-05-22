@@ -4,13 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y, Parallax, Keyboard, Autoplay, Virtual } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y, Keyboard, Autoplay, Virtual } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+
+import { Parallax } from "react-scroll-parallax";
 
 // COMPS
 import { PrintAvailability } from "../floaters";
@@ -82,72 +84,72 @@ const HeroSlider1 = (props) => {
             >
                 <HiOutlineChevronRight></HiOutlineChevronRight>
             </div> */}
-            <div className={`h-[65%] sm:h-[70%] lg:h-[80%]  container m-auto relative  ${props.colspan}`}>
+            <div className={`h-[65%] col-span-6 sm:h-[70%] lg:h-[100%]  container m-auto relative  ${props.colspan}`}>
                 <PrintAvailability />
-                <div className="relative col-span-8 h-full" data-aos={props.dataAos}>
-                    <Swiper
-                        // install Swiper modules
-                        modules={[Navigation, Pagination, Scrollbar, A11y, Parallax, Keyboard, Autoplay, Virtual]}
-                        spaceBetween={20}
-                        slidesPerView={1}
-                        parallax
-                        centeredSlides
-                        keyboard={true}
-                        virtual
-                        fadeEffect={{ crossFade: true }}
-                        speed={225}
-                        pagination={{ clickable: true, dynamicBullets: true }}
-                        onSwiper={(swiper) => {
-                            console.log(swiper.params);
-                            {
-                                setSwiper(swiper);
-                            }
-                        }}
-                        onSlideChange={() => console.log("slide change")}
-                        className={` h-full `}
-                    >
-                        {props.data.map((e, i) => {
-                            return (
-                                <>
-                                    <SwiperSlide
-                                        key={`sliderKey${i}`}
-                                        layoutId="hero"
-                                        transition={{ duration: 0.5 }}
-                                        className="bg-cover  bg-no-repeat relative h-full"
-                                    >
-                                        <motion.div
-                                            // style={{ boxShadow: "var(--shadow-elevation-high)" }}
-                                            className={`h-[90%] md:h-[95%] lg:h-[97%] sm:border-8 border-white relative transition-all ${
-                                                clicked ? "scale-[0.975]" : ""
-                                            }`}
-                                            data-swiper-parallax="100"
-                                            data-swiper-parallax-opacity="0.15"
-                                            data-swiper-parallax-scale="0.78"
+                <Parallax className="relative col-span-8 h-full" translateY={["400px", "-400px"]}>
+                    <div className="relative col-span-8 h-full" data-aos={props.dataAos}>
+                        <Swiper
+                            // install Swiper modules
+                            modules={[Navigation, Pagination, Scrollbar, A11y, Keyboard, Autoplay, Virtual]}
+                            spaceBetween={20}
+                            slidesPerView={1}
+                            centeredSlides
+                            keyboard={true}
+                            virtual
+                            fadeEffect={{ crossFade: true }}
+                            speed={225}
+                            pagination={{ clickable: true, dynamicBullets: true }}
+                            onSwiper={(swiper) => {
+                                console.log(swiper.params);
+                                {
+                                    setSwiper(swiper);
+                                }
+                            }}
+                            onSlideChange={() => console.log("slide change")}
+                            className={` h-full `}
+                        >
+                            {props.data.map((e, i) => {
+                                return (
+                                    <>
+                                        <SwiperSlide
+                                            key={`sliderKey${i}`}
+                                            layoutId="hero"
+                                            transition={{ duration: 0.5 }}
+                                            className="bg-cover  bg-no-repeat relative h-full"
                                         >
-                                            <Link href={`/galerie/${e.slug.current}`}>
-                                                <a>
-                                                    <Image
-                                                        // {...ImagePropsGallery(i)}
-                                                        src={urlFor(e.image).url()}
-                                                        layout="fill"
-                                                        loading="lazy"
-                                                        objectFit="cover"
-                                                        objectPosition="top"
-                                                        alt="hero"
-                                                        quality="10"
-                                                        onClick={handleClick}
-                                                        onLoad={() => {
-                                                            console.log("LOADING");
-                                                            setLoading(false);
-                                                        }}
-                                                        className="  sm:max-w-[100%!important] sm:min-w-[100%!important] KNORKE"
-                                                        // max-w-[99%!important] min-w-[92%!important]
-                                                    />
-                                                </a>
-                                            </Link>
-                                        </motion.div>
+                                            <motion.div
+                                                // style={{ boxShadow: "var(--shadow-elevation-high)" }}
+                                                className={`h-[90%] md:h-[95%] lg:h-[97%] sm:border-8 border-white relative transition-all ${
+                                                    clicked ? "scale-[0.975]" : ""
+                                                }`}
+                                                data-swiper-parallax="100"
+                                                data-swiper-parallax-opacity="0.15"
+                                                data-swiper-parallax-scale="0.78"
+                                            >
+                                                <Link href={`/galerie/${e.slug.current}`}>
+                                                    <a>
+                                                        <Image
+                                                            // {...ImagePropsGallery(i)}
+                                                            src={urlFor(e.image).url()}
+                                                            layout="fill"
+                                                            loading="lazy"
+                                                            objectFit="cover"
+                                                            objectPosition="top"
+                                                            alt="hero"
+                                                            quality="10"
+                                                            onClick={handleClick}
+                                                            onLoad={() => {
+                                                                console.log("LOADING");
+                                                                setLoading(false);
+                                                            }}
+                                                            className="  sm:max-w-[100%!important] sm:min-w-[100%!important] KNORKE"
+                                                            // max-w-[99%!important] min-w-[92%!important]
+                                                        />
+                                                    </a>
+                                                </Link>
+                                            </motion.div>
 
-                                        {/* <div className="textBox z-40 px-16 sm:px-36 lg:px-48 col-span-12 lg:col-span-8 flex flex-col justify-center items-center sm:items-start">
+                                            {/* <div className="textBox z-40 px-16 sm:px-36 lg:px-48 col-span-12 lg:col-span-8 flex flex-col justify-center items-center sm:items-start">
                                 <h1 className="text-white text-2xl sm:text-6xl font-oswald uppercase font-bold text-center sm:text-left">
                                     {e.title}
                                 </h1>
@@ -158,27 +160,28 @@ const HeroSlider1 = (props) => {
                                     </button>
                                 </Link>
                             </div> */}
-                                        {/* <div className="absolute w-full h-full bg-black top-0 opacity-30"></div> */}
-                                        {/* <img src={e.image} alt="" /> */}
-                                        <div
-                                            className="absolute text-center sm:text-left py-3 sm:py-0 bottom-[2.25rem]  sm:bg-transparent sm:bottom-[2rem] lg:bottom-[0rem] pl-8 sm:pl-0 text-primaryColor-200 w-full sm:w-auto sm:text-textBlack sm:left-8 text-xs z-50  lg:block"
-                                            data-swiper-parallax-opacity="0.5"
-                                            data-swiper-parallax="-600"
-                                            data-swiper-parallax-duration="600"
-                                        >
-                                            <p className="hidden sm:block">
-                                                {e.titel_Bild} | {e.year} {e.technik}
-                                            </p>
-                                            <p className="sm:hidden block font-semibold z-30 relative">
-                                                {e.year} {e.technik}
-                                            </p>
-                                        </div>
-                                    </SwiperSlide>
-                                </>
-                            );
-                        })}
-                    </Swiper>
-                </div>
+                                            {/* <div className="absolute w-full h-full bg-black top-0 opacity-30"></div> */}
+                                            {/* <img src={e.image} alt="" /> */}
+                                            <div
+                                                className="absolute text-center sm:text-left py-3 sm:py-0 bottom-[2.25rem]  sm:bg-transparent sm:bottom-[2rem] lg:bottom-[0rem] pl-8 sm:pl-0 text-primaryColor-200 w-full sm:w-auto sm:text-textBlack sm:left-8 text-xs z-50  lg:block"
+                                                data-swiper-parallax-opacity="0.5"
+                                                data-swiper-parallax="-600"
+                                                data-swiper-parallax-duration="600"
+                                            >
+                                                <p className="hidden sm:block">
+                                                    {e.titel_Bild} | {e.year} {e.technik}
+                                                </p>
+                                                <p className="sm:hidden block font-semibold z-30 relative">
+                                                    {e.year} {e.technik}
+                                                </p>
+                                            </div>
+                                        </SwiperSlide>
+                                    </>
+                                );
+                            })}
+                        </Swiper>
+                    </div>
+                </Parallax>
 
                 <style jsx>{`
                     .hover-underline-animation span {
@@ -209,11 +212,11 @@ const HeroSlider1 = (props) => {
                     }
                 `}</style>
             </div>
-            <div className="container h-[40%] md:h-[28%] text-blackText-500 p-4 mx-auto flex-col items-center justify-center ">
-                <div className="wrapper h-full flex flex-col justify-center py-4">
-                    <motion.div className="text-center" variants={containerVariants} initial="hidden" animate="visible">
+            <div className="container order-first flex items-center col-span-6 h-[40%] md:h-[28%] lg:h-full text-blackText-500 p-4 mx-auto flex-col items-center justify-center ">
+                <div className="wrapper py-4">
+                    <motion.div className="" variants={containerVariants} initial="hidden" animate="visible">
                         <motion.h1
-                            className="text-4xl md:text-5xl font-serif tracking-wider mb-2"
+                            className="text-4xl md:text-8xl font-serif tracking-wider mb-2"
                             initial={{ opacity: 0, scale: 0.85 }}
                             animate={{
                                 opacity: 1,
@@ -222,7 +225,7 @@ const HeroSlider1 = (props) => {
                             }}
                         >
                             <motion.span
-                                className="text-xl block"
+                                className="text-6xl block"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1, transition: { duration: 0.5, delay: 0 } }}
                             >
@@ -231,8 +234,8 @@ const HeroSlider1 = (props) => {
                             BUCHNER
                         </motion.h1>
                     </motion.div>
-                    <p className="text-xs sm:text-sm text-center tracking-widest">Atelier für Kunstmalerei & Kurse</p>
-                    <div className="w-full flex justify-center mt-4">
+                    <p className="text-xs sm:text-sm  tracking-widest">Atelier für Kunstmalerei & Kurse</p>
+                    <div className="w-full  mt-4">
                         <Link href="/galerie">
                             <button className="bg-blackText hover-underline-animation font-semibold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-xs tracking-wider sm:text-base sm:py-3 px-6 min-w-[12rem] max-w-[12rem]  uppercase rounded-md">
                                 <span className=""> Alle Bilder</span>

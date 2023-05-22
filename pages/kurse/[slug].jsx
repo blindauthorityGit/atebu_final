@@ -20,8 +20,10 @@ import { Buchen } from "../../components/modalContent";
 import MapboxMap from "../../components/map";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import LightBox from "../../components/lightbox";
+import HeroPage from "../../components/Hero/heroPage";
 import { Thumbnail2 } from "../../components/imgThumbnails";
 import { MainButtonNOLink } from "../../components/buttons";
+import { ImageGridBasic } from "../../components/imageGrids";
 
 // LIGHTBOX
 
@@ -129,25 +131,37 @@ const KursSite = ({ post, dataAll, dataSetting, dataAkademie }) => {
                         ></Overlay>
                     </>
                 ) : null}
-
-                <ContainerStandard klasse="gap-1 sm:gap-2 pt-12 md:pt-16 lg:mt-20 bg-brightBG">
-                    <KurseTxtImg breadcrumbs image={urlFor(post.image).url()} data={post}></KurseTxtImg>;
+                <HeroPage height="h-full mt-20 hidden lg:grid lg:mb-0" bgImage={urlFor(post.image).url()}>
+                    <KurseTxtImg
+                        colspan="h-full lg:px-[5rem] xl:px-[15rem] lg:mt-[-6rem] lg:mb-[0!important]"
+                        image={urlFor(post.image).url()}
+                        data={post}
+                    ></KurseTxtImg>
+                    ;
+                </HeroPage>
+                <ContainerStandard klasse="gap-1 block lg:hidden sm:gap-2 pt-12 md:pt-16 lg:mt-20 bg-brightBG z-20">
+                    <KurseTxtImg showImage breadcrumbs image={urlFor(post.image).url()} data={post}></KurseTxtImg>;
                 </ContainerStandard>
-                <ContainerStandard klasse="gap-1 sm:gap-2 pt-8 sm:pt-12 ">
-                    <div className="col-span-12 px-8">
+                <ContainerStandard klasse="gap-1 sm:gap-2 pt-8 sm:pt-12 xl:px-[15rem]">
+                    <div className="col-span-12 lg:col-span-8 xl:col-span-12 px-8">
                         <h2 className="font-bold uppercase text-xl md:text-3xl mb-6">Der Workshop</h2>
-                        <div className="einleitung mb-12 text-sm md:mb-12 md:w-3/4">
-                            <PortableText value={post.description} />
+                        <div className="einleitung mb-12 text-sm lg:text-base md:mb-12 md:w-3/4 lineHeight">
+                            <PortableText className="leading-loose" value={post.description} />
                         </div>{" "}
-                        <h2 className="font-bold uppercase text-xl md:text-3xl mb-6">Beispiele / Eindrücke</h2>
-                        <GallerySlider1
-                            onClick={(e) => {
-                                handleImageClick(Number(e.target.id));
-                                setShowModal(true);
-                                setShowLightBox(true);
-                            }}
-                            data={post.imageGallery}
-                        ></GallerySlider1>
+                        <h2 className="font-bold uppercase text-xl md:text-3xl mb-6 ">Beispiele / Eindrücke</h2>
+                        <div className="image hidden lg:block">
+                            <ImageGridBasic data={post.imageGallery}></ImageGridBasic>
+                        </div>
+                        <div className="slider lg:hidden">
+                            <GallerySlider1
+                                onClick={(e) => {
+                                    handleImageClick(Number(e.target.id));
+                                    setShowModal(true);
+                                    setShowLightBox(true);
+                                }}
+                                data={post.imageGallery}
+                            ></GallerySlider1>
+                        </div>
                         <KurseInfo
                             email="christine@atelierbuchner.at"
                             phone="+43 650 / 944 51 40"

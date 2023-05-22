@@ -29,6 +29,7 @@
     "react-loader-spinner": "^5.3.4",
     "react-map-gl": "^7.0.21",
     "react-modal-image": "^2.6.0",
+    "react-scroll-parallax": "^3.4.2",
     "react-spinners": "^0.13.8",
     "react-spring-lightbox": "^1.7.1",
     "react-swipeable": "^7.0.0",

@@ -9,14 +9,14 @@ module.exports = {
             sm: "640px",
             md: "768px",
             lg: "1024px",
-            xl: "1540px",
-            "2xl": "1364px",
+            xl: "1380px",
+            "2xl": "2140px",
         },
         container: {
             sm: "100%",
             md: "960px",
             lg: "1364px",
-            xl: "2368px",
+            xl: "1980px",
         },
         extend: {
             fontFamily: {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function useBreakpoints() {
+export default function useBreakPoints() {
     const [isMobile, setIsMobile] = useState(false);
     const [isTablet, setIsTablet] = useState(false);
     const [isDesktop, setIsDesktop] = useState(false);

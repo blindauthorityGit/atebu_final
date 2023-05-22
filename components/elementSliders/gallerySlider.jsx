@@ -81,15 +81,16 @@ const GallerySlider1 = (props) => {
                             slidesPerView: 3,
                         },
                         1280: {
-                            slidesPerView: 3,
+                            slidesPerView: 1.2,
                         },
                     }}
                 >
                     {props.data.map((e, i) => {
                         return (
-                            <SwiperSlide key={`galleryKey${i}`} className="">
-                                <div className="cursor-pointer relative overflow-hidden h-48">
-                                    {/* <motion.img
+                            <>
+                                <SwiperSlide key={`galleryKey${i}`} className="">
+                                    <div className="cursor-pointer relative overflow-hidden h-48 xl:h-[580px]">
+                                        {/* <motion.img
                                         whileHover={{
                                             scale: 1.1,
                                             transition: { duration: 0.3 },
@@ -101,18 +102,19 @@ const GallerySlider1 = (props) => {
                                             console.log(props.data[i]);
                                         }}
                                     /> */}
-                                    <Image
-                                        // {...ImagePropsGallery(i)}
-                                        src={urlFor(e).url()}
-                                        layout="fill"
-                                        loading="lazy"
-                                        objectFit="cover"
-                                        alt="hero"
-                                        onClick={props.onClick}
-                                        id={i}
-                                    />
-                                </div>
-                            </SwiperSlide>
+                                        <Image
+                                            // {...ImagePropsGallery(i)}
+                                            src={urlFor(e).url()}
+                                            layout="fill"
+                                            loading="lazy"
+                                            objectFit="cover"
+                                            alt="hero"
+                                            onClick={props.onClick}
+                                            id={i}
+                                        />
+                                    </div>{" "}
+                                </SwiperSlide>
+                            </>
                         );
                     })}
                 </Swiper>

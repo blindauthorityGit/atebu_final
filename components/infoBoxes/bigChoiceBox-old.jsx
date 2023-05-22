@@ -55,7 +55,7 @@ const BigChoiceBox = (props) => {
                         );
                     })}
             </div>
-            <div className="col-span-12 grid grid-cols-12 z-20  min-h-[850px]">
+            <div className="col-span-12 grid grid-cols-12 z-20 bg-brightBG min-h-[850px]">
                 <div className="col-span-4 p-4">
                     {props.data.leistungen
                         .filter((e) => e.category === categoryLeistung)
@@ -67,27 +67,26 @@ const BigChoiceBox = (props) => {
                                         setActiveLeistung(i);
                                     }}
                                     className={`${
-                                        i === activeLeistung
-                                            ? "border opacity-100 p-10 border-primaryColor-400 overflow-hidden"
-                                            : "opacity-40 hover:bg-primaryColor-300"
-                                    } w-full cursor-pointer  hover:bg-primaryColor-100 hover:opacity-100 p-8  mb-4 `}
+                                        i === activeLeistung ? "border-4 p-10 border-primaryColor-400" : null
+                                    } w-full cursor-pointer hover:bg-primaryColor-300 p-8 bg-white mb-4 `}
                                 >
                                     <h4
                                         className={`${
                                             i === activeLeistung ? "underline" : null
-                                        } transition-all duration-300 font-semibold mb-4 text-2xl`}
+                                        } transition-all duration-300 font-semibold mb-4`}
                                     >
                                         {e.title}
                                     </h4>
-                                    {i === activeLeistung ? (
-                                        <p className="text-sm xl:text-base slide-in-top">{e.text}</p>
-                                    ) : null}
+                                    <p className="text-sm xl:text-base">{e.text}</p>
                                 </div>
                             );
                         })}
                 </div>
                 <div className="col-span-8 p-4 relative">
-                    <div style={{ position: "sticky", top: "0" }} className="h-full w-full ">
+                    <div
+                        style={{ position: "sticky", top: "0" }}
+                        className="p-4 h-full w-full border-[1rem] border-white"
+                    >
                         {categoryLeistung && (
                             <Image
                                 src={urlFor(

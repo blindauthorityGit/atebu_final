@@ -83,8 +83,8 @@ const HeroSlider1 = (props) => {
             >
                 <HiOutlineChevronRight></HiOutlineChevronRight>
             </div>
-            <div className={`h-[65%] sm:h-[70%] lg:h-[80%] lg:mt-16 container m-auto relative  ${props.colspan}`}>
-                <PrintAvailability />
+            <div className={`h-[95%] sm:h-[70%] lg:h-[80%] lg:mt-16 container m-auto relative  ${props.colspan}`}>
+                {/* <PrintAvailability /> */}
                 <div className="relative col-span-8 h-full" data-aos={props.dataAos}>
                     <Swiper
                         // install Swiper modules
@@ -118,11 +118,11 @@ const HeroSlider1 = (props) => {
                                     >
                                         <motion.div
                                             // style={{ boxShadow: "var(--shadow-elevation-high)" }}
-                                            className={`h-[90%] md:h-[95%] lg:h-[93%] sm:border-8 border-white relative transition-all ${
+                                            className={`h-[95%] md:h-[95%] lg:h-[93%] sm:border-8 border-white relative transition-all ${
                                                 clicked ? "scale-[0.975]" : ""
                                             }`}
                                             data-swiper-parallax="100"
-                                            data-swiper-parallax-opacity="0.15"
+                                            data-swiper-parallax-opacity="0"
                                             data-swiper-parallax-scale="0.78"
                                         >
                                             <Link href={`/galerie/${e.slug.current}`}>
@@ -210,9 +210,9 @@ const HeroSlider1 = (props) => {
                     }
                 `}</style>
             </div>
-            <div className="container h-[40%] md:h-[28%] text-blackText-500 p-4 mx-auto flex-col items-center justify-center ">
+            <div className="container h-[10%] md:h-[28%] text-blackText-500 p-4 mx-auto flex-col items-center justify-center ">
                 <div className="wrapper h-full flex flex-col justify-center py-4">
-                    <motion.div className="text-center" variants={containerVariants} initial="hidden" animate="visible">
+                    {/* <motion.div className="text-center" variants={containerVariants} initial="hidden" animate="visible">
                         <motion.h1
                             className="text-4xl md:text-5xl font-serif tracking-wider mb-2"
                             initial={{ opacity: 0, scale: 0.85 }}
@@ -232,8 +232,8 @@ const HeroSlider1 = (props) => {
                             BUCHNER
                         </motion.h1>
                     </motion.div>
-                    <p className="text-xs sm:text-sm text-center tracking-widest">Atelier für Kunstmalerei & Kurse</p>
-                    <div className="w-full flex justify-center mt-4">
+                    <p className="text-xs sm:text-sm text-center tracking-widest">Atelier für Kunstmalerei & Kurse</p> */}
+                    <div className="w-full flex justify-center">
                         <Link href="/galerie">
                             <button className="bg-blackText hover-underline-animation font-semibold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-xs tracking-wider sm:text-base sm:py-3 px-6 min-w-[12rem] max-w-[12rem]  uppercase rounded-md">
                                 <span className=""> Alle Bilder</span>

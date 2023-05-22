@@ -4,14 +4,14 @@ import { Map } from "mapbox-gl";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 //FUNCTIONS
-import useBreakpoints from "../functions/useBreakpoints";
+import useBreakPoints from "../functions/useBreakpoints";
 
 const MapboxMap = (props) => {
     const mapContainer = useRef(null);
     const container = useRef(null);
     const [mapHeight, setMapHeight] = useState(null);
 
-    const { isMobile, isTablet, isDesktop } = useBreakpoints();
+    const { isMobile, isTablet, isDesktop } = useBreakPoints();
 
     useEffect(() => {
         console.log(isMobile, isTablet, isDesktop);

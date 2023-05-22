@@ -33,7 +33,7 @@ function CheckboxContainer({ onCheckboxClick }) {
     };
 
     return (
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 lg:my-6 xl:my-10 z-30">
             <div className="flex items-center">
                 <input
                     type="checkbox"
@@ -51,16 +51,16 @@ function CheckboxContainer({ onCheckboxClick }) {
                     whileHover={{ scale: 1.1 }}
                 >
                     <motion.div
-                        className={`w-5 md:w-6 h-5 md:h-6 border-2 border-solid border-blackText rounded-full flex items-center justify-center ${
+                        className={`w-5 xl:w-6 h-5 xl:h-6 border border-solid border-blackText rounded-full flex items-center justify-center ${
                             checked === "original" ? "bg-blackText" : ""
                         }`}
                         variants={variants}
                         initial={checked === "original" ? "checked" : "unchecked"}
                         animate={checked === "original" ? "checked" : "unchecked"}
                     >
-                        {checked === "original" && <MdCheck className="text-primaryColor-200 text-base md:text-2xl" />}
+                        {checked === "original" && <MdCheck className="text-primaryColor-200 text-base xl:text-2xl" />}
                     </motion.div>
-                    <span className="ml-2 text-sm md:text-lg text-blackText font-semibold">ORIGINAL</span>
+                    <span className="ml-2 text-sm xl:text-lg text-blackText ">ORIGINAL</span>
                 </motion.label>
             </div>
             <div className="flex items-center">
@@ -80,7 +80,7 @@ function CheckboxContainer({ onCheckboxClick }) {
                     whileHover={{ scale: 1.1 }}
                 >
                     <motion.div
-                        className={`w-5 md:w-6 h-5 md:h-6  border-2 border-solid border-blackText rounded-full flex items-center justify-center ${
+                        className={`w-5 xl:w-6 h-5 xl:h-6  border border-solid border-blackText rounded-full flex items-center justify-center ${
                             checked === "print" ? "bg-blackText" : ""
                         }`}
                         variants={variants}
@@ -89,7 +89,7 @@ function CheckboxContainer({ onCheckboxClick }) {
                     >
                         {checked === "print" && <MdCheck className="text-primaryColor-200 text-base md:text-2xl" />}
                     </motion.div>
-                    <span className="ml-2 text-sm md:text-lg text-blackText font-semibold">PRINT</span>
+                    <span className="ml-2 text-sm xl:text-lg text-blackText ">DRUCK</span>
                 </motion.label>
             </div>
         </div>
