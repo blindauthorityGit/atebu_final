@@ -6,7 +6,7 @@ const ContainerVH100 = (props) => {
         <div
             className={`containervh100 lg:min-h-screen relative ${props.center ? "items-center flex" : ""}  ${
                 props.hFull ? "h-full" : ""
-            } ${props.first ? "pb-12 md:py-20 lg:py-24 h-calc-70px" : "py-8 sm:py-16"}  w-full ${props.klasse}`}
+            } ${props.first ? "py-12 md:py-20 lg:py-24 h-calc-70px" : "py-8 sm:py-16"}  w-full ${props.klasse}`}
         >
             {props.showBG ? (
                 <div className="absolute left-[-30%] top-0 h-full opacity-[0.02]">

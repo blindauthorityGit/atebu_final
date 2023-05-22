@@ -55,7 +55,7 @@ const MobileSwiper1 = (props) => {
             >
                 <HiOutlineChevronRight></HiOutlineChevronRight>
             </div>
-            <div className={` container xl:container-xl m-auto my-4 relative  ${props.colspan}`}>
+            <div className={` container col-span-12 xl:container-xl m-auto my-4 relative  ${props.colspan}`}>
                 <div className="relative h-full" data-aos={props.dataAos}>
                     <Swiper
                         // install Swiper modules

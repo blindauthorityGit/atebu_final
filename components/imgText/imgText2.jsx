@@ -51,7 +51,7 @@ const TextImg2 = (props) => {
     return (
         <div
             ref={ref}
-            className={`w-full container  sm:px-0 md:px-12 lg:px-0 m-auto lg:gap-0 grid grid-cols-12  ${props.colspan}`}
+            className={`w-full container col-span-12 sm:px-0 md:px-12 lg:px-0 m-auto lg:gap-0 grid grid-cols-12  ${props.colspan}`}
         >
             <FloaterBlackFull style={{ opacity: scrollYProgress }}></FloaterBlackFull>
 
@@ -74,8 +74,9 @@ const TextImg2 = (props) => {
             ) : (
                 <MobileSwiper1 data={props.data[0].leistungen}></MobileSwiper1>
             )}
-            <GhostButton link={"/leistungen"}>mehr</GhostButton>
-
+            <div className="px-8 w-full col-span-12">
+                <GhostButton link={"/leistungen"}>mehr</GhostButton>
+            </div>
             {/* <motion.div
                 style={{ opacity: scrollYProgress }}
                 data-aos="fade-right"

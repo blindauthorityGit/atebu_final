@@ -62,6 +62,7 @@ export default function Detail({
     const [showModal, setShowModal] = useState(false);
     const [showPayment, setShowPayment] = useState(false);
 
+    const handlersRef = useRef({});
     const boxRef = useRef();
     const modalRef = useRef();
     const modalRef2 = useRef();
@@ -93,11 +94,21 @@ export default function Detail({
                 `/galerie/${dataAll[Math.max(0, currentIndex - 1)].slug.current}`,
                 `/galerie/${dataAll[Math.min(dataAll.length - 1, currentIndex + 1)].slug.current}`
             ),
-        onSwipedLeft: (e) =>
-            Router.push(`/galerie/${dataAll[Math.min(dataAll.length - 1, currentIndex + 1)].slug.current}`),
+        onSwipedLeft: (e) => {
+            // Router.push(`/galerie/${dataAll[Math.min(dataAll.length - 1, currentIndex + 1)].slug.current}`);
+            console.log("LEFT", imgRef.current);
+            if (imgRef.current) {
+                console.log(imgRef.current);
+            }
+            // imgRef.current.classList.add("transition", "duration-200");
+            // setX(-1000);
+            // setTimeout(() => {
+            //     imgRef.current.classList.remove("transition", "duration-200");
+            // }, 200);
+        },
         onSwipedRight: (e) => Router.push(`/galerie/${dataAll[Math.max(0, currentIndex - 1)].slug.current}`),
         onSwiping: ({ deltaX }) => {
-            setX(deltaX / 2);
+            setX(deltaX / 1.2);
             console.log("test");
         },
     });

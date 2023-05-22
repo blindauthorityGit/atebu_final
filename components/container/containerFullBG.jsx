@@ -12,7 +12,7 @@ const ContainerFullBG = (props) => {
     });
 
     return (
-        <div ref={ref} className="w-full relative bg-brightBG grid grid-cols-12">
+        <div ref={ref} className="w-full relative sm:bg-brightBG grid grid-cols-12">
             <FloaterBlackFull style={{ opacity: scrollYProgress }}></FloaterBlackFull>
 
             {props.children}

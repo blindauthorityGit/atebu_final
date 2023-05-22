@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 import Link from "next/link";
+import { Parallax } from "react-scroll-parallax";
+
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y, Parallax, Keyboard, Autoplay, Virtual } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y, Keyboard, Autoplay, Virtual } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
@@ -88,10 +90,9 @@ const HeroSlider1 = (props) => {
                 <div className="relative col-span-8 h-full" data-aos={props.dataAos}>
                     <Swiper
                         // install Swiper modules
-                        modules={[Navigation, Pagination, Scrollbar, A11y, Parallax, Keyboard, Autoplay, Virtual]}
+                        modules={[Navigation, Pagination, Scrollbar, A11y, Keyboard, Autoplay, Virtual]}
                         spaceBetween={20}
                         slidesPerView={1}
-                        parallax
                         centeredSlides
                         keyboard={true}
                         virtual
@@ -125,27 +126,29 @@ const HeroSlider1 = (props) => {
                                             data-swiper-parallax-opacity="0"
                                             data-swiper-parallax-scale="0.78"
                                         >
-                                            <Link href={`/galerie/${e.slug.current}`}>
-                                                <a>
-                                                    <Image
-                                                        // {...ImagePropsGallery(i)}
-                                                        src={urlFor(e.image).url()}
-                                                        layout="fill"
-                                                        loading="lazy"
-                                                        objectFit="cover"
-                                                        objectPosition="top"
-                                                        alt="hero"
-                                                        quality="10"
-                                                        onClick={handleClick}
-                                                        onLoad={() => {
-                                                            console.log("LOADING");
-                                                            setLoading(false);
-                                                        }}
-                                                        className="  sm:max-w-[100%!important] sm:min-w-[100%!important] KNORKE"
-                                                        // max-w-[99%!important] min-w-[92%!important]
-                                                    />
-                                                </a>
-                                            </Link>
+                                            <Parallax className="relative h-full" translateY={["-271px", "220px"]}>
+                                                <Link href={`/galerie/${e.slug.current}`}>
+                                                    <a>
+                                                        <Image
+                                                            // {...ImagePropsGallery(i)}
+                                                            src={urlFor(e.image).url()}
+                                                            layout="fill"
+                                                            loading="lazy"
+                                                            objectFit="cover"
+                                                            objectPosition="top"
+                                                            alt="hero"
+                                                            quality="10"
+                                                            onClick={handleClick}
+                                                            onLoad={() => {
+                                                                console.log("LOADING");
+                                                                setLoading(false);
+                                                            }}
+                                                            className="  sm:max-w-[100%!important] sm:min-w-[100%!important] KNORKE"
+                                                            // max-w-[99%!important] min-w-[92%!important]
+                                                        />
+                                                    </a>
+                                                </Link>
+                                            </Parallax>
                                         </motion.div>
 
                                         {/* <div className="textBox z-40 px-16 sm:px-36 lg:px-48 col-span-12 lg:col-span-8 flex flex-col justify-center items-center sm:items-start">
