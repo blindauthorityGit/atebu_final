@@ -95,11 +95,8 @@ export default function Detail({
                 `/galerie/${dataAll[Math.min(dataAll.length - 1, currentIndex + 1)].slug.current}`
             ),
         onSwipedLeft: (e) => {
-            // Router.push(`/galerie/${dataAll[Math.min(dataAll.length - 1, currentIndex + 1)].slug.current}`);
-            console.log("LEFT", imgRef.current);
-            if (imgRef.current) {
-                console.log(imgRef.current);
-            }
+            Router.push(`/galerie/${dataAll[Math.min(dataAll.length - 1, currentIndex + 1)].slug.current}`);
+
             // imgRef.current.classList.add("transition", "duration-200");
             // setX(-1000);
             // setTimeout(() => {

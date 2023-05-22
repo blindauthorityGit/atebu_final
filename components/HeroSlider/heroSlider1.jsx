@@ -126,7 +126,7 @@ const HeroSlider1 = (props) => {
                                             data-swiper-parallax-opacity="0"
                                             data-swiper-parallax-scale="0.78"
                                         >
-                                            <Parallax className="relative h-full" translateY={["-271px", "220px"]}>
+                                            <Parallax className="relative h-full" translateY={["-270px", "220px"]}>
                                                 <Link href={`/galerie/${e.slug.current}`}>
                                                     <a>
                                                         <Image
@@ -135,7 +135,7 @@ const HeroSlider1 = (props) => {
                                                             layout="fill"
                                                             loading="lazy"
                                                             objectFit="cover"
-                                                            objectPosition="top"
+                                                            objectPosition="center"
                                                             alt="hero"
                                                             quality="10"
                                                             onClick={handleClick}
