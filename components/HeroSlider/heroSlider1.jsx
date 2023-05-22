@@ -235,7 +235,7 @@ const HeroSlider1 = (props) => {
                     <p className="text-xs sm:text-sm text-center tracking-widest">Atelier für Kunstmalerei & Kurse</p> */}
                     <div className="w-full flex justify-center">
                         <Link href="/galerie">
-                            <button className="bg-blackText hover-underline-animation font-semibold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-xs tracking-wider sm:text-base sm:py-3 px-6 min-w-[12rem] max-w-[12rem]  uppercase rounded-md">
+                            <button className="bg-blackText hover-underline-animation font-semibold flex items-center justify-center text-primaryColor-200 sm:mt-4 lg:mt-8 py-2 text-xs tracking-wider sm:text-base sm:py-3 px-6 min-w-[12rem] max-w-[12rem]  uppercase rounded-md">
                                 <span className=""> Alle Bilder</span>
                             </button>
                         </Link>
