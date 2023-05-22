@@ -155,7 +155,7 @@ const Menu1 = (props) => {
             /> */}
             <nav ref={navRef} className={`w-full fixed z-40 px-4 sm:px-12 lg:py-2  ${props.colspan}`}>
                 {/* BG */}
-                <div className=" z-40 grid relative grid-cols-12 m-auto items-center  py-3 sm:py-4  lg:px-0 lg:py-0">
+                <div className=" z-40 grid relative grid-cols-12 m-auto items-center  py-2 sm:py-4  lg:px-0 lg:py-0">
                     {/* Background Image */}
                     <div className="logo col-span-4 md:col-span-2 ">
                         <Link href="/">
