@@ -75,7 +75,7 @@ const Form1 = (props) => {
                     />
                     {errors.email && <Error klasse="col-span-12 lg:col-span-6">Bitte geben Sie Ihre Email an</Error>}
 
-                    <input
+                    {/* <input
                         {...register("phone", { required: true })}
                         name="phone"
                         id="phone"
@@ -85,7 +85,7 @@ const Form1 = (props) => {
                     />
                     {errors.phone && (
                         <Error klasse="col-span-12 lg:col-span-6">Bitte geben Sie Ihre Telefonnummer an</Error>
-                    )}
+                    )} */}
 
                     <textarea
                         {...register("message", { required: true })}
@@ -93,7 +93,7 @@ const Form1 = (props) => {
                         name="message"
                         id="message"
                         cols="20"
-                        rows="7"
+                        rows="4"
                         placeholder="Nachricht"
                     ></textarea>
                     {errors.message && <Error klasse="block col-span-12">Bitte geben Sie Ihre Nachricht an</Error>}

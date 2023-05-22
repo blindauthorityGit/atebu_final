@@ -210,7 +210,7 @@ export default function Detail({
                         delay: 0.5,
                         ease: "easeInOut",
                     }}
-                    className={`col-span-12 lg:col-span-8 flex flex-col justify-center z-30 ${
+                    className={`col-span-12 lg:col-span-8 flex flex-col justify-center z-20 ${
                         imageLoaded ? "fade-in" : ""
                     }  relative bg-cover aspect-w-16 aspect-h-9 sm:h-64 lg:h-full transition-all duration-300 ease-in-out`}
                     ref={containerRef}
@@ -244,7 +244,7 @@ export default function Detail({
                 <div
                     data-aos="fade-up"
                     ref={boxRef}
-                    className="col-span-12 z-30 flex flex-col justify-center lg:col-span-4 px-4 md:px-0 mt-2 lg:pl-6 xl:pl-10 lg:pt-0"
+                    className="col-span-12 z-20 flex flex-col justify-center lg:col-span-4 px-4 md:px-0 mt-2 lg:pl-6 xl:pl-10 lg:pt-0"
                 >
                     <h2 className="font-thin font-serif  text-3xl md:text-3xl lg:text-5xl xl:text-6xl tracking-wide mb-4">
                         {post.titel_Bild}

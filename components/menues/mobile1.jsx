@@ -98,6 +98,25 @@ const Mobile1 = (props) => {
                             </a>
                         </Link>
                     </div>
+                    <motion.h1
+                        className="text-5xl md:text-5xl font-serif tracking-wider mb-2 mt-6"
+                        initial={{ opacity: 0, scale: 0.85 }}
+                        animate={{
+                            opacity: 1,
+                            scale: 1,
+                            transition: { duration: 0.5, ease: "easeOut", delay: 0.5 },
+                        }}
+                    >
+                        <motion.span
+                            className="text-2xl block"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1, transition: { duration: 0.5, delay: 0 } }}
+                        >
+                            ATELIER
+                        </motion.span>
+                        BUCHNER
+                    </motion.h1>
+                    <hr />
                     <div className="MenuItems text-lg sm:text-4xl pt-4 font-sans">
                         <Link href="/galerie">
                             <a className="text-text block my-3 subNav relative mt-4 hover:text-primaryColor cursor-pointer">

@@ -1,10 +1,11 @@
 import { FaPhone, FaEnvelope, FaMapMarker } from "react-icons/fa";
+import { Form1 } from "../contactForm";
 
 const ContactInfo = (props) => {
     return (
         <div className="col-span-12">
             <div className="text">
-                <h2 className="text-3xl lg:text-4xl font-semibold">Haben Sie weitere Fragen?</h2>
+                <h2 className="text-3xl lg:text-4xl font-semibold">Interesse?</h2>
                 <p className="text-sm lg:text-lg mt-4">Kontaktieren Sie uns unter:</p>
             </div>
             <div className="bg-primaryColor-100 p-4 lg:p-8 rounded-md  mt-8 lg:text-lg">
@@ -25,6 +26,7 @@ const ContactInfo = (props) => {
                     </p>
                 </div>
             </div>
+            <Form1 />
             <div className="verfuegbar mt-6">
                 {props.sold ? (
                     <div>

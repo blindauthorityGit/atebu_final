@@ -153,7 +153,7 @@ const Menu1 = (props) => {
                 className="h-16 fixed top-0 left-0 right-0 origin-[0%] bg-white z-40"
                 style={{ scaleX: scrollYProgress }}
             /> */}
-            <nav ref={navRef} className={`w-full fixed z-40 px-4 sm:px-12 lg:py-2  ${props.colspan}`}>
+            <nav ref={navRef} className={`w-full fixed z-30 px-4 sm:px-12 lg:py-2  ${props.colspan}`}>
                 {/* BG */}
                 <div className=" z-40 grid relative grid-cols-12 m-auto items-center  py-2 sm:py-4  lg:px-0 lg:py-0">
                     {/* Background Image */}

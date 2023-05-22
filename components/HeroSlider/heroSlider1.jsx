@@ -85,8 +85,10 @@ const HeroSlider1 = (props) => {
             >
                 <HiOutlineChevronRight></HiOutlineChevronRight>
             </div>
-            <div className={`h-[95%] sm:h-[70%] lg:h-[80%] lg:mt-16 container m-auto relative  ${props.colspan}`}>
-                {/* <PrintAvailability /> */}
+            <div
+                className={`h-[95%] sm:h-[70%] lg:h-[80%] lg:mt-16 container m-auto relative overflow-hidden  ${props.colspan}`}
+            >
+                <PrintAvailability />
                 <div className="relative col-span-8 h-full">
                     <Swiper
                         // install Swiper modules
