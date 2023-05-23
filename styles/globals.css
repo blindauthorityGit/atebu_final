@@ -83,6 +83,10 @@ a {
         line-height: 1.85
     }
 
+    p {
+        margin-bottom: 1rem;
+    }
+
 
 .swiper-pagination-bullet-active-main,
 .swiper-pagination-bullet-active {

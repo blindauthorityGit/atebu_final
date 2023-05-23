@@ -43,8 +43,7 @@ const KursSite = ({ post, dataAll, dataSetting, dataAkademie }) => {
     };
 
     useEffect(() => {
-        console.log(dataAkademie.filter((e) => e.akademieTitel !== post.akademieTitel));
-        console.log(post.imageGallery.map((e) => ({ src: urlFor(e).url() })));
+        console.log(dataSetting);
     }, []);
 
     useEffect(() => {
@@ -137,16 +136,19 @@ const KursSite = ({ post, dataAll, dataSetting, dataAkademie }) => {
                         image={urlFor(post.image).url()}
                         data={post}
                     ></KurseTxtImg>
-                    ;
                 </HeroPage>
                 <ContainerStandard klasse="gap-1 block lg:hidden sm:gap-2 pt-12 md:pt-16 lg:mt-20 bg-brightBG z-20">
-                    <KurseTxtImg showImage breadcrumbs image={urlFor(post.image).url()} data={post}></KurseTxtImg>;
+                    <KurseTxtImg showImage image={urlFor(post.image).url()} data={post}></KurseTxtImg>;
                 </ContainerStandard>
                 <ContainerStandard klasse="gap-1 sm:gap-2 pt-8 sm:pt-12 xl:px-[15rem]">
                     <div className="col-span-12 lg:col-span-8 xl:col-span-12 px-8">
-                        <h2 className="font-bold uppercase text-xl md:text-3xl mb-6">Der Workshop</h2>
+                        <h2 className="uppercase text-xl md:text-3xl mb-6">Das Thema</h2>
                         <div className="einleitung mb-12 text-sm lg:text-base md:mb-12 md:w-3/4 lineHeight">
                             <PortableText className="leading-loose" value={post.description} />
+                        </div>{" "}
+                        <h2 className="uppercase text-xl md:text-3xl mb-6">Der Workshop</h2>
+                        <div className="einleitung mb-12 text-sm lg:text-base md:mb-12 md:w-3/4 lineHeight">
+                            <PortableText className="leading-loose" value={dataSetting.kurseAllgemein} />
                         </div>{" "}
                         <h2 className="font-bold uppercase text-xl md:text-3xl mb-6 ">Beispiele / Eindrücke</h2>
                         <div className="image hidden lg:block">

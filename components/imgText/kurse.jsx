@@ -86,11 +86,11 @@ const KurseTxtImg = (props) => {
                         props.showImage ? "lg:max-w-[95%] mb-4" : "lg:max-w-[100%] xl:px-16 lg:mt-[-2rem] lg:mb-12"
                     }   text-blackText mt-4 lg:mt-0 sm:font-semibold tracking-wide leading-relaxed sm:leading-loose lg:leading-relaxed text-sm sm:text-base lg:text-2xl text-textBlack-100`}
                 >
-                    <div className="datum bg-primaryColor-200 py-2 xl:py-6 text-center md:text-lg xl:text-xl font-bold text-primaryColor-900 absolute lg:relative w-full md:w-[60%] rounded-md top-[-4rem] md:top-[0rem] lg:mb-10">
+                    <div className="datum bg-primaryColor-500 tracking-wider py-2 xl:py-6 text-center sm:text-lg xl:text-xl  text-white absolute lg:relative w-full md:w-[60%] rounded-md top-[-4rem] md:top-[0rem] lg:mb-10">
                         {props.data.datum}
                     </div>
                     {props.breadcrumbs ? <Breadcrumbs links={linkList} /> : null}
-                    <h2 className="font-thin lg:mt-4 font-serif tracking-wider  text-3xl md:text-5xl xl:text-7xl mb-2">
+                    <h2 className="font-thin lg:mt-4 font-serif tracking-wider  text-4xl md:text-5xl xl:text-7xl mb-2">
                         {props.data.akademieTitel}
                     </h2>
                     <hr className="border-primaryColor mb-4 xl:mb-8" />
@@ -107,7 +107,7 @@ const KurseTxtImg = (props) => {
                             <div key={`kurskey${i}`}>
                                 <div
                                     key={`kurskey${i}`}
-                                    className="ablaufTop flex text-xs lg:text-sm font-regular  mb-2 md:mb-3"
+                                    className="ablaufTop text-blackText flex text-xs lg:text-sm   mb-2 md:mb-3"
                                 >
                                     <div className="left text-xs lg:text-sm  font-bold w-1/4">{e.TAG}</div>
                                     <div className="right w-full pl-4 font-medium">{e.Beschreibung}</div>

@@ -15,11 +15,11 @@ const Lightbox = (props) => {
     }, []);
 
     return (
-        <div className="LIGHTBOX w-full h-screen fixed top-0 left-0 z-20">
-            <div className="w-2/3 relative h-full">
+        <div className="LIGHTBOX w-full h-full fixed top-0 left-0 z-20">
+            <div className="w-full relative h-full">
                 <Image
                     // {...ImagePropsGallery(i)}
-                    src={urlFor(props.data).url()}
+                    src={urlFor(props.data[props.startIndex]).url()}
                     layout="fill"
                     loading="lazy"
                     objectFit="contain"
@@ -31,7 +31,7 @@ const Lightbox = (props) => {
                 />
             </div>
 
-            <div onClick={props.closeMe} className="absolute top-0 w-full h-full bg-blackText-500 opacity-50"></div>
+            <div onClick={props.closeMe} className="absolute top-0 w-full h-full  opacity-50"></div>
         </div>
     );
 };
