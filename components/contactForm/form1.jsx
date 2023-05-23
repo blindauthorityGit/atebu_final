@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MainContainer from "../layout/mainContainer";
 import { useForm } from "react-hook-form";
 import Error from "./error";
@@ -17,12 +17,12 @@ const Form1 = (props) => {
     } = useForm();
 
     async function onSubmitForm(values) {
-        console.log(values);
+        console.log(values, props.bild);
         setLoading(true);
         let config = {
             method: "post",
             // url: `http://localhost:3000/api/contact`,
-            url: `/api/contact`,
+            url: `/api/anfrage`,
             headers: {
                 "Content-Type": "application/json",
             },
@@ -38,12 +38,17 @@ const Form1 = (props) => {
             console.log(err);
         }
     }
+
+    useEffect(() => {
+        console.log(props.bild);
+    }, []);
+
     return (
         <MainContainer width=" sm:pt-4 sm:pb-12  relative ">
             <div className="col-span-12  grid grid-cols-12">
                 <form
                     onSubmit={handleSubmit(onSubmitForm)}
-                    className="col-span-12 grid gap-2 grid-cols-12 footer topKontakt sm:gap-4 "
+                    className="col-span-12 grid grid-cols-12 footer topKontakt sm:gap-4 text-sm sm:text-base"
                     action=""
                 >
                     <div className="hidden">
@@ -56,10 +61,21 @@ const Form1 = (props) => {
                             autoComplete="off"
                         />
                     </div>
+                    <div className="hidden">
+                        <label htmlFor="bild">Bild</label>
+                        <input
+                            {...register("bild", { required: false })}
+                            id="firstName"
+                            name="firstName"
+                            type="text"
+                            autoComplete="off"
+                            value={props.bild}
+                        />
+                    </div>
                     <input
                         {...register("name", { required: true })}
                         id="name"
-                        className="col-span-12 border-b border-primaryColor bg-transparent text-primaryColor-200 placeholder-primaryColor-200 p-4"
+                        className="col-span-12 border-b border-primaryColor bg-transparent text-primaryColor-800 placeholder-primaryColor-600 p-2 sm:p-4"
                         type="text"
                         placeholder="Name"
                     />
@@ -69,7 +85,7 @@ const Form1 = (props) => {
                         {...register("email", { required: true })}
                         name="email"
                         id="email"
-                        className="col-span-12 lg:col-span-6 border-b border-primaryColor bg-transparent text-primaryColor-200 placeholder-primaryColor-200  p-4"
+                        className="col-span-12 lg:col-span-6 sm:border-b border-primaryColor bg-transparent text-primaryColor-800 placeholder-primaryColor-600 p-2 sm:p-4"
                         type="email"
                         placeholder="Email"
                     />
@@ -89,7 +105,7 @@ const Form1 = (props) => {
 
                     <textarea
                         {...register("message", { required: true })}
-                        className="col-span-12 border border-primaryColor bg-transparent text-primaryColor-200  placeholder-primaryColor-200 p-4"
+                        className="col-span-12 border border-primaryColor bg-transparent text-primaryColor800  placeholder-primaryColor-600 p-2 sm:p-4"
                         name="message"
                         id="message"
                         cols="20"
@@ -98,16 +114,15 @@ const Form1 = (props) => {
                     ></textarea>
                     {errors.message && <Error klasse="block col-span-12">Bitte geben Sie Ihre Nachricht an</Error>}
 
-                    <div className="check col-span-12 mt-6">
+                    <div className="check col-span-12 mt-2 sm:mt-6 flex ">
                         <input
                             {...register("checkbox", { required: true })}
                             id="checkbox"
                             className="mr-4 text-primaryColor"
                             type="checkbox"
                         />
-                        <label htmlFor="checkbox" className="text-primaryColor-200 text-xs sm:text-sm">
-                            Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zum Zweck der
-                            Kontaktaufnahme zu. *
+                        <label htmlFor="checkbox" className="text-primaryColor-800 text-xs sm:text-sm">
+                            Ich erlaube Datenverarbeitung für Kontaktaufnahme laut Datenschutzerklärung.
                         </label>
                         {errors.checkbox && <Error klasse="block col-span-12">Bitte bestätigen</Error>}
                     </div>
@@ -125,9 +140,9 @@ const Form1 = (props) => {
                             />
                         </div>
                     ) : (
-                        <div className="w-full col-span-12 mb-8">
+                        <div className="w-full col-span-12 sm:mb-8">
                             <button
-                                className="bg-primaryColor-700 mt-6 font-semibold hover-underline-animation z-20 flex items-center justify-center text-primaryColor-200 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-8"
+                                className="bg-primaryColor-500 text-white mt-6 tracking-widest hover-underline-animation z-20 flex items-center justify-center lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-8"
                                 type="submit"
                             >
                                 Absenden

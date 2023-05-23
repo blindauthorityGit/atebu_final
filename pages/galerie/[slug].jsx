@@ -50,13 +50,13 @@ const ImageSite = ({ post, dataAll }) => {
         const container = containerRef.current;
         const image = container.querySelector("img");
         setDruckPreis(post.druckeInfos.titel);
+        console.log(post.druckeInfos.titel);
         setCurrentIndex(dataAll.findIndex((e) => e.slug.current === post.slug.current));
         setTimeout(() => {
             if (image) {
                 const aspectRatio = image.naturalWidth / image.naturalHeight;
                 container.style.paddingBottom = `${100 / aspectRatio}%`;
                 const ratio = 100 / aspectRatio;
-                console.log(container.children[0]);
                 if ((isDesktop && ratio > 100) || (isTablet && ratio > 100)) {
                     container.style.paddingBottom = "100%";
                     container.children[0].classList.add("backdrop-blur-lg", "lg:backdrop-blur-xl");
@@ -72,7 +72,6 @@ const ImageSite = ({ post, dataAll }) => {
                         const aspectRatio = image.naturalWidth / image.naturalHeight;
                         container.style.paddingBottom = `${100 / aspectRatio}%`;
                         const ratio = 100 / aspectRatio;
-                        console.log(ratio);
                         if (isTablet && ratio > 100) {
                             container.style.paddingBottom = "100%";
                         } else if (ratio > 123) {
@@ -159,9 +158,8 @@ const ImageSite = ({ post, dataAll }) => {
                 />
                 <ContainerStandard klasse="gap-1 lg:gap-6 pt-12 ">
                     {dataAll.map((e, i) => {
-                        console.log(e);
                         return (
-                            <div className="col-span-6 sm:col-span-4 lg:col-span-4 relative h-36 sm:h-64 md:h-48 lg:h-96 mb-8">
+                            <div className="col-span-6 sm:col-span-4 lg:col-span-4 relative h-48 sm:h-64 md:h-48 lg:h-96">
                                 <Link href={`/galerie/${e.slug.current}`}>
                                     <div className="relative w-full h-full cursor-pointer">
                                         <Image
@@ -176,7 +174,7 @@ const ImageSite = ({ post, dataAll }) => {
                                         <div className="absolute inset-0 bg-black opacity-0 transition duration-300 ease-in-out hover:opacity-50 focus:opacity-50"></div>
                                     </div>
                                 </Link>
-                                <div className="text">{e.technik}</div>
+                                {/* <div className="text-xs text-center mt-1">{e.technik}</div> */}
                             </div>
                         );
                     })}

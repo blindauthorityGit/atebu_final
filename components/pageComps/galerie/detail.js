@@ -70,6 +70,25 @@ export default function Detail({
 
     const disabled = post.sold && original ? true : false;
 
+    const [selectedOption, setSelectedOption] = useState("druck1");
+
+    useEffect(() => {
+        setSelectedOption("druck1"); // Set the initial selected value to "druck1" on page load
+    }, [post]);
+
+    const handleOptionChange = (e) => {
+        const selectedValue = e.target.value;
+        setSelectedOption(selectedValue);
+
+        if (selectedValue === "druck1") {
+            setDruckPreis(post.druckeInfos.titel);
+        } else if (selectedValue === "druck2") {
+            setDruckPreis(post.druckeInfos.druck1Preis && post.druckeInfos.druck1Preis);
+        } else {
+            setDruckPreis(post.druckeInfos.druck2Preis && post.druckeInfos.druck2Preis);
+        }
+    };
+
     // BREAKPOINTS
     const { isMobile, isTablet, isDesktop } = useBreakpoints();
 
@@ -148,7 +167,11 @@ export default function Detail({
                                 }, 301);
                             }}
                         >
-                            {showPayment ? <Kaufen product={post}></Kaufen> : <Anfrage sold={post.sold} />}
+                            {showPayment ? (
+                                <Kaufen product={post}></Kaufen>
+                            ) : (
+                                <Anfrage bild={post.titel_Bild} sold={post.sold} />
+                            )}
                         </ModalMobile>
                     ) : (
                         <Modal
@@ -166,7 +189,11 @@ export default function Detail({
                             }}
                         >
                             {" "}
-                            {showPayment ? <Kaufen product={post}></Kaufen> : <Anfrage sold={post.sold} />}
+                            {showPayment ? (
+                                <Kaufen product={post}></Kaufen>
+                            ) : (
+                                <Anfrage bild={post.titel_Bild} sold={post.sold} />
+                            )}
                         </Modal>
                     )}
 
@@ -294,28 +321,13 @@ export default function Detail({
                                             id="printSelect"
                                             name="printSelect"
                                             className="bg-white border p-2"
-                                            onChange={(e) => {
-                                                console.log(e.target.value);
-
-                                                if (e.target.value === "druck1") {
-                                                    setDruckPreis(post.druckeInfos.titel);
-                                                } else if (e.target.value === "druck2") {
-                                                    setDruckPreis(
-                                                        post.druckeInfos.druck1Preis && post.druckeInfos.druck1Preis
-                                                    );
-                                                } else {
-                                                    setDruckPreis(
-                                                        post.druckeInfos.druck2Preis && post.druckeInfos.druck2Preis
-                                                    );
-                                                }
-                                            }}
+                                            value={selectedOption}
+                                            onChange={handleOptionChange}
                                         >
-                                            <option className="px-8" value="druck1" defaultValue>
-                                                {" "}
+                                            <option className="px-8" value="druck1" selected>
                                                 {post.dimensions} (Originalgröße)
                                             </option>
                                             <option value="druck2">
-                                                {" "}
                                                 {post.druckeInfos.druck1 && post.druckeInfos.druck1}
                                             </option>
                                             <option value="druck3">
