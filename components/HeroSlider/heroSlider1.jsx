@@ -86,7 +86,7 @@ const HeroSlider1 = (props) => {
                 <HiOutlineChevronRight></HiOutlineChevronRight>
             </div>
             <div
-                className={`h-[95%] sm:h-[70%] lg:h-[80%] lg:mt-16 container m-auto relative overflow-hidden  ${props.colspan}`}
+                className={`h-[92%] sm:h-[70%] lg:h-[80%] lg:mt-16 container m-auto relative overflow-hidden  ${props.colspan}`}
             >
                 <PrintAvailability />
                 <div className="relative col-span-8 h-full">
@@ -175,9 +175,9 @@ const HeroSlider1 = (props) => {
                                             <p className="hidden sm:block">
                                                 {e.titel_Bild} | {e.year} {e.technik}
                                             </p>
-                                            <p className="sm:hidden block font-semibold z-30 relative">
+                                            {/* <p className="sm:hidden block font-semibold z-30 relative">
                                                 {e.year} {e.technik}
-                                            </p>
+                                            </p> */}
                                         </div>
                                     </SwiperSlide>
                                 </>
