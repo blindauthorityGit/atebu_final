@@ -283,9 +283,9 @@ export default function Detail({
                     <h2 className="font-thin font-serif  text-3xl md:text-3xl lg:text-5xl xl:text-6xl tracking-wide mb-4">
                         {post.titel_Bild}
                     </h2>
-                    <p className=" text-sm xl:text-lg ">{post.year}</p>
+                    <div className=" text-sm xl:text-lg ">{post.year}</div>
                     {/* <p className="font-regular text-sm md:text-lg mt-2 ">{post.description}</p> */}
-                    <p className="font-regular text-sm xl:text-lg">{post.technik}</p>
+                    <div className="font-regular text-sm xl:text-lg">{post.technik}</div>
                     <div className="mt-6 lg:mt-0">
                         <CheckboxContainer1
                             onCheckboxClick={(e) => {
