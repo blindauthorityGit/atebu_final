@@ -9,7 +9,7 @@ const ContactInfo = (props) => {
                 {/* <p className="text-sm lg:text-lg mt-4">Kontaktieren Sie uns unter:</p> */}
             </div>{" "}
             <Form1 bild={props.bild} />
-            <div className="bg-primaryColor-100 p-4 lg:p-8 rounded-md  mt-4 lg:text-lg">
+            <div className="bg-primaryColor-100 p-4 lg:p-8 rounded-md  mt-4 text-sm lg:text-lg">
                 <div className="flex items-center mb-2">
                     <FaPhone className="mr-2 lg:mr-6 text-primaryColor-500" size={18} />
                     <p className="text-gray-700">

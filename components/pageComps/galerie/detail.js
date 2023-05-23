@@ -7,6 +7,7 @@ import { CheckboxContainer1 } from "../../inputs/checkmarks";
 import { PaymentIconsContainer } from "../../iconBars";
 import { NavButtons, NavButtonsBig } from "../../buttons";
 import { InfoBox1 } from "../../collapsables";
+import { Pagination1 } from "../../pagination";
 import { Anfrage, Kaufen } from "../../modalContent";
 import ModalMobile from "../../modal/modalMobile";
 import Modal from "../../modal/modal";
@@ -230,7 +231,6 @@ export default function Detail({
                     currentIndex={currentIndex}
                     dataAll={dataAll}
                 />
-
                 <motion.div // layoutId="hero"
                     transition={{
                         duration: 0.5,
@@ -263,8 +263,15 @@ export default function Detail({
                                 }}
                             />
                         </div>
-                    )}{" "}
+                    )}
+                    <div
+                        style={{ backgroundColor: "rgb(0 0 0 / 0.2)" }}
+                        className="col-span-12 flex items-center bg-[rgb(0 0 0 / 0.2)] bottom-0 h-8 absolute w-full"
+                    >
+                        <Pagination1 />
+                    </div>
                 </motion.div>
+
                 <div className="fixed right-[-30%] top-0 h-full opacity-[0.6]">
                     <img src={HugeLogo.src} alt="" />
                 </div>

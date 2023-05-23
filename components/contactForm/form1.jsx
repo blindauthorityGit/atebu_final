@@ -127,11 +127,11 @@ const Form1 = (props) => {
                         {errors.checkbox && <Error klasse="block col-span-12">Bitte bestätigen</Error>}
                     </div>
                     {loading ? (
-                        <div className="w-96 flex justify-center">
+                        <div className="w-full col-span-12 flex justify-center">
                             <Rings
                                 height="80"
                                 width="80"
-                                color="#a53f98"
+                                color="#b0ad98"
                                 radius="6"
                                 wrapperStyle={{}}
                                 wrapperClass=""
@@ -150,7 +150,11 @@ const Form1 = (props) => {
                         </div>
                     )}
                 </form>
-                {success ? <div className="text-primaryColor w-96 mt-4">Vielen Dank für Ihre Nachricht!</div> : ""}
+                {success ? (
+                    <div className="text-primaryColor text-sm w-96 mt-4">Vielen Dank für Ihre Nachricht!</div>
+                ) : (
+                    ""
+                )}
             </div>
             <div className="col-span-12 lg:col-span-4 grid grid-cols-12">{props.children}</div>
         </MainContainer>
