@@ -62,7 +62,7 @@ function MyApp({ Component, pageProps }) {
 
     return (
         <>
-            <Menu1
+            {/* <Menu1
                 logo={Logo.src}
                 menuItems={menuItems}
                 socialMedia={socialMedia}
@@ -83,7 +83,7 @@ function MyApp({ Component, pageProps }) {
             ></MobileBar1>
             <Popup1 isOpen={isOpen} onClose={handleClose}>
                 <NewsletterSub></NewsletterSub>
-            </Popup1>
+            </Popup1> */}
 
             <AnimateSharedLayout type="crossfade">
                 <motion.div
@@ -94,7 +94,7 @@ function MyApp({ Component, pageProps }) {
                     style={router.route === "/" ? { height: "100%" } : { height: "auto" }}
                 >
                     <ParallaxProvider>
-                        <Component {...pageProps} /> <Footer></Footer>
+                        <Component {...pageProps} />
                     </ParallaxProvider>
                 </motion.div>
             </AnimateSharedLayout>

@@ -64,7 +64,7 @@ export default function Home({ dataBilder, dataAkademie, dataChristine, dataBlog
                     <HeroSlider1 dataAos="fade-up" data={dataBilder}></HeroSlider1>
                 )}
                 {/* <HeroSlider1 dataAos="fade-up" data={dataBilder}></HeroSlider1> */}
-                <FloaterTop></FloaterTop>
+                {/* <FloaterTop></FloaterTop> */}
                 <FloaterContact></FloaterContact>
             </ContainerVH100>
             <ContainerFullBG>

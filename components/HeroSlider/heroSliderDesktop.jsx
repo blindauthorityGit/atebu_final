@@ -68,25 +68,25 @@ const HeroSlider1 = (props) => {
 
     return (
         <>
-            {/* <div
-                className="left hidden lg:block absolute top-[45%] left-24 text-6xl text-primaryColor-800"
-                onClick={() => {
-                    swiper.slidePrev();
-                }}
-            >
-                <HiOutlineChevronLeft></HiOutlineChevronLeft>
-            </div> */}
-            {/* <div
-                className="right hidden lg:block absolute top-[45%] right-24 text-6xl text-primaryColor-800"
-                onClick={() => {
-                    swiper.slideNext();
-                }}
-            >
-                <HiOutlineChevronRight></HiOutlineChevronRight>
-            </div> */}
-            <div className={`h-[65%] col-span-6 sm:h-[70%] lg:h-[100%]  container m-auto relative  ${props.colspan}`}>
+            <div className={`h-[65%] col-span-7 sm:h-[70%] lg:h-[100%]  container m-auto relative  ${props.colspan}`}>
                 <PrintAvailability />
-                <Parallax className="relative col-span-8 h-full" translateY={["400px", "-400px"]}>
+                <div
+                    className="left chevron z-10 hidden lg:block absolute top-[47%] left-[-30px] text-6xl text-primaryColor-800"
+                    onClick={() => {
+                        swiper.slidePrev();
+                    }}
+                >
+                    <HiOutlineChevronLeft style={{ strokeWidth: "1!important" }}></HiOutlineChevronLeft>
+                </div>
+                <div
+                    className="right chevron z-10 hidden lg:block absolute top-[47%] right-[-30px]  text-6xl text-primaryColor-800"
+                    onClick={() => {
+                        swiper.slideNext();
+                    }}
+                >
+                    <HiOutlineChevronRight></HiOutlineChevronRight>
+                </div>
+                <Parallax className="relative col-span-8 h-full" translateY={["200px", "-200px"]}>
                     <div className="relative col-span-8 h-full" data-aos={props.dataAos}>
                         <Swiper
                             // install Swiper modules
@@ -119,7 +119,7 @@ const HeroSlider1 = (props) => {
                                         >
                                             <motion.div
                                                 // style={{ boxShadow: "var(--shadow-elevation-high)" }}
-                                                className={`h-[90%] md:h-[95%] lg:h-[97%] sm:border-8 border-white relative transition-all ${
+                                                className={`h-[90%] md:h-[95%] lg:h-[97%] sm:border-[1.75rem] border-white relative transition-all ${
                                                     clicked ? "scale-[0.975]" : ""
                                                 }`}
                                                 data-swiper-parallax="100"
@@ -163,13 +163,13 @@ const HeroSlider1 = (props) => {
                                             {/* <div className="absolute w-full h-full bg-black top-0 opacity-30"></div> */}
                                             {/* <img src={e.image} alt="" /> */}
                                             <div
-                                                className="absolute text-center sm:text-left py-3 sm:py-0 bottom-[2.25rem]  sm:bg-transparent sm:bottom-[2rem] lg:bottom-[0rem] pl-8 sm:pl-0 text-primaryColor-200 w-full sm:w-auto sm:text-textBlack sm:left-8 text-xs z-50  lg:block"
+                                                className="absolute text-center sm:text-left py-3 sm:py-0 bottom-[2.25rem]  sm:bg-transparent sm:bottom-[2rem] lg:bottom-[-0.5rem] pl-8 sm:pl-0 text-primaryColor-800 w-full sm:w-auto sm:text-textBlack sm:right-4 text-xs z-50  lg:block"
                                                 data-swiper-parallax-opacity="0.5"
                                                 data-swiper-parallax="-600"
                                                 data-swiper-parallax-duration="600"
                                             >
                                                 <p className="hidden sm:block">
-                                                    {e.titel_Bild} | {e.year} {e.technik}
+                                                    {e.titel_Bild} | {e.year}
                                                 </p>
                                                 <p className="sm:hidden block font-semibold z-30 relative">
                                                     {e.year} {e.technik}
@@ -212,12 +212,12 @@ const HeroSlider1 = (props) => {
                     }
                 `}</style>
             </div>
-            <div className="container order-first flex items-center col-span-6 h-[40%] md:h-[28%] lg:h-full text-blackText-500 p-4 mx-auto flex-col items-center justify-center ">
+            <div className="container order-first flex col-span-5 h-[40%] md:h-[28%] lg:h-full text-blackText-500 p-4 mx-auto flex-col  justify-center ">
                 <div className="wrapper py-4">
-                    <motion.div className="" variants={containerVariants} initial="hidden" animate="visible">
+                    <div>
                         <motion.h1
-                            className="text-4xl md:text-8xl font-serif tracking-wider mb-2"
-                            initial={{ opacity: 0, scale: 0.85 }}
+                            className="text-4xl md:text-8xl font-serif font-thin tracking-wider mb-2 z-30"
+                            // initial={{ opacity: 0, scale: 0.85 }}
                             animate={{
                                 opacity: 1,
                                 scale: 1,
@@ -225,7 +225,7 @@ const HeroSlider1 = (props) => {
                             }}
                         >
                             <motion.span
-                                className="text-6xl block"
+                                className="text-7xl pl-0 mb-[-0.85rem] block"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1, transition: { duration: 0.5, delay: 0 } }}
                             >
@@ -233,12 +233,17 @@ const HeroSlider1 = (props) => {
                             </motion.span>
                             BUCHNER
                         </motion.h1>
-                    </motion.div>
+                    </div>
                     <p className="text-xs sm:text-sm  tracking-widest">Atelier für Kunstmalerei & Kurse</p>
-                    <div className="w-full  mt-4">
+                    <div className="w-full flex space-x-6 mt-4">
                         <Link href="/galerie">
-                            <button className="bg-blackText hover-underline-animation font-semibold flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-xs tracking-wider sm:text-base sm:py-3 px-6 min-w-[12rem] max-w-[12rem]  uppercase rounded-md">
-                                <span className=""> Alle Bilder</span>
+                            <button className="border border-blackText text-blackText hover-underline-animation  flex items-center justify-center mt-4 lg:mt-8 py-2 text-xs tracking-wider sm:text-base sm:py-3 px-6 min-w-[12rem] max-w-[12rem]  uppercase rounded-md">
+                                <span className="text-sm"> Alle Bilder</span>
+                            </button>
+                        </Link>
+                        <Link href="/galerie">
+                            <button className="bg-blackText hover-underline-animation  flex items-center justify-center text-primaryColor-200 mt-4 lg:mt-8 py-2 text-xs tracking-wider sm:text-base sm:py-3 px-6 min-w-[12rem] max-w-[12rem]  uppercase rounded-md">
+                                <span className="text-sm"> Alle Bilder</span>
                             </button>
                         </Link>
                     </div>

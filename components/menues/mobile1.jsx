@@ -91,13 +91,13 @@ const Mobile1 = (props) => {
                     <GrClose className=""></GrClose>
                 </div>
                 <div className="container h-screen py-3 px-8 font-europa tracking-widest">
-                    <div className="middle flex justify-start">
+                    {/* <div className="middle flex justify-start">
                         <Link href="/">
                             <a>
                                 <img src={Logo.src} width="32" alt="Logo" />
                             </a>
                         </Link>
-                    </div>
+                    </div> */}
                     <motion.h1
                         className="text-5xl md:text-5xl font-serif tracking-wider mb-2 mt-6"
                         initial={{ opacity: 0, scale: 0.85 }}

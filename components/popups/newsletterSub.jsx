@@ -4,6 +4,8 @@ import Newsletter from "../../assets/newsletter.jpg";
 
 const NewsletterSub = () => {
     const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false); // Add loading state
+
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
@@ -35,7 +37,7 @@ const NewsletterSub = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="grid grid-cols-12 mt-6">
+        <form onSubmit={handleSubmit} className="grid grid-cols-12 pt-6">
             <div className="relative col-span-12 h-48">
                 <Image
                     // {...ImagePropsGallery(i)}
@@ -62,11 +64,21 @@ const NewsletterSub = () => {
                 required
                 className="border-b border-blackText text-blackText col-span-10 text-sm"
             />
+
             <button
                 type="submit"
-                className="bg-blackText mt-6 font-semibold hover-underline-animation z-20 flex items-center justify-center text-primaryColor-200 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-8"
+                className={`bg-blackText mt-6 font-semibold ${
+                    loading ? "opacity-20" : ""
+                } z-20 flex items-center justify-center text-primaryColor-200 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-8`}
+                disabled={loading} // Disable the button while loading
             >
-                <span className="">Abonnieren</span>
+                {loading ? (
+                    <div className="spinner-border text-primaryColor-200" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                ) : (
+                    <span className="">{successMessage ? "Abonniert!" : "Abonnieren"}</span>
+                )}
             </button>
             {successMessage && (
                 <div className="success-message text-greenColor text-sm mt-4 font-semibold col-span-12">

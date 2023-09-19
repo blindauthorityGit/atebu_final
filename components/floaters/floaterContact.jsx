@@ -14,7 +14,7 @@ const ContainerVH100 = (props) => {
     }, []);
     return (
         <div
-            className={`floater hidden sm:block absolute bottom-12 sm:bottom-8 lg:text-lg lg:font-semibold text-textBlack right-6 lg:right-12 ${
+            className={`floater hidden sm:block absolute bottom-12 sm:bottom-8 lg:text-lg lg:font-semibold text-textBlack right-6 lg:right-0 ${
                 props.center ? "items-center flex" : ""
             } ${props.klasse}`}
         >
