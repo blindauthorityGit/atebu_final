@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Newsletter from "../../assets/newsletter.jpg";
+import { Rings } from "react-loader-spinner"; // Import the Loader component
 
 const NewsletterSub = () => {
     const [email, setEmail] = useState("");
@@ -12,6 +13,9 @@ const NewsletterSub = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log(JSON.stringify({ email }));
+
+        setLoading(true);
+
         try {
             const response = await fetch("/api/subscribe", {
                 method: "POST",
@@ -21,6 +25,7 @@ const NewsletterSub = () => {
                 body: JSON.stringify({ email }),
             });
             console.log(response.status);
+
             if (response.status === 200 || response.status === "subscribed") {
                 console.log("SUCCESSSSS");
                 setEmail("");
@@ -33,6 +38,8 @@ const NewsletterSub = () => {
         } catch (error) {
             setSuccessMessage("");
             setErrorMessage("Es gab einen Fehler. Eventuell sind sie schon im Verteiler.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -64,22 +71,21 @@ const NewsletterSub = () => {
                 required
                 className="border-b border-blackText text-blackText col-span-10 text-sm"
             />
-
-            <button
-                type="submit"
-                className={`bg-blackText mt-6 font-semibold ${
-                    loading ? "opacity-20" : ""
-                } z-20 flex items-center justify-center text-primaryColor-200 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-8`}
-                disabled={loading} // Disable the button while loading
-            >
-                {loading ? (
-                    <div className="spinner-border text-primaryColor-200" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                ) : (
-                    <span className="">{successMessage ? "Abonniert!" : "Abonnieren"}</span>
-                )}
-            </button>
+            {!loading ? (
+                <button
+                    type="submit"
+                    className={`bg-blackText mt-6 font-semibold ${
+                        loading ? "opacity-20" : ""
+                    } z-20 flex items-center justify-center text-primaryColor-200 lg:mt-8 py-2 text-sm sm:text-base sm:py-3 px-6 min-w-[10rem] w-full uppercase rounded-md md:mt-8`}
+                    disabled={loading} // Disable the button while loading
+                >
+                    Abonnieren
+                </button>
+            ) : (
+                <div className="mt-6 flex">
+                    <Rings color="#000000" height={36} width={36} />
+                </div>
+            )}
             {successMessage && (
                 <div className="success-message text-greenColor text-sm mt-4 font-semibold col-span-12">
                     {successMessage}
